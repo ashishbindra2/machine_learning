@@ -107,7 +107,7 @@ The following demonstrates training a model:
 
 In this way, the model gradually learns the correct relationship between the features and the label. This gradual understanding is also why large and diverse datasets produce a better model. The model has seen more data with a wider range of values and has refined its understanding of the relationship between the features and the label.
 
-During training, ML practitioners can make subtle adjustments to the configurations and features the model uses to make predictions. 
+During training, ML practitioners can make subtle adjustments to the configurations and features the model uses to make predictions.
 
 For example, certain features have more predictive power than others. Therefore, ML practitioners can select which features the model uses during training
 
@@ -126,3 +126,4 @@ Depending on the model's predictions, we might do more training and evaluating b
 
 Why does a model need to be trained before it can make predictions?
 A model needs to be trained to learn the mathematical relationship between the features and the label in a dataset.
+
