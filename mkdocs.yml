@@ -1,10 +1,5 @@
 site_name: Machine Learning Tutorials
-nav:
-  - Home: index.md
-  - JS: durgajs.md
-  - DOM: dom.md
-  - JQuery: jQuery.md
-  - About: about.md
+
 theme:
   name: material
   features:
