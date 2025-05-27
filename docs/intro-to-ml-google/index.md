@@ -105,7 +105,7 @@ A multiclass classification yields one possible category from many categories. e
 - Regression
 Energy usage is measured in kilowatthours (kWh), which is a number, so you'd want to use a regression model.
 
-## Unsupervised learning
+## 2. Unsupervised learning
 
 Unsupervised learning models make predictions by being given data that does not contain any correct answers.
 
@@ -140,11 +140,11 @@ The model's job is to find connections in the data that produce the correct answ
 
 The most common use of unsupervised machine learning is to cluster data into groups of similar examples. For example, an unsupervised machine learning algorithm can cluster songs based on various properties of the music. The resulting clusters can become an input to other machine learning algorithms (for example, to a music recommendation service). Clustering can help when useful labels are scarce or absent. For example, in domains such as anti-abuse and fraud, clusters can help humans better understand the data.
 
-## Reinforcement learning
+## 3. Reinforcement learning
 
 Reinforcement learning is used to train robots to perform tasks, like walking around a room, and software programs like AlphaGo to play the game of Go.
 
-## Generative AI
+## 4. Generative AI
 
 Generative AI is a class of models that creates content from user input
 
@@ -164,7 +164,7 @@ We can discuss generative models by their inputs and outputs, typically written 
 - Text-to-speech
 - Image and text-to-image
 
-# Generative AI Capabilities and Examples
+## Generative AI Capabilities and Examples
 
 ## Model-to-Output Examples
 
