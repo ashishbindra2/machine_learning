@@ -71,6 +71,10 @@ nav:
     - Overview: intro-to-ml-google/index.md 
     - Supervised Learning: intro-to-ml-google/SupervisedLearning.md
     - test-1: intro-to-ml-google/test.md
+  - interview: interview.md
+  - data-sci: data-sci-interview.md
+  - mini-projects: mini-projects.md
+    
  
 
       
