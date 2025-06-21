@@ -70,10 +70,13 @@ nav:
   - intro-to-ml-google:
     - Overview: intro-to-ml-google/index.md 
     - Supervised Learning: intro-to-ml-google/SupervisedLearning.md
-    - test-1: intro-to-ml-google/test.md
+    - test-1: intro-to-ml-google/test.md 
   - interview: interview.md
   - data-sci: data-sci-interview.md
   - mini-projects: mini-projects.md
+  - SQL: sql.md
+  - interview-ai: random.md
+  - mixed: unimportant.md
     
  
 
