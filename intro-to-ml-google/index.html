@@ -1,0 +1,1160 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="SupervisedLearning/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Overview - Machine Learning Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-machine-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Machine Learning Tutorials" class="md-header__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  intro-to-ml-google
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../interview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../data-sci-interview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  data-sci
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../mini-projects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mini-projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../sql/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../random/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview-ai
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../unimportant/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mixed
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Machine Learning Tutorials" class="md-nav__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Machine Learning Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    intro-to-ml-google
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            intro-to-ml-google
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SupervisedLearning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supervised Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    test-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    interview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-sci-interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    data-sci
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mini-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mini-projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    interview-ai
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unimportant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mixed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Machine Learning?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-ml-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of ML Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Supervised learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Supervised learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Regression
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-regression-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of Regression Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-common-types-of-regression-models-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two common types of regression models are
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification-models-are-divided-into-two-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classification models are divided into two groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-you-wanted-to-use-an-ml-model-to-predict-energy-usage-for-commercial-buildings-what-type-of-model-would-you-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      If you wanted to use an ML model to predict energy usage for commercial buildings, what type of model would you use?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Unsupervised learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Unsupervised learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-distinguishes-a-supervised-approach-from-an-unsupervised-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      What distinguishes a supervised approach from an unsupervised approach?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reinforcement learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-generative-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Generative AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generative-ai-capabilities-and-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generative AI Capabilities and Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-to-output-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model-to-Output Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-generative-ai-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Does Generative AI Work?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduction-to-machine-learning">Introduction to Machine Learning<a class="headerlink" href="#introduction-to-machine-learning" title="Permanent link">&para;</a></h1>
+<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>Understand the different types of machine learning.
+Understand the key concepts of supervised machine learning.
+Learn how solving problems with ML is different from traditional approache</p>
+<h2 id="what-is-machine-learning">What is Machine Learning?<a class="headerlink" href="#what-is-machine-learning" title="Permanent link">&para;</a></h2>
+<p>ML can predict the weather, estimate travel times, recommend songs, auto-complete sentences, summarize articles, and generate never-seen-before images.</p>
+<p>In basic terms, ML is the process of training a piece of software, called a model, to make useful predictions or generate content (like text, images, audio, or video) from data.</p>
+<p>For example, suppose we wanted to create an app to predict rainfall. We could use either a traditional approach or an ML approach. Using a traditional approach, we'd create a physics-based representation of the Earth's atmosphere and surface, computing massive amounts of fluid dynamics equations. This is incredibly difficult.</p>
+<p>Using an ML approach, we would give an ML model enormous amounts of weather data until the ML model eventually learned the mathematical relationship between weather patterns that produce differing amounts of rain. We would then give the model the current weather data, and it would predict the amount of rain.</p>
+<p>Machine Learning is a system that gradually learns how to make useful predictions bu study lot of data to discover connections and correlations.</p>
+<p>A machine learning model can continously evolve gradually make better and better predictions</p>
+<p>What is model in machine learning?</p>
+<p>A model is a mathematical reloationsip derived from data that an Ml system uses to make predictions.</p>
+<p><a href="https://developers.google.com/machine-learning/intro-to-ml/what-is-ml#types_of_ml_systems">https://developers.google.com/machine-learning/intro-to-ml/what-is-ml#types_of_ml_systems</a></p>
+<h2 id="types-of-ml-systems">Types of ML Systems<a class="headerlink" href="#types-of-ml-systems" title="Permanent link">&para;</a></h2>
+<p>ML systems fall into one or more of the following categories based on how they learn to make predictions or generate content:</p>
+<ol>
+<li>Supervised learning</li>
+<li>Unsupervised learning</li>
+<li>Reinforcement learning</li>
+<li>Generative AI</li>
+</ol>
+<hr />
+<h2 id="1-supervised-learning">1. Supervised learning<a class="headerlink" href="#1-supervised-learning" title="Permanent link">&para;</a></h2>
+<p>Supervised learning models can make predictions after seeing lots of data with the correct answers and then discovering the connections between the elements in the data that produce the correct answers.</p>
+<ul>
+<li>
+<p>This is like a student learning new material by studying old exams that contain both questions and answers. Once the student has trained on enough old exams, the student is well prepared to take a new exam.</p>
+</li>
+<li>
+<p>These ML systems are "supervised" in the sense that a human gives the ML system data with the known correct results.</p>
+</li>
+</ul>
+<p>Two of the most common use cases for supervised learning are regression and classification.</p>
+<h3 id="1-regression">1. Regression<a class="headerlink" href="#1-regression" title="Permanent link">&para;</a></h3>
+<p>A regression model predicts a numeric value.</p>
+<p>For example, a weather model that predicts the amount of rain, in inches or millimeters, is a regression model.</p>
+<ul>
+<li>A model that predicts a certain house's value in Euros, such as 423,000.</li>
+<li>A model that predicts a certain tree's life expectancy in years, such as 23.2.</li>
+<li>A model that predicts the amount of rain in inches that will fall in a certain city over the next six hours, such as 0.18.</li>
+</ul>
+<h4 id="examples-of-regression-models">Examples of Regression Models<a class="headerlink" href="#examples-of-regression-models" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Scenario</strong></th>
+<th><strong>Possible Input Data</strong></th>
+<th><strong>Numeric Prediction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Future house price</td>
+<td>Square footage, zip code, number of bedrooms and bathrooms, lot size, mortgage interest rate, property tax rate, construction costs, and number of homes for sale in the area.</td>
+<td>The price of the home.</td>
+</tr>
+<tr>
+<td>Future ride time</td>
+<td>Historical traffic conditions (gathered from smartphones, traffic sensors, ride-hailing and other navigation applications), distance from destination, and weather conditions.</td>
+<td>The time in minutes and seconds to arrive at a destination.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="two-common-types-of-regression-models-are">Two common types of regression models are<a class="headerlink" href="#two-common-types-of-regression-models-are" title="Permanent link">&para;</a></h3>
+<p>Linear regression, which finds the line that best fits label values to features.
+Logistic regression, which generates a probability between 0.0 and 1.0 that a system typically then maps to a class prediction.</p>
+<p>Not every model that outputs numerical predictions is a regression model. In some cases, a numeric prediction is really just a classification model that happens to have numeric class names. For example, a model that predicts a numeric postal code is a classification model, not a regression model.</p>
+<h3 id="classification">Classification<a class="headerlink" href="#classification" title="Permanent link">&para;</a></h3>
+<p>Classification models predict the likelihood that something belongs to a category. Unlike regression models, whose output is a number, classification models output a value that states whether or not something belongs to a particular category.</p>
+<p>For example, classification models are used to predict if an email is spam or if a photo contains a cat.</p>
+<h3 id="classification-models-are-divided-into-two-groups">Classification models are divided into two groups<a class="headerlink" href="#classification-models-are-divided-into-two-groups" title="Permanent link">&para;</a></h3>
+<ul>
+<li>binary classification</li>
+<li>multiclass classification</li>
+</ul>
+<p>Binary classification models output a value from a class that contains only two values, for example, a model that outputs either rain or no rain</p>
+<p>Multiclass classification models output a value from a class that contains more than two values, for example, a model that can output either rain, hail, snow, or sleet.</p>
+<p>A model whose prediction is a class. For example, the following are all classification models:</p>
+<p>A model that predicts an input sentence's language (French? Spanish? Italian?).
+A model that predicts tree species (Maple? Oak? Baobab?).
+A model that predicts the positive or negative class for a particular medical condition.</p>
+<p>A regression model might predict the amount of rainfall im cm like 0,8,3.6</p>
+<p>A binary classfication model producees an answer to a yes -ot no question. eg prediction like "rain", "no rain".</p>
+<p>A multiclass classification yields one possible category from many categories. eg "no rain", "rain", "hail", "snow", "sleet</p>
+<h2 id="if-you-wanted-to-use-an-ml-model-to-predict-energy-usage-for-commercial-buildings-what-type-of-model-would-you-use">If you wanted to use an ML model to predict energy usage for commercial buildings, what type of model would you use?<a class="headerlink" href="#if-you-wanted-to-use-an-ml-model-to-predict-energy-usage-for-commercial-buildings-what-type-of-model-would-you-use" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Regression
+Energy usage is measured in kilowatthours (kWh), which is a number, so you'd want to use a regression model.</li>
+</ul>
+<h2 id="2-unsupervised-learning">2. Unsupervised learning<a class="headerlink" href="#2-unsupervised-learning" title="Permanent link">&para;</a></h2>
+<p>Unsupervised learning models make predictions by being given data that does not contain any correct answers.</p>
+<p>An unsupervised learning model's goal is to identify meaningful patterns among the data.
+ the model has no hints on how to categorize each piece of data, but instead it must infer its own rules.</p>
+<p>A commonly used unsupervised learning model employs a technique called clustering. The model finds data points that demarcate natural groupings.</p>
+<p><img alt="alt text" src="img/clustering-02.png" />
+Figure 1. An ML model clustering similar data points.</p>
+<p><img alt="alt text" src="img/clustering-04.png" />
+Figure 2. Groups of clusters with natural demarcations.</p>
+<p>Clustering differs from classification because the categories aren't defined by you.</p>
+<p>For example, an unsupervised model might cluster a weather dataset based on temperature, revealing segmentations that define the seasons.</p>
+<p>You might then attempt to name those clusters based on your understanding of the dataset.</p>
+<p><img alt="alt text" src="img/clustering-01.png" />
+Figure 3. An ML model clustering similar weather patterns.</p>
+<p><img alt="alt text" src="img/clustering-03.png" />
+Figure 4. Clusters of weather patterns labeled as snow, sleet, rain, and no rain.</p>
+<h3 id="what-distinguishes-a-supervised-approach-from-an-unsupervised-approach">What distinguishes a supervised approach from an unsupervised approach?<a class="headerlink" href="#what-distinguishes-a-supervised-approach-from-an-unsupervised-approach" title="Permanent link">&para;</a></h3>
+<p>A supervised approach is given data that contains the correct answer.</p>
+<p>The model's job is to find connections in the data that produce the correct answer. An unsupervised approach is given data without the correct answer. Its job is to find groupings in the data.</p>
+<p>The most common use of unsupervised machine learning is to cluster data into groups of similar examples. For example, an unsupervised machine learning algorithm can cluster songs based on various properties of the music. The resulting clusters can become an input to other machine learning algorithms (for example, to a music recommendation service). Clustering can help when useful labels are scarce or absent. For example, in domains such as anti-abuse and fraud, clusters can help humans better understand the data.</p>
+<h2 id="3-reinforcement-learning">3. Reinforcement learning<a class="headerlink" href="#3-reinforcement-learning" title="Permanent link">&para;</a></h2>
+<p>Reinforcement learning is used to train robots to perform tasks, like walking around a room, and software programs like AlphaGo to play the game of Go.</p>
+<h2 id="4-generative-ai">4. Generative AI<a class="headerlink" href="#4-generative-ai" title="Permanent link">&para;</a></h2>
+<p>Generative AI is a class of models that creates content from user input</p>
+<p>or example, generative AI can create unique images, music compositions, and jokes; it can summarize articles, explain how to perform a task, or edit a photo</p>
+<p>Generative AI can take a variety of inputs and create a variety of outputs, like text, images, audio, and video.It can also take and create combinations of these.</p>
+<p>For example, a model can take an image as input and create an image and text as output, or take an image and text as input and create a video as output.</p>
+<p>We can discuss generative models by their inputs and outputs, typically written as "type of input"-to-"type of output." For example, the following is a partial list of some inputs and outputs for generative models:</p>
+<ul>
+<li>Text-to-text</li>
+<li>Text-to-image</li>
+<li>Text-to-video</li>
+<li>Text-to-code</li>
+<li>Text-to-speech</li>
+<li>Image and text-to-image</li>
+</ul>
+<h2 id="generative-ai-capabilities-and-examples">Generative AI Capabilities and Examples<a class="headerlink" href="#generative-ai-capabilities-and-examples" title="Permanent link">&para;</a></h2>
+<h2 id="model-to-output-examples">Model-to-Output Examples<a class="headerlink" href="#model-to-output-examples" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Model</strong></th>
+<th><strong>Input</strong></th>
+<th><strong>Example Output</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Text-to-text</td>
+<td>Who invented the Le Mans race?</td>
+<td>The 24 Hours of Le Mans was founded by the Automobile Club de l'Ouest (ACO), a motoring organization founded in 1906. The first race was held on 26 and 27 May 1923 on the Sarthe Circuit, a 13.426-kilometre (8.345-mile) road circuit located near the town of Le Mans in France. The race was originally conceived as a way to promote the ACO and the Sarthe region.</td>
+<td>Bard</td>
+</tr>
+<tr>
+<td>Text-to-image</td>
+<td>An alien octopus floats through a portal while reading a newspaper.</td>
+<td>Image of a cartoon octopus.</td>
+<td>Imagen</td>
+</tr>
+<tr>
+<td>Text-to-video</td>
+<td>A photorealistic teddy bear is swimming in the ocean at San Francisco. The teddy bear goes under water. The teddy bear keeps swimming under the water with colorful fishes. A panda bear is swimming under water.</td>
+<td>Video of a teddy bear swimming underwater.</td>
+<td>Phenaki</td>
+</tr>
+<tr>
+<td>Text-to-code</td>
+<td>Write a Python loop that loops over a list of numbers and prints the prime numbers.</td>
+<td><code>python&lt;br&gt;for number in numbers:&lt;br&gt;  # Check if the number is prime.&lt;br&gt;  is_prime = True&lt;br&gt;  for i in range(2, number):&lt;br&gt;    if number % i == 0:&lt;br&gt;        is_prime = False&lt;br&gt;        break&lt;br&gt;  # If the number is prime, print it.&lt;br&gt;  if is_prime:&lt;br&gt;    print(number)&lt;br&gt;</code></td>
+<td>Bard</td>
+</tr>
+<tr>
+<td>Image-to-text</td>
+<td>Image of a flamingo.</td>
+<td>This is a flamingo. They are found in the Caribbean.</td>
+<td>Google DeepMind</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="how-does-generative-ai-work">How Does Generative AI Work?<a class="headerlink" href="#how-does-generative-ai-work" title="Permanent link">&para;</a></h2>
+<p>At a high-level, generative models learn patterns in data with the goal to produce new but similar data. Generative models are like the following:</p>
+<ul>
+<li><strong>Comedians</strong> who learn to imitate others by observing people's behaviors and style of speaking  </li>
+<li><strong>Artists</strong> who learn to paint in a particular style by studying lots of paintings in that style  </li>
+<li><strong>Cover bands</strong> that learn to sound like a specific music group by listening to lots of music by that group  </li>
+</ul>
+<p>To produce unique and creative outputs, generative models are initially trained using an <strong>unsupervised approach</strong>, where the model learns to mimic the data it's trained on. The model is sometimes trained further using <strong>supervised or reinforcement learning</strong> on specific data related to tasks the model might be asked to perform (e.g., summarize an article or edit a photo).</p>
+<p>Generative AI is a <strong>quickly evolving technology</strong> with new use cases constantly being discovered. For example, generative models are helping businesses refine their ecommerce product images by:</p>
+<ul>
+<li>Automatically removing distracting backgrounds  </li>
+<li>Improving the quality of low-resolution images</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/ashishbindra2"  target="_blank" rel="noopener">Ashish Bindra</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ashishbindra2" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://in.linkedin.com/in/ashishbindra2/" target="_blank" rel="noopener" title="in.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.sections", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

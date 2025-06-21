@@ -1,0 +1,2569 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../intro-to-ml-google/test/">
+      
+      
+        <link rel="next" href="../data-sci-interview/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>interview - Machine Learning Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Machine Learning Tutorials" class="md-header__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              interview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../intro-to-ml-google/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  intro-to-ml-google
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../data-sci-interview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  data-sci
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../mini-projects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mini-projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../sql/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../random/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview-ai
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../unimportant/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mixed
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Machine Learning Tutorials" class="md-nav__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Machine Learning Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../intro-to-ml-google/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    intro-to-ml-google
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            intro-to-ml-google
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-to-ml-google/SupervisedLearning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supervised Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-to-ml-google/test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    test-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    interview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    interview
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interviewer-can-you-explain-the-purpose-of-a-traintest-split-in-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interviewer: "Can you explain the purpose of a train/test split in machine learning?"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mock-interview-session-model-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 MOCK INTERVIEW SESSION – MODEL EVALUATION
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧪 MOCK INTERVIEW SESSION – MODEL EVALUATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interviewer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interviewer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interviewer_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interviewer_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-interview-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Model Interview Answer:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pro-tip" class="md-nav__link">
+    <span class="md-ellipsis">
+      📘 Pro Tip
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interview-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Interview Question:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-interview-answer-detailed-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Model Interview Answer (Detailed &amp; Structured):
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Model Interview Answer (Detailed &amp; Structured):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-verify-the-drop-is-real-data-sanity-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 1. Verify the Drop Is Real (Data Sanity Check)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-break-revenue-into-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 2. Break Revenue into Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-segment-the-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 3. Segment the Drop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-compare-trends-over-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      📅 4. Compare Trends Over Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-look-for-external-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 5. Look for External Factors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-run-diagnostics-with-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ 6. Run Diagnostics with KPIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-talk-to-stakeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 7. Talk to Stakeholders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Conclusion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revenue-drop-investigation-python-notebook-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Revenue Drop Investigation – Python Notebook Walkthrough
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Revenue Drop Investigation – Python Notebook Walkthrough">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-revenue-drop-analysis-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Step-by-Step Revenue Drop Analysis in Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-drill-down-check-key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step 2: Drill down — Check key components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-segment-by-category-region-or-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Step 3: Segment by category, region, or channel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-channel-performance-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Step 4: Channel performance check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-step-summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Final Step: Summary Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Interpretation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 Assumptions:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-sql-analysis-of-revenue-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step-by-Step SQL Analysis of Revenue Drop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Step-by-Step SQL Analysis of Revenue Drop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-monthly-revenue-trend" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 1. Monthly Revenue Trend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-orders-and-average-order-value-aov" class="md-nav__link">
+    <span class="md-ellipsis">
+      📉 2. Orders and Average Order Value (AOV)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-breakdown-by-product-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 3. Breakdown by Product Category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-breakdown-by-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗺️ 4. Breakdown by Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-channel-wise-revenue" class="md-nav__link">
+    <span class="md-ellipsis">
+      📣 5. Channel-wise Revenue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-compare-two-specific-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 6. Compare Two Specific Months
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Optional Insights
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-data-for-orders-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Sample Data for orders Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Sample Data for orders Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-load-this-sample-data-into-sql-example-for-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Load This Sample Data into SQL (Example for PostgreSQL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-analyze-revenue-drop-in-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Analyze Revenue Drop in Power BI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Analyze Revenue Drop in Power BI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-your-sample-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Prepare Your Sample Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-load-data-into-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Load Data into Power BI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-date-and-month-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create Date and Month Columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-build-key-visuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Build Key Visuals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Build Key Visuals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-monthly-revenue-trend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Monthly Revenue Trend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-number-of-orders-and-average-order-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Number of Orders and Average Order Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-revenue-by-product-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Revenue by Product Category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-revenue-by-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Revenue by Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-revenue-by-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Revenue by Channel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-add-filters-and-slicers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Add Filters and Slicers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-interpret-your-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Interpret Your Report
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-sci-interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    data-sci
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mini-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mini-projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    interview-ai
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unimportant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mixed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interviewer-can-you-explain-the-purpose-of-a-traintest-split-in-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interviewer: "Can you explain the purpose of a train/test split in machine learning?"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mock-interview-session-model-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 MOCK INTERVIEW SESSION – MODEL EVALUATION
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧪 MOCK INTERVIEW SESSION – MODEL EVALUATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interviewer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interviewer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interviewer_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interviewer_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 Interviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-answer_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Your Answer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-interview-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Model Interview Answer:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pro-tip" class="md-nav__link">
+    <span class="md-ellipsis">
+      📘 Pro Tip
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interview-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Interview Question:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-interview-answer-detailed-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Model Interview Answer (Detailed &amp; Structured):
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Model Interview Answer (Detailed &amp; Structured):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-verify-the-drop-is-real-data-sanity-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 1. Verify the Drop Is Real (Data Sanity Check)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-break-revenue-into-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 2. Break Revenue into Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-segment-the-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 3. Segment the Drop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-compare-trends-over-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      📅 4. Compare Trends Over Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-look-for-external-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 5. Look for External Factors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-run-diagnostics-with-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ 6. Run Diagnostics with KPIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-talk-to-stakeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 7. Talk to Stakeholders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Conclusion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revenue-drop-investigation-python-notebook-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Revenue Drop Investigation – Python Notebook Walkthrough
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Revenue Drop Investigation – Python Notebook Walkthrough">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-revenue-drop-analysis-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Step-by-Step Revenue Drop Analysis in Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-drill-down-check-key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step 2: Drill down — Check key components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-segment-by-category-region-or-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Step 3: Segment by category, region, or channel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-channel-performance-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Step 4: Channel performance check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-step-summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Final Step: Summary Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Interpretation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 Assumptions:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-sql-analysis-of-revenue-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step-by-Step SQL Analysis of Revenue Drop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Step-by-Step SQL Analysis of Revenue Drop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-monthly-revenue-trend" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 1. Monthly Revenue Trend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-orders-and-average-order-value-aov" class="md-nav__link">
+    <span class="md-ellipsis">
+      📉 2. Orders and Average Order Value (AOV)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-breakdown-by-product-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 3. Breakdown by Product Category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-breakdown-by-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗺️ 4. Breakdown by Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-channel-wise-revenue" class="md-nav__link">
+    <span class="md-ellipsis">
+      📣 5. Channel-wise Revenue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-compare-two-specific-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 6. Compare Two Specific Months
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Optional Insights
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-data-for-orders-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Sample Data for orders Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Sample Data for orders Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-load-this-sample-data-into-sql-example-for-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Load This Sample Data into SQL (Example for PostgreSQL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-analyze-revenue-drop-in-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Analyze Revenue Drop in Power BI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Analyze Revenue Drop in Power BI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-your-sample-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Prepare Your Sample Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-load-data-into-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Load Data into Power BI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-date-and-month-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create Date and Month Columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-build-key-visuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Build Key Visuals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Build Key Visuals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-monthly-revenue-trend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Monthly Revenue Trend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-number-of-orders-and-average-order-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Number of Orders and Average Order Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-revenue-by-product-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Revenue by Product Category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-revenue-by-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Revenue by Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-revenue-by-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Revenue by Channel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-add-filters-and-slicers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Add Filters and Slicers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-interpret-your-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Interpret Your Report
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="interview">Interview<a class="headerlink" href="#interview" title="Permanent link">&para;</a></h1>
+<h2 id="interviewer-can-you-explain-the-purpose-of-a-traintest-split-in-machine-learning">Interviewer: "Can you explain the purpose of a train/test split in machine learning?"<a class="headerlink" href="#interviewer-can-you-explain-the-purpose-of-a-traintest-split-in-machine-learning" title="Permanent link">&para;</a></h2>
+<p>The train/test split is a fundamental technique used in machine learning to evaluate how well a model generalizes to unseen data. The idea is to divide the available dataset into two parts:</p>
+<p>The training set, which is used to train the model — meaning the model learns the patterns, features, and relationships from this data.</p>
+<p>The test set, which is used only after the training is complete, to test how well the model performs on new, unseen data.</p>
+<p>This helps in identifying whether the model is overfitting — that is, performing well on training data but poorly on new data — or if it’s generalizing well to different scenarios.</p>
+<p>A common practice is to split the data into 80% for training and 20% for testing, but this can vary depending on the size and nature of the dataset.</p>
+<p>💡 Code Walkthrough (Interview Explanation)
+Interviewer: "Can you show a simple example?"</p>
+<blockquote>
+<p>Sure. Here’s a quick example using the Iris dataset with a Random Forest classifier:</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Load dataset</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Split dataset: 80% train, 20% test</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># Train model</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Predict on test data</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1"># Evaluate model</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</code></pre></div>
+<p>In this example, we first load the dataset and split it using train_test_split. Then we train a RandomForestClassifier on the training set. Finally, we test the model on the test set and measure accuracy using accuracy_score.</p>
+<p>This way, we get a clear idea of how well our model might perform in a real-world scenario.</p>
+<hr />
+<p>Great! Let's do a <strong>mock interview</strong> focused on <strong>model evaluation</strong>, starting from the <strong>train/test split</strong>, and moving into related topics like <strong>overfitting</strong>, <strong>cross-validation</strong>, and <strong>evaluation metrics</strong>.</p>
+<hr />
+<h2 id="mock-interview-session-model-evaluation">🧪 MOCK INTERVIEW SESSION – MODEL EVALUATION<a class="headerlink" href="#mock-interview-session-model-evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="interviewer">🎤 <strong>Interviewer</strong><a class="headerlink" href="#interviewer" title="Permanent link">&para;</a></h3>
+<p><em>"Can you explain the purpose of train/test split in machine learning?"</em></p>
+<h3 id="your-answer">✅ <strong>Your Answer</strong><a class="headerlink" href="#your-answer" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Yes, the train/test split is a fundamental technique used to evaluate the performance of a machine learning model.</p>
+<p>We divide the dataset into two parts — the <strong>training set</strong> is used to train the model, and the <strong>test set</strong> is used to evaluate how well it generalizes to unseen data.</p>
+<p>This helps ensure that the model doesn’t just memorize the training data (i.e., overfit), but can also make accurate predictions on new, real-world data.</p>
+</blockquote>
+<hr />
+<h3 id="interviewer_1">🎤 <strong>Interviewer</strong><a class="headerlink" href="#interviewer_1" title="Permanent link">&para;</a></h3>
+<p><em>"You mentioned overfitting. Can you explain what overfitting is and how to detect it?"</em></p>
+<h3 id="your-answer_1">✅ <strong>Your Answer</strong><a class="headerlink" href="#your-answer_1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Overfitting occurs when a model learns not only the underlying patterns in the training data but also the noise and random fluctuations.</p>
+<p>As a result, it performs very well on the training set but poorly on the test set.</p>
+<p>We can detect overfitting by comparing training and test accuracy:</p>
+<ul>
+<li>If training accuracy is high and test accuracy is low, it’s a sign of overfitting.</li>
+</ul>
+<p>To prevent it, we can:</p>
+<ul>
+<li>Use simpler models</li>
+<li>Apply regularization</li>
+<li>Get more training data</li>
+<li>Use techniques like <strong>cross-validation</strong> for more robust evaluation</li>
+</ul>
+</blockquote>
+<hr />
+<h3 id="interviewer_2">🎤 <strong>Interviewer</strong><a class="headerlink" href="#interviewer_2" title="Permanent link">&para;</a></h3>
+<p><em>"Interesting. What is cross-validation, and how is it better than a simple train/test split?"</em></p>
+<h3 id="your-answer_2">✅ <strong>Your Answer</strong><a class="headerlink" href="#your-answer_2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Cross-validation is a more reliable method of evaluating a model, especially when the dataset is small.
+The most common type is <strong>k-fold cross-validation</strong>, where the data is split into <code>k</code> parts. The model is trained on <code>k-1</code> parts and tested on the remaining part. This process repeats <code>k</code> times, and the results are averaged.</p>
+<p>Compared to a simple train/test split, cross-validation:</p>
+<ul>
+<li>Reduces variance in the evaluation</li>
+<li>Provides a more <strong>stable and unbiased estimate</strong> of model performance</li>
+<li>Helps ensure that every data point is used for both training and testing</li>
+</ul>
+</blockquote>
+<hr />
+<h3 id="interviewer_3">🎤 <strong>Interviewer</strong><a class="headerlink" href="#interviewer_3" title="Permanent link">&para;</a></h3>
+<p><em>"What metrics would you use to evaluate a classification model?"</em></p>
+<h3 id="your-answer_3">✅ <strong>Your Answer</strong><a class="headerlink" href="#your-answer_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>It depends on the problem, but commonly used metrics for classification include:</p>
+<ul>
+<li><strong>Accuracy</strong>: Ratio of correctly predicted instances. Good when classes are balanced.</li>
+<li><strong>Precision</strong>: How many predicted positives are actually positive. Useful when false positives are costly.</li>
+<li><strong>Recall</strong>: How many actual positives were correctly predicted. Important when missing positives is costly.</li>
+<li><strong>F1-score</strong>: Harmonic mean of precision and recall — good balance when data is imbalanced.</li>
+<li><strong>Confusion Matrix</strong>: Gives a detailed breakdown of true/false positives and negatives.</li>
+<li>For probabilistic models, I might also look at <strong>ROC-AUC</strong> to evaluate performance at different thresholds.</li>
+</ul>
+</blockquote>
+<hr />
+<h3 id="interviewer_4">🎤 <strong>Interviewer</strong><a class="headerlink" href="#interviewer_4" title="Permanent link">&para;</a></h3>
+<p><em>"Let's say you get 95% accuracy on your model. Is that enough to consider your model good?"</em></p>
+<h3 id="your-answer_4">✅ <strong>Your Answer</strong><a class="headerlink" href="#your-answer_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Not necessarily. Accuracy alone can be misleading — especially in <strong>imbalanced datasets</strong>.</p>
+<p>For example, if 95% of the data belongs to class A and only 5% to class B, a model that predicts only class A will still get 95% accuracy, but it fails at detecting class B entirely.</p>
+<p>In such cases, I would use metrics like <strong>precision</strong>, <strong>recall</strong>, and <strong>F1-score</strong>, and examine the <strong>confusion matrix</strong> to get a complete picture of the model’s performance.</p>
+</blockquote>
+<hr />
+<p>That's totally okay — this is exactly what practice is for!</p>
+<p>Let me give you a solid interview-style answer you can <strong>learn and rephrase in your own words</strong> later.</p>
+<hr />
+<h3 id="model-interview-answer">✅ <strong>Model Interview Answer:</strong><a class="headerlink" href="#model-interview-answer" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>A <strong>confusion matrix</strong> is a performance evaluation tool used for <strong>classification problems</strong>.
+It is a <strong>2x2 table</strong> for binary classification that compares the <strong>actual labels</strong> with the <strong>predicted labels</strong> made by the model.</p>
+<p>The matrix includes:</p>
+<ul>
+<li><strong>True Positives (TP)</strong>: The model correctly predicted the positive class.</li>
+<li><strong>True Negatives (TN)</strong>: The model correctly predicted the negative class.</li>
+<li><strong>False Positives (FP)</strong>: The model predicted positive when it was actually negative. (Type I error)</li>
+<li><strong>False Negatives (FN)</strong>: The model predicted negative when it was actually positive. (Type II error)</li>
+</ul>
+<p>From the confusion matrix, we can calculate several key metrics:</p>
+<ul>
+<li><strong>Accuracy</strong> = (TP + TN) / (Total)</li>
+<li><strong>Precision</strong> = TP / (TP + FP)</li>
+<li><strong>Recall</strong> = TP / (TP + FN)</li>
+<li><strong>F1 Score</strong> = 2 × (Precision × Recall) / (Precision + Recall)</li>
+</ul>
+<p>It helps us understand <strong>where</strong> the model is making mistakes — for example, whether it's misclassifying more positives or negatives — which is especially important when the classes are imbalanced.</p>
+</blockquote>
+<hr />
+<h3 id="pro-tip">📘 Pro Tip<a class="headerlink" href="#pro-tip" title="Permanent link">&para;</a></h3>
+<p>In interviews, it’s okay to say:</p>
+<blockquote>
+<p>“I’m not sure, but I’d like to learn about it.”
+That shows humility and a willingness to grow — qualities interviewers respect.</p>
+</blockquote>
+<hr />
+<p>"Can you explain the difference between precision and recall? When would you prefer one over the other?"</p>
+<p>Precision and recall are two important metrics used to evaluate the performance of classification models, especially when dealing with imbalanced datasets.</p>
+<p>Precision is the ratio of true positives to all predicted positives.
+It answers: "Of all the instances the model predicted as positive, how many were actually correct?"
+Formula: Precision = TP / (TP + FP)</p>
+<p>Recall is the ratio of true positives to all actual positives.
+It answers: "Of all the actual positive cases, how many did the model correctly identify?"
+Formula: Recall = TP / (TP + FN)</p>
+<p>🧠 When to prefer one over the other:
+Use precision when false positives are costly.
+For example, in spam detection, you don’t want to wrongly mark a real email as spam.</p>
+<p>Use recall when false negatives are more serious.
+For example, in disease detection, you want to catch as many actual positive cases as possible — missing one could be dangerous.</p>
+<p>In many cases, we balance both using the F1-score, which is the harmonic mean of precision and recall.</p>
+<p>What is the F1-score?
+The F1-score is a metric used to evaluate the performance of a classification model, especially when dealing with imbalanced datasets.</p>
+<p>It is the harmonic mean of precision and recall, and provides a single score that balances both concerns:</p>
+<p>F1 = 2 \times \frac{{\text{Precision} \times \text{Recall}}}{{\text{Precision} + \text{Recall}}}
+]</p>
+<p>If a model has high precision but low recall, or vice versa, the F1-score will be lower — so it rewards models that have a good balance of both.</p>
+<p>It's especially useful when false positives and false negatives are both important to consider.</p>
+<p>🔍 Example Use Case:
+In medical diagnosis or fraud detection, where missing a positive case or raising too many false alarms both have serious consequences, the F1-score gives a better picture of model performance than accuracy alone.</p>
+<hr />
+<p>Excellent — this is a <strong>classic data analysis interview question</strong> often asked to test your <strong>analytical thinking</strong>, <strong>problem-solving approach</strong>, and <strong>business understanding</strong>.</p>
+<hr />
+<h2 id="interview-question">🎯 Interview Question:<a class="headerlink" href="#interview-question" title="Permanent link">&para;</a></h2>
+<p><strong>"Revenue dropped last month. What would you check?"</strong></p>
+<hr />
+<h2 id="model-interview-answer-detailed-structured">✅ Model Interview Answer (Detailed &amp; Structured):<a class="headerlink" href="#model-interview-answer-detailed-structured" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>If revenue dropped last month, I would follow a structured approach to identify the root cause. Here’s how I would break it down:</p>
+</blockquote>
+<hr />
+<h3 id="1-verify-the-drop-is-real-data-sanity-check">🧩 1. <strong>Verify the Drop Is Real (Data Sanity Check)</strong><a class="headerlink" href="#1-verify-the-drop-is-real-data-sanity-check" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>First, I would ensure the data is correct and up-to-date:</p>
+</li>
+<li>
+<p>Are we comparing the same time frames (e.g., full month vs partial month)?</p>
+</li>
+<li>Were there any issues in data pipelines, delays, or missing entries?</li>
+<li>Are currency conversions or reporting time zones consistent?</li>
+</ul>
+<hr />
+<h3 id="2-break-revenue-into-components">📊 2. <strong>Break Revenue into Components</strong><a class="headerlink" href="#2-break-revenue-into-components" title="Permanent link">&para;</a></h3>
+<p>Revenue is typically calculated as:</p>
+<div class="arithmatex">\[
+\text{Revenue} = \text{Number of Transactions} \times \text{Average Order Value (AOV)}
+\]</div>
+<p>So, I would check:</p>
+<ul>
+<li>🔢 <strong>Transaction Count</strong> – Did fewer customers buy something?</li>
+<li>💸 <strong>AOV</strong> – Are people spending less per order?</li>
+<li>🧾 <strong>Refunds or Cancellations</strong> – Did returns increase?</li>
+</ul>
+<hr />
+<h3 id="3-segment-the-drop">📈 3. <strong>Segment the Drop</strong><a class="headerlink" href="#3-segment-the-drop" title="Permanent link">&para;</a></h3>
+<p>Break down revenue by key dimensions to localize the issue:</p>
+<ul>
+<li><strong>By Product or Category</strong> – Did a specific product or service decline?</li>
+<li><strong>By Customer Segment</strong> – Are certain customer groups (new vs returning) behaving differently?</li>
+<li><strong>By Geography</strong> – Did the drop happen in a specific region?</li>
+<li><strong>By Channel</strong> – Did revenue drop in paid ads, organic search, referrals, etc.?</li>
+</ul>
+<hr />
+<h3 id="4-compare-trends-over-time">📅 4. <strong>Compare Trends Over Time</strong><a class="headerlink" href="#4-compare-trends-over-time" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>How does this month compare with:</p>
+</li>
+<li>
+<p>Last month?</p>
+</li>
+<li>The same month last year (to account for seasonality)?</li>
+<li>Are there any long-term trends or one-off events?</li>
+</ul>
+<hr />
+<h3 id="5-look-for-external-factors">⚠️ 5. <strong>Look for External Factors</strong><a class="headerlink" href="#5-look-for-external-factors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Market changes, economic conditions, competitor actions.</li>
+<li>Did any promotions end?</li>
+<li>Were there product stockouts or supply chain issues?</li>
+<li>Did any website or app outages occur that may have affected sales?</li>
+</ul>
+<hr />
+<h3 id="6-run-diagnostics-with-kpis">🛠️ 6. <strong>Run Diagnostics with KPIs</strong><a class="headerlink" href="#6-run-diagnostics-with-kpis" title="Permanent link">&para;</a></h3>
+<p>I would check supporting KPIs such as:</p>
+<ul>
+<li>Website traffic &amp; conversion rate</li>
+<li>Cart abandonment rate</li>
+<li>Marketing campaign performance (CTR, ROI, etc.)</li>
+<li>Customer acquisition and retention rates</li>
+</ul>
+<hr />
+<h3 id="7-talk-to-stakeholders">🧠 7. <strong>Talk to Stakeholders</strong><a class="headerlink" href="#7-talk-to-stakeholders" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Collaborate with Sales, Marketing, and Product teams.</li>
+<li>Any known pricing changes, feature rollouts, or customer feedback trends?</li>
+</ul>
+<hr />
+<h3 id="conclusion">📌 Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>By systematically checking these areas, I can isolate where the revenue drop came from and then provide data-backed recommendations to address the issue — whether it's boosting traffic, improving conversion rates, adjusting pricing, or fixing operational problems.</p>
+</blockquote>
+<hr />
+<p>Awesome! Here's a hands-on example of how to investigate a <strong>monthly revenue drop</strong> using <strong>Python (Pandas)</strong>. This is something you might do in a Jupyter Notebook or an interview take-home test.</p>
+<hr />
+<h2 id="revenue-drop-investigation-python-notebook-walkthrough">📊 <strong>Revenue Drop Investigation – Python Notebook Walkthrough</strong><a class="headerlink" href="#revenue-drop-investigation-python-notebook-walkthrough" title="Permanent link">&para;</a></h2>
+<p>Let’s assume you have an e-commerce transaction dataset like this:</p>
+<table>
+<thead>
+<tr>
+<th>order_id</th>
+<th>customer_id</th>
+<th>order_date</th>
+<th>amount</th>
+<th>product_category</th>
+<th>region</th>
+<th>channel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>1</td>
+<td>2024-03-01</td>
+<td>200</td>
+<td>Electronics</td>
+<td>North</td>
+<td>SEO</td>
+</tr>
+<tr>
+<td>102</td>
+<td>2</td>
+<td>2024-04-01</td>
+<td>150</td>
+<td>Fashion</td>
+<td>South</td>
+<td>Paid Ads</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="step-by-step-revenue-drop-analysis-in-python">✅ <strong>Step-by-Step Revenue Drop Analysis in Python</strong><a class="headerlink" href="#step-by-step-revenue-drop-analysis-in-python" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Load data</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecommerce_transactions.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;order_date&quot;</span><span class="p">])</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Add &#39;month&#39; column for grouping</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;order_date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s2">&quot;M&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># Step 1: Monthly revenue trend</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">monthly_revenue</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">)[</span><span class="s2">&quot;amount&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">monthly_revenue</span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">monthly_revenue</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="step-2-drill-down-check-key-components">🔍 Step 2: Drill down — Check key components<a class="headerlink" href="#step-2-drill-down-check-key-components" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Number of orders per month</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">monthly_orders</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">)[</span><span class="s2">&quot;order_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Average Order Value (AOV)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">monthly_aov</span> <span class="o">=</span> <span class="n">monthly_revenue</span> <span class="o">/</span> <span class="n">monthly_orders</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Orders:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">monthly_orders</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AOV:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">monthly_aov</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="step-3-segment-by-category-region-or-channel">📦 Step 3: Segment by category, region, or channel<a class="headerlink" href="#step-3-segment-by-category-region-or-channel" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Compare last 2 months by category</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">df_last_2_months</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">category_revenue</span> <span class="o">=</span> <span class="n">df_last_2_months</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;product_category&quot;</span><span class="p">])[</span><span class="s2">&quot;amount&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">category_revenue</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Revenue by Category&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Segment by region</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">region_revenue</span> <span class="o">=</span> <span class="n">df_last_2_months</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;region&quot;</span><span class="p">])[</span><span class="s2">&quot;amount&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">region_revenue</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Revenue by Region&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="step-4-channel-performance-check">📈 Step 4: Channel performance check<a class="headerlink" href="#step-4-channel-performance-check" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">channel_revenue</span> <span class="o">=</span> <span class="n">df_last_2_months</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;channel&quot;</span><span class="p">])[</span><span class="s2">&quot;amount&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">channel_revenue</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Revenue by Channel&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="final-step-summary-table">📌 Final Step: Summary Table<a class="headerlink" href="#final-step-summary-table" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">&quot;Revenue&quot;</span><span class="p">:</span> <span class="n">monthly_revenue</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="s2">&quot;Orders&quot;</span><span class="p">:</span> <span class="n">monthly_orders</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="s2">&quot;AOV&quot;</span><span class="p">:</span> <span class="n">monthly_aov</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">})</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># Last 2 months</span>
+</code></pre></div>
+<hr />
+<h3 id="interpretation">💡 Interpretation:<a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h3>
+<p>From the plots and tables, you can:</p>
+<ul>
+<li><strong>Spot where the revenue dropped</strong> (channel, category, region, etc.)</li>
+<li>See if it’s due to <strong>fewer orders</strong>, <strong>lower AOV</strong>, or both</li>
+<li>Understand which <strong>segment</strong> contributed most to the change</li>
+</ul>
+<hr />
+<p>Great! Here's the <strong>SQL version</strong> of how you'd investigate a <strong>drop in monthly revenue</strong> — using real-world queries that apply to most relational databases like <strong>PostgreSQL</strong>, <strong>MySQL</strong>, or <strong>BigQuery</strong>.</p>
+<hr />
+<h3 id="assumptions">🧾 Assumptions:<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<p>You're working with a table named <code>orders</code> that contains the following fields:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">orders</span><span class="p">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="n">customer_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="n">order_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="n">amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="n">product_category</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">,</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">,</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="n">channel</span><span class="w"> </span><span class="nb">VARCHAR</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="step-by-step-sql-analysis-of-revenue-drop">🔍 Step-by-Step SQL Analysis of Revenue Drop<a class="headerlink" href="#step-by-step-sql-analysis-of-revenue-drop" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-monthly-revenue-trend">✅ 1. Monthly Revenue Trend<a class="headerlink" href="#1-monthly-revenue-trend" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">month</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_revenue</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h3 id="2-orders-and-average-order-value-aov">📉 2. Orders and Average Order Value (AOV)<a class="headerlink" href="#2-orders-and-average-order-value-aov" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">month</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">order_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_orders</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_revenue</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">order_id</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avg_order_value</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h3 id="3-breakdown-by-product-category">🧱 3. Breakdown by Product Category<a class="headerlink" href="#3-breakdown-by-product-category" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">month</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="n">product_category</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">category_revenue</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">order_date</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_DATE</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;2 months&#39;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"> </span><span class="n">product_category</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"> </span><span class="n">category_revenue</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h3 id="4-breakdown-by-region">🗺️ 4. Breakdown by Region<a class="headerlink" href="#4-breakdown-by-region" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">month</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="n">region</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">regional_revenue</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">order_date</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_DATE</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;2 months&#39;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"> </span><span class="n">region</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"> </span><span class="n">regional_revenue</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h3 id="5-channel-wise-revenue">📣 5. Channel-wise Revenue<a class="headerlink" href="#5-channel-wise-revenue" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">month</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="n">channel</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">channel_revenue</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">order_date</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_DATE</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;2 months&#39;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"> </span><span class="n">channel_revenue</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h3 id="6-compare-two-specific-months">🧾 6. Compare Two Specific Months<a class="headerlink" href="#6-compare-two-specific-months" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;YYYY-MM&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">month</span><span class="p">,</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_revenue</span><span class="p">,</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">order_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_orders</span><span class="p">,</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">order_id</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avg_order_value</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">order_date</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2024-03-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2024-04-30&#39;</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">month</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h3 id="optional-insights">🧠 Optional Insights<a class="headerlink" href="#optional-insights" title="Permanent link">&para;</a></h3>
+<p>You can also analyze:</p>
+<ul>
+<li>🛒 High-return products (<code>WHERE amount &lt; 0</code>)</li>
+<li>🧍‍♂️ Revenue from <strong>new vs returning customers</strong></li>
+<li>📦 Stock availability logs (if available)</li>
+</ul>
+<hr />
+<p>Got it! Here's a <strong>sample dataset schema and some example rows</strong> matching the SQL queries above — so you can load it into your SQL environment and try the queries yourself.</p>
+<hr />
+<h2 id="sample-data-for-orders-table">📋 Sample Data for <code>orders</code> Table<a class="headerlink" href="#sample-data-for-orders-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>order_id</th>
+<th>customer_id</th>
+<th>order_date</th>
+<th>amount</th>
+<th>product_category</th>
+<th>region</th>
+<th>channel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>1</td>
+<td>2024-03-10</td>
+<td>200</td>
+<td>Electronics</td>
+<td>North</td>
+<td>SEO</td>
+</tr>
+<tr>
+<td>102</td>
+<td>2</td>
+<td>2024-03-15</td>
+<td>150</td>
+<td>Fashion</td>
+<td>South</td>
+<td>Paid Ads</td>
+</tr>
+<tr>
+<td>103</td>
+<td>3</td>
+<td>2024-04-01</td>
+<td>300</td>
+<td>Electronics</td>
+<td>East</td>
+<td>Organic</td>
+</tr>
+<tr>
+<td>104</td>
+<td>1</td>
+<td>2024-04-05</td>
+<td>100</td>
+<td>Home &amp; Garden</td>
+<td>West</td>
+<td>Referral</td>
+</tr>
+<tr>
+<td>105</td>
+<td>4</td>
+<td>2024-04-20</td>
+<td>250</td>
+<td>Fashion</td>
+<td>North</td>
+<td>Paid Ads</td>
+</tr>
+<tr>
+<td>106</td>
+<td>5</td>
+<td>2024-05-02</td>
+<td>350</td>
+<td>Electronics</td>
+<td>South</td>
+<td>SEO</td>
+</tr>
+<tr>
+<td>107</td>
+<td>6</td>
+<td>2024-05-15</td>
+<td>400</td>
+<td>Sports</td>
+<td>East</td>
+<td>Organic</td>
+</tr>
+<tr>
+<td>108</td>
+<td>7</td>
+<td>2024-05-20</td>
+<td>150</td>
+<td>Fashion</td>
+<td>West</td>
+<td>Paid Ads</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-to-load-this-sample-data-into-sql-example-for-postgresql">How to Load This Sample Data into SQL (Example for PostgreSQL)<a class="headerlink" href="#how-to-load-this-sample-data-into-sql-example-for-postgresql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="n">customer_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="n">order_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="n">amount</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="n">product_category</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span><span class="n">channel</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="p">);</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-03-10&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;North&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SEO&#39;</span><span class="p">),</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="p">(</span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-03-15&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fashion&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;South&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Paid Ads&#39;</span><span class="p">),</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="p">(</span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-04-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;East&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Organic&#39;</span><span class="p">),</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">(</span><span class="mi">104</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-04-05&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Home &amp; Garden&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;West&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Referral&#39;</span><span class="p">),</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="p">(</span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-04-20&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fashion&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;North&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Paid Ads&#39;</span><span class="p">),</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="p">(</span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-05-02&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">350</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;South&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SEO&#39;</span><span class="p">),</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="p">(</span><span class="mi">107</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-05-15&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sports&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;East&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Organic&#39;</span><span class="p">),</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="p">(</span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-05-20&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fashion&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;West&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Paid Ads&#39;</span><span class="p">);</span>
+</code></pre></div>
+<hr />
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Run the <strong>SQL queries</strong> I shared earlier on this sample data.</li>
+<li>You’ll be able to see revenue trends by month, category, region, and channel.</li>
+<li>This will help you understand how to identify drops and segment revenue changes.</li>
+</ul>
+<hr />
+<p>Got it! Here’s a clear step-by-step guide to <strong>load your sample data into Power BI</strong> and <strong>create key visuals</strong> to analyze the revenue drop, just like in your SQL/Python analysis.</p>
+<hr />
+<h2 id="how-to-analyze-revenue-drop-in-power-bi">How to Analyze Revenue Drop in Power BI<a class="headerlink" href="#how-to-analyze-revenue-drop-in-power-bi" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="step-1-prepare-your-sample-data">Step 1: Prepare Your Sample Data<a class="headerlink" href="#step-1-prepare-your-sample-data" title="Permanent link">&para;</a></h3>
+<p>Create a CSV file named <code>orders.csv</code> with these columns and sample rows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>order_id,customer_id,order_date,amount,product_category,region,channel
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>101,1,2024-03-10,200,Electronics,North,SEO
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>102,2,2024-03-15,150,Fashion,South,Paid Ads
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>103,3,2024-04-01,300,Electronics,East,Organic
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>104,1,2024-04-05,100,Home &amp; Garden,West,Referral
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>105,4,2024-04-20,250,Fashion,North,Paid Ads
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>106,5,2024-05-02,350,Electronics,South,SEO
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>107,6,2024-05-15,400,Sports,East,Organic
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>108,7,2024-05-20,150,Fashion,West,Paid Ads
+</code></pre></div>
+<hr />
+<h3 id="step-2-load-data-into-power-bi">Step 2: Load Data into Power BI<a class="headerlink" href="#step-2-load-data-into-power-bi" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open <strong>Power BI Desktop</strong>.</li>
+<li>Click <strong>Get Data &gt; Text/CSV</strong> and select your <code>orders.csv</code>.</li>
+<li>Click <strong>Load</strong> to import the data.</li>
+</ol>
+<hr />
+<h3 id="step-3-create-date-and-month-columns">Step 3: Create Date and Month Columns<a class="headerlink" href="#step-3-create-date-and-month-columns" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to the <strong>Data</strong> view.</li>
+<li>Select the <code>order_date</code> column.</li>
+<li>In the ribbon, use <strong>Column Tools &gt; Date &gt; Month</strong> to extract the month (or create a new column with DAX):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nf">Month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">FORMAT</span><span class="p">(</span><span class="na">&#39;orders&#39;[order_date]</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YYYY-MM&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="step-4-build-key-visuals">Step 4: Build Key Visuals<a class="headerlink" href="#step-4-build-key-visuals" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="1-monthly-revenue-trend_1">1. <strong>Monthly Revenue Trend</strong><a class="headerlink" href="#1-monthly-revenue-trend_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Create a <strong>Line Chart</strong> or <strong>Column Chart</strong>.</li>
+<li>Axis: <code>Month</code></li>
+<li>Values: Sum of <code>amount</code></li>
+<li>This shows how total revenue changes month to month.</li>
+</ul>
+<hr />
+<h4 id="2-number-of-orders-and-average-order-value">2. <strong>Number of Orders and Average Order Value</strong><a class="headerlink" href="#2-number-of-orders-and-average-order-value" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Create a <strong>Card visual</strong> for <strong>Total Orders</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Total Orders = DISTINCTCOUNT(&#39;orders&#39;[order_id])
+</code></pre></div>
+<ul>
+<li>Create another <strong>Card visual</strong> for <strong>Average Order Value (AOV)</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>AOV = DIVIDE(SUM(&#39;orders&#39;[amount]), DISTINCTCOUNT(&#39;orders&#39;[order_id]))
+</code></pre></div>
+<ul>
+<li>Or create a <strong>table visual</strong> with these measures grouped by <code>Month</code>.</li>
+</ul>
+<hr />
+<h4 id="3-revenue-by-product-category">3. <strong>Revenue by Product Category</strong><a class="headerlink" href="#3-revenue-by-product-category" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Use a <strong>Stacked Column Chart</strong>.</li>
+<li>Axis: <code>Month</code></li>
+<li>Legend: <code>product_category</code></li>
+<li>Values: Sum of <code>amount</code></li>
+</ul>
+<hr />
+<h4 id="4-revenue-by-region">4. <strong>Revenue by Region</strong><a class="headerlink" href="#4-revenue-by-region" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Use another <strong>Stacked Column Chart</strong>.</li>
+<li>Axis: <code>Month</code></li>
+<li>Legend: <code>region</code></li>
+<li>Values: Sum of <code>amount</code></li>
+</ul>
+<hr />
+<h4 id="5-revenue-by-channel">5. <strong>Revenue by Channel</strong><a class="headerlink" href="#5-revenue-by-channel" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Repeat similar steps with a <strong>Stacked Column Chart</strong> for <code>channel</code>.</li>
+</ul>
+<hr />
+<h3 id="step-5-add-filters-and-slicers">Step 5: Add Filters and Slicers<a class="headerlink" href="#step-5-add-filters-and-slicers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add <strong>Slicers</strong> for filtering by <code>Month</code>, <code>Region</code>, <code>Product Category</code>, or <code>Channel</code> to drill down interactively.</li>
+</ul>
+<hr />
+<h3 id="step-6-interpret-your-report">Step 6: Interpret Your Report<a class="headerlink" href="#step-6-interpret-your-report" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Compare revenue across months and segments.</li>
+<li>Spot the month with revenue drop.</li>
+<li>Identify whether fewer orders or lower AOV caused it.</li>
+<li>Look for which categories, regions, or channels contributed most to the drop.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/ashishbindra2"  target="_blank" rel="noopener">Ashish Bindra</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ashishbindra2" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://in.linkedin.com/in/ashishbindra2/" target="_blank" rel="noopener" title="in.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.sections", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3130 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../interview/">
+      
+      
+        <link rel="next" href="../mini-projects/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>data-sci - Machine Learning Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-science" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Machine Learning Tutorials" class="md-header__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              data-sci
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../intro-to-ml-google/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  intro-to-ml-google
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../interview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  data-sci
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../mini-projects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mini-projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../sql/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../random/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview-ai
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../unimportant/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mixed
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Machine Learning Tutorials" class="md-nav__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Machine Learning Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../intro-to-ml-google/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    intro-to-ml-google
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            intro-to-ml-google
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-to-ml-google/SupervisedLearning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supervised Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-to-ml-google/test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    test-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    interview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    data-sci
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    data-sci
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Pandas / NumPy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Pandas / NumPy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-what-are-dataframes-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1. What are DataFrames in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-difference-between-loc-and-iloc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2. Difference between .loc[] and .iloc[]?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-how-do-you-handle-missing-values-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. How do you handle missing values in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-what-is-a-lambda-function-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. What is a lambda function in Python?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. What is a lambda function in Python?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typical-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Typical use cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-using-lambda-with-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Using lambda with map()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-using-lambda-with-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Using lambda with filter()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-using-lambda-with-sorted" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Using lambda with sorted()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-simple-lambda-function-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Simple lambda function usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-what-is-the-purpose-of-traintest-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. What is the purpose of train/test split?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. What is the purpose of train/test split?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heres-a-quick-example-using-the-iris-dataset-with-a-random-forest-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Here’s a quick example using the Iris dataset with a Random Forest classifier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-what-is-overfitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. What is overfitting?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-what-is-overfitting-and-how-do-you-prevent-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. What is overfitting and how do you prevent it?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-name-a-few-machine-learning-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Name a few machine learning algorithms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-what-is-a-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. What is a confusion matrix?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-how-would-you-visualize-a-correlation-between-numeric-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. How would you visualize a correlation between numeric columns?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-you-have-a-csv-with-1m-rows-how-would-you-load-it-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. You have a CSV with 1M rows. How would you load it efficiently?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-analysus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Analysus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Analysus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-is-data-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is data analysis?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-what-steps-do-you-take-when-cleaning-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. What steps do you take when cleaning a dataset?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-how-do-you-handle-missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. How do you handle missing data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-what-is-the-difference-between-correlation-and-causation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. What is the difference between correlation and causation?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-what-is-the-purpose-of-a-group-by-clause-in-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. What is the purpose of a GROUP BY clause in SQL?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-how-do-you-visualize-categorical-vs-numerical-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. How do you visualize categorical vs numerical data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-how-would-you-find-duplicate-rows-in-a-dataset-using-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. How would you find duplicate rows in a dataset using Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-explain-the-difference-between-inner-join-and-left-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Explain the difference between INNER JOIN and LEFT JOIN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-what-is-an-outlier-and-how-can-you-detect-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. What is an outlier and how can you detect it?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revenue-dropped-last-month-what-would-you-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revenue dropped last month. What would you check?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistics-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statistics &amp; Probability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistics &amp; Probability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-mean-median-and-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the difference between mean, median, and mode?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-between-mean-median-and-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Difference Between Mean, Median, and Mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Difference Between Mean, Median, and Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-standard-deviation-why-is-it-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is standard deviation? Why is it important?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain-the-concept-of-p-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explain the concept of p-value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-correlation-vs-causation" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is correlation vs causation?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excelpandassql-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Excel/Pandas/SQL Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Excel/Pandas/SQL Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-would-you-find-duplicate-entries-in-a-dataset-using-excel-or-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      How would you find duplicate entries in a dataset using Excel or Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-an-sql-query-to-find-the-second-highest-salary-from-an-employee-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write an SQL query to find the second highest salary from an employee table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-merge-two-datasets-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you merge two datasets in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-group-by-and-having-clauses-in-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are GROUP BY and HAVING clauses in SQL?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-cleaning-preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Data Cleaning &amp; Preprocessing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Data Cleaning &amp; Preprocessing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-steps-do-you-follow-for-data-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      What steps do you follow for data cleaning?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-handle-outliers-in-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you handle outliers in a dataset?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-data-normalization-and-why-is-it-necessary" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is data normalization and why is it necessary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-tools-have-you-used-for-data-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      What tools have you used for data visualization?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-would-you-use-a-bar-chart-vs-a-pie-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      When would you use a bar chart vs a pie chart?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-visualize-relationships-between-two-numerical-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you visualize relationships between two numerical variables?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-based-practical-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Scenario-Based (Practical Thinking)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Scenario-Based (Practical Thinking)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#you-are-given-sales-data-with-inconsistent-date-formats-and-missing-customer-ids-what-would-be-your-approach-to-clean-and-analyze-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      You are given sales data with inconsistent date formats and missing customer IDs. What would be your approach to clean and analyze it?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-the-companys-revenue-dropped-last-quarter-how-would-you-investigate-the-cause-using-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      If the company’s revenue dropped last quarter, how would you investigate the cause using data?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#behavioralsoft-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Behavioral/Soft Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Behavioral/Soft Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tell-us-about-a-time-you-worked-on-a-team-project-with-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tell us about a time you worked on a team project with data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-prioritize-tasks-when-working-on-multiple-datasets-with-tight-deadlines" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you prioritize tasks when working on multiple datasets with tight deadlines?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-science-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Science Libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Science Libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-numpy-used-for-in-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is NumPy used for in data science?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-is-pandas-useful-for-data-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      How is Pandas useful for data manipulation?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-dataframes-in-pandas-and-how-do-you-create-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are DataFrames in Pandas and how do you create one?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-would-you-filter-rows-in-a-dataframe-based-on-a-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      How would you filter rows in a DataFrame based on a condition?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-difference-between-loc-and-iloc-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      What’s the difference between .loc[] and .iloc[] in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-matplotlibseaborn" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Visualization (Matplotlib/Seaborn)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Visualization (Matplotlib/Seaborn)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-create-a-basic-line-plot-using-matplotlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you create a basic line plot using Matplotlib?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-types-of-plots-can-you-create-with-seaborn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What types of plots can you create with Seaborn?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-would-you-visualize-missing-values-in-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      How would you visualize missing values in a dataset?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-preprocessing-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Data Preprocessing &amp; Cleaning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Data Preprocessing &amp; Cleaning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-handle-missing-values-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you handle missing values in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-dropna-and-fillna" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the difference between dropna() and fillna()?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-normalize-or-scale-numerical-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you normalize or scale numerical data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-one-hot-encoding-and-when-do-you-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is one-hot encoding and when do you use it?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistics-machine-learning-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔢 Statistics &amp; Machine Learning (Basics)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔢 Statistics &amp; Machine Learning (Basics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-supervised-and-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      ### What is the difference between supervised and unsupervised learning?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name-a-few-common-algorithms-used-for-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name a few common algorithms used for classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-train-test-split-mean-and-why-is-it-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does train-test split mean and why is it important?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-overfitting-and-how-do-you-prevent-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is overfitting and how do you prevent it?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain-the-purpose-of-cross-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explain the purpose of cross-validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a confusion matrix?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-scenario-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Project &amp; Scenario-Based
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📁 Project &amp; Scenario-Based">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#you-have-a-csv-file-with-1-million-rows-how-would-you-load-and-analyze-it-efficiently-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      You have a CSV file with 1 million rows. How would you load and analyze it efficiently in Python?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-your-model-accuracy-is-95-what-additional-metrics-would-you-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      If your model accuracy is 95%, what additional metrics would you check?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describe-a-python-project-youve-worked-on-can-be-academic-or-personal-what-libraries-did-you-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Describe a Python project you've worked on (can be academic or personal). What libraries did you use?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-summary-how-to-handle-missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Visual Summary: How to Handle Missing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mini-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 Mini Challenge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧪 Mini Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Your Tasks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mini-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mini-projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    interview-ai
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unimportant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mixed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Pandas / NumPy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Pandas / NumPy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-what-are-dataframes-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1. What are DataFrames in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-difference-between-loc-and-iloc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2. Difference between .loc[] and .iloc[]?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-how-do-you-handle-missing-values-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. How do you handle missing values in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-what-is-a-lambda-function-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. What is a lambda function in Python?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. What is a lambda function in Python?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typical-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Typical use cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-using-lambda-with-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Using lambda with map()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-using-lambda-with-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Using lambda with filter()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-using-lambda-with-sorted" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Using lambda with sorted()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-simple-lambda-function-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Simple lambda function usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-what-is-the-purpose-of-traintest-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. What is the purpose of train/test split?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. What is the purpose of train/test split?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heres-a-quick-example-using-the-iris-dataset-with-a-random-forest-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Here’s a quick example using the Iris dataset with a Random Forest classifier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-what-is-overfitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. What is overfitting?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-what-is-overfitting-and-how-do-you-prevent-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. What is overfitting and how do you prevent it?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-name-a-few-machine-learning-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Name a few machine learning algorithms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-what-is-a-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. What is a confusion matrix?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-how-would-you-visualize-a-correlation-between-numeric-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. How would you visualize a correlation between numeric columns?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-you-have-a-csv-with-1m-rows-how-would-you-load-it-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. You have a CSV with 1M rows. How would you load it efficiently?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-analysus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Analysus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Analysus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-is-data-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is data analysis?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-what-steps-do-you-take-when-cleaning-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. What steps do you take when cleaning a dataset?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-how-do-you-handle-missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. How do you handle missing data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-what-is-the-difference-between-correlation-and-causation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. What is the difference between correlation and causation?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-what-is-the-purpose-of-a-group-by-clause-in-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. What is the purpose of a GROUP BY clause in SQL?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-how-do-you-visualize-categorical-vs-numerical-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. How do you visualize categorical vs numerical data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-how-would-you-find-duplicate-rows-in-a-dataset-using-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. How would you find duplicate rows in a dataset using Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-explain-the-difference-between-inner-join-and-left-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Explain the difference between INNER JOIN and LEFT JOIN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-what-is-an-outlier-and-how-can-you-detect-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. What is an outlier and how can you detect it?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revenue-dropped-last-month-what-would-you-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revenue dropped last month. What would you check?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistics-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statistics &amp; Probability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistics &amp; Probability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-mean-median-and-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the difference between mean, median, and mode?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-between-mean-median-and-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Difference Between Mean, Median, and Mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Difference Between Mean, Median, and Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-standard-deviation-why-is-it-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is standard deviation? Why is it important?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain-the-concept-of-p-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explain the concept of p-value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-correlation-vs-causation" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is correlation vs causation?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excelpandassql-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Excel/Pandas/SQL Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Excel/Pandas/SQL Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-would-you-find-duplicate-entries-in-a-dataset-using-excel-or-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      How would you find duplicate entries in a dataset using Excel or Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-an-sql-query-to-find-the-second-highest-salary-from-an-employee-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write an SQL query to find the second highest salary from an employee table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-merge-two-datasets-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you merge two datasets in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-group-by-and-having-clauses-in-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are GROUP BY and HAVING clauses in SQL?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-cleaning-preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Data Cleaning &amp; Preprocessing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Data Cleaning &amp; Preprocessing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-steps-do-you-follow-for-data-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      What steps do you follow for data cleaning?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-handle-outliers-in-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you handle outliers in a dataset?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-data-normalization-and-why-is-it-necessary" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is data normalization and why is it necessary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-tools-have-you-used-for-data-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      What tools have you used for data visualization?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-would-you-use-a-bar-chart-vs-a-pie-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      When would you use a bar chart vs a pie chart?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-visualize-relationships-between-two-numerical-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you visualize relationships between two numerical variables?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-based-practical-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Scenario-Based (Practical Thinking)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Scenario-Based (Practical Thinking)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#you-are-given-sales-data-with-inconsistent-date-formats-and-missing-customer-ids-what-would-be-your-approach-to-clean-and-analyze-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      You are given sales data with inconsistent date formats and missing customer IDs. What would be your approach to clean and analyze it?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-the-companys-revenue-dropped-last-quarter-how-would-you-investigate-the-cause-using-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      If the company’s revenue dropped last quarter, how would you investigate the cause using data?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#behavioralsoft-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Behavioral/Soft Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Behavioral/Soft Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tell-us-about-a-time-you-worked-on-a-team-project-with-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tell us about a time you worked on a team project with data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-prioritize-tasks-when-working-on-multiple-datasets-with-tight-deadlines" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you prioritize tasks when working on multiple datasets with tight deadlines?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-science-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Science Libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Science Libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-numpy-used-for-in-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is NumPy used for in data science?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-is-pandas-useful-for-data-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      How is Pandas useful for data manipulation?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-dataframes-in-pandas-and-how-do-you-create-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are DataFrames in Pandas and how do you create one?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-would-you-filter-rows-in-a-dataframe-based-on-a-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      How would you filter rows in a DataFrame based on a condition?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-difference-between-loc-and-iloc-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      What’s the difference between .loc[] and .iloc[] in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-matplotlibseaborn" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Visualization (Matplotlib/Seaborn)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Visualization (Matplotlib/Seaborn)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-create-a-basic-line-plot-using-matplotlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you create a basic line plot using Matplotlib?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-types-of-plots-can-you-create-with-seaborn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What types of plots can you create with Seaborn?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-would-you-visualize-missing-values-in-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      How would you visualize missing values in a dataset?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-preprocessing-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Data Preprocessing &amp; Cleaning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Data Preprocessing &amp; Cleaning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-handle-missing-values-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you handle missing values in Pandas?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-dropna-and-fillna" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the difference between dropna() and fillna()?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-normalize-or-scale-numerical-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do you normalize or scale numerical data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-one-hot-encoding-and-when-do-you-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is one-hot encoding and when do you use it?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistics-machine-learning-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔢 Statistics &amp; Machine Learning (Basics)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔢 Statistics &amp; Machine Learning (Basics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-supervised-and-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      ### What is the difference between supervised and unsupervised learning?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name-a-few-common-algorithms-used-for-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name a few common algorithms used for classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-train-test-split-mean-and-why-is-it-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does train-test split mean and why is it important?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-overfitting-and-how-do-you-prevent-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is overfitting and how do you prevent it?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain-the-purpose-of-cross-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explain the purpose of cross-validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a confusion matrix?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-scenario-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Project &amp; Scenario-Based
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📁 Project &amp; Scenario-Based">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#you-have-a-csv-file-with-1-million-rows-how-would-you-load-and-analyze-it-efficiently-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      You have a CSV file with 1 million rows. How would you load and analyze it efficiently in Python?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-your-model-accuracy-is-95-what-additional-metrics-would-you-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      If your model accuracy is 95%, what additional metrics would you check?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describe-a-python-project-youve-worked-on-can-be-academic-or-personal-what-libraries-did-you-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Describe a Python project you've worked on (can be academic or personal). What libraries did you use?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-summary-how-to-handle-missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Visual Summary: How to Handle Missing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mini-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 Mini Challenge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧪 Mini Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Your Tasks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-science">Data Science<a class="headerlink" href="#data-science" title="Permanent link">&para;</a></h1>
+<h2 id="pandas-numpy">📊 Pandas / NumPy<a class="headerlink" href="#pandas-numpy" title="Permanent link">&para;</a></h2>
+<h3 id="q1-what-are-dataframes-in-pandas">Q1. What are DataFrames in Pandas?<a class="headerlink" href="#q1-what-are-dataframes-in-pandas" title="Permanent link">&para;</a></h3>
+<p>A 2D labeled data structure (like a table in Excel or SQL).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ashish&#39;</span><span class="p">,</span> <span class="s1">&#39;Bindra&#39;</span><span class="p">],</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sno  name  age
+0  Ashish   25
+1  Bindra   30
+</code></pre></div>
+<h3 id="q2-difference-between-loc-and-iloc">Q2. Difference between .loc[] and .iloc[]?<a class="headerlink" href="#q2-difference-between-loc-and-iloc" title="Permanent link">&para;</a></h3>
+<p>.loc[] is label-based: df.loc[0, 'name']</p>
+<p>.iloc[] is index-based: df.iloc[0, 0]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Step 1: Create the DataFrame</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">],</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="s1">&#39;City&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>    Name   Age    City
+0  Alice   24  New York
+1  Bob     27    London
+2  Charlie 22     Paris
+</code></pre></div>
+<p>🔍 Step 2: Select the second row</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">second_row_iloc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using iloc:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">second_row_iloc</span><span class="p">)</span>
+</code></pre></div>
+<p>📌 Using .loc[] (label-based):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">second_row_loc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using loc:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">second_row_loc</span><span class="p">)</span>
+</code></pre></div>
+<p>Both will give:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Name     Bob
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Age        27
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>City   London
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Name: 1, dtype: object
+</code></pre></div>
+<p>🧠 Note:</p>
+<ul>
+<li>
+<p>.iloc[1] means: “give me the row at position 1” (Python is 0-indexed).</p>
+</li>
+<li>
+<p>.loc[1] means: “give me the row with label/index 1”. In this example, labels are default (0,1,2), so .loc[1] and .iloc[1] behave the same.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Step 1: Create the DataFrame with custom labels</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">],</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="s1">&#39;City&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">]</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>  <span class="c1"># custom row labels</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span><span class="nt">Name</span><span class="w">  </span><span class="nt">Age</span><span class="w">      </span><span class="nt">City</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">a</span><span class="w">  </span><span class="nt">Alice</span><span class="w">   </span><span class="nt">24</span><span class="w">  </span><span class="nt">New</span><span class="w"> </span><span class="nt">York</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">b</span><span class="w">    </span><span class="nt">Bob</span><span class="w">   </span><span class="nt">27</span><span class="w">    </span><span class="nt">London</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">c</span><span class="w"> </span><span class="nt">Charlie</span><span class="w">   </span><span class="nt">22</span><span class="w">     </span><span class="nt">Paris</span>
+</code></pre></div>
+<p>🔍 Step 2: Select the second row
+📌 Using .iloc[1] (index-based):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">second_row_iloc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using iloc:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">second_row_iloc</span><span class="p">)</span>
+</code></pre></div>
+<p>📌 Using .loc['b'] (label-based):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">second_row_loc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using loc:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">second_row_loc</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="4-how-do-you-handle-missing-values-in-pandas">4. How do you handle missing values in Pandas?<a class="headerlink" href="#4-how-do-you-handle-missing-values-in-pandas" title="Permanent link">&para;</a></h3>
+<p>df.dropna()           # Remove rows with NaN<br />
+df.fillna(0)          # Replace NaN with 0</p>
+<h3 id="5-what-is-a-lambda-function-in-python">5. What is a lambda function in Python?<a class="headerlink" href="#5-what-is-a-lambda-function-in-python" title="Permanent link">&para;</a></h3>
+<p>A small anonymous function defined with lambda keyword.
+Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<p>A <strong>lambda function</strong> in Python is a small, anonymous function defined with the keyword <code>lambda</code>. It can have any number of input parameters but only one expression. The expression is evaluated and returned when the lambda function is called.</p>
+<h4 id="key-points">Key points<a class="headerlink" href="#key-points" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Anonymous:</strong> It doesn't need a name.</li>
+<li><strong>Single expression:</strong> Only one expression, no statements.</li>
+<li><strong>Used for short functions:</strong> Often used where a simple function is required temporarily.</li>
+</ul>
+<h4 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">lambda</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">expression</span>
+</code></pre></div>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Regular function</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Lambda equivalent</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">add_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">add_lambda</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 8</span>
+</code></pre></div>
+<h4 id="typical-use-cases">Typical use cases<a class="headerlink" href="#typical-use-cases" title="Permanent link">&para;</a></h4>
+<ul>
+<li>As an argument to functions like <code>map()</code>, <code>filter()</code>, <code>sorted()</code>.</li>
+<li>When you need a quick, throwaway function without formally defining one.</li>
+</ul>
+<hr />
+<p>Great! Here are some practical examples showing how lambda functions are used in Python:</p>
+<hr />
+<h4 id="1-using-lambda-with-map">1. Using <code>lambda</code> with <code>map()</code><a class="headerlink" href="#1-using-lambda-with-map" title="Permanent link">&para;</a></h4>
+<p><code>map()</code> applies a function to every item of an iterable (like a list).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># Multiply each number by 2 using lambda</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">doubled</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">doubled</span><span class="p">)</span>  <span class="c1"># Output: [2, 4, 6, 8, 10]</span>
+</code></pre></div>
+<hr />
+<h4 id="2-using-lambda-with-filter">2. Using <code>lambda</code> with <code>filter()</code><a class="headerlink" href="#2-using-lambda-with-filter" title="Permanent link">&para;</a></h4>
+<p><code>filter()</code> returns elements for which the function returns True.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># Get only even numbers using lambda</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">evens</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">evens</span><span class="p">)</span>  <span class="c1"># Output: [2, 4, 6]</span>
+</code></pre></div>
+<hr />
+<h4 id="3-using-lambda-with-sorted">3. Using <code>lambda</code> with <code>sorted()</code><a class="headerlink" href="#3-using-lambda-with-sorted" title="Permanent link">&para;</a></h4>
+<p>You can sort complex objects by a specific key with <code>lambda</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">students</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">85</span><span class="p">},</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">92</span><span class="p">},</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">78</span><span class="p">}</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">]</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Sort students by their score</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="n">sorted_students</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">])</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">sorted_students</span><span class="p">)</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1"># Output: [{&#39;name&#39;: &#39;Charlie&#39;, &#39;score&#39;: 78}, {&#39;name&#39;: &#39;Alice&#39;, &#39;score&#39;: 85}, {&#39;name&#39;: &#39;Bob&#39;, &#39;score&#39;: 92}]</span>
+</code></pre></div>
+<hr />
+<h4 id="4-simple-lambda-function-usage">4. Simple lambda function usage<a class="headerlink" href="#4-simple-lambda-function-usage" title="Permanent link">&para;</a></h4>
+<p>You can define and call a lambda function directly without assigning it to a variable:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span><span class="p">)(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># 2 raised to the power 3</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: 8</span>
+</code></pre></div>
+<h3 id="6-what-is-the-purpose-of-traintest-split">6. What is the purpose of train/test split?<a class="headerlink" href="#6-what-is-the-purpose-of-traintest-split" title="Permanent link">&para;</a></h3>
+<p>To separate data for training and evaluating the model to prevent overfitting.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+</code></pre></div>
+<p>The train/test split is a fundamental technique used in machine learning to evaluate how well a model generalizes to unseen data. The idea is to divide the available dataset into two parts:</p>
+<p>The training set, which is used to train the model — meaning the model learns the patterns, features, and relationships from this data.</p>
+<p>The test set, which is used only after the training is complete, to test how well the model performs on new, unseen data.</p>
+<p>This helps in identifying whether the model is overfitting — that is, performing well on training data but poorly on new data — or if it’s generalizing well to different scenarios.</p>
+<p>A common practice is to split the data into 80% for training and 20% for testing, but this can vary depending on the size and nature of the dataset.</p>
+<h4 id="heres-a-quick-example-using-the-iris-dataset-with-a-random-forest-classifier">Here’s a quick example using the Iris dataset with a Random Forest classifier<a class="headerlink" href="#heres-a-quick-example-using-the-iris-dataset-with-a-random-forest-classifier" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="c1"># Load dataset</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="c1"># Split dataset: 80% train, 20% test</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="c1"># Train model</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="c1"># Predict on test data</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="c1"># Evaluate model</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</code></pre></div>
+<p>✅ Why It’s Important</p>
+<ol>
+<li>
+<p>Prevents Overfitting:</p>
+<ul>
+<li>If you test on the same data you train on, the model may just memorize it, not truly learn.</li>
+</ul>
+</li>
+<li>
+<p>Measures Generalization:</p>
+<ul>
+<li>The test set simulates real-world data. A model that performs well here is more likely to work well in practice.</li>
+</ul>
+</li>
+<li>
+<p>Helps Compare Models:</p>
+<ul>
+<li>You can evaluate and compare different models or tuning methods objectively using the same test data.</li>
+</ul>
+</li>
+</ol>
+<p>🔹 Typical Split Ratios</p>
+<ul>
+<li>
+<p>80/20 or 70/30:</p>
+</li>
+<li>
+<p>80% for training, 20% for testing.</p>
+</li>
+<li>
+<p>60/20/20 (with validation):</p>
+</li>
+<li>
+<p>Used when a separate validation set is needed during training for tuning hyperparameters.</p>
+</li>
+</ul>
+<h3 id="7-what-is-overfitting">7. What is overfitting?<a class="headerlink" href="#7-what-is-overfitting" title="Permanent link">&para;</a></h3>
+<p>When a model performs well on training data but poorly on unseen/test data.</p>
+<h3 id="8-what-is-overfitting-and-how-do-you-prevent-it">8. What is overfitting and how do you prevent it?<a class="headerlink" href="#8-what-is-overfitting-and-how-do-you-prevent-it" title="Permanent link">&para;</a></h3>
+<p>When a model performs well on training data but poorly on unseen data. Prevent using:</p>
+<ol>
+<li>Cross-validation</li>
+<li>Regularization</li>
+<li>Simpler models</li>
+<li>More training data</li>
+</ol>
+<h3 id="9-name-a-few-machine-learning-algorithms">9. Name a few machine learning algorithms<a class="headerlink" href="#9-name-a-few-machine-learning-algorithms" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Linear Regression</li>
+<li>Decision Tree</li>
+<li>K-Nearest Neighbors</li>
+<li>Logistic Regression</li>
+<li>Random Forest</li>
+</ol>
+<h3 id="10-what-is-a-confusion-matrix">10. What is a confusion matrix?<a class="headerlink" href="#10-what-is-a-confusion-matrix" title="Permanent link">&para;</a></h3>
+<p>A table showing true positives, false positives, true negatives, and false negatives. Helps evaluate classification models.</p>
+<h3 id="11-how-would-you-visualize-a-correlation-between-numeric-columns">11. How would you visualize a correlation between numeric columns?<a class="headerlink" href="#11-how-would-you-visualize-a-correlation-between-numeric-columns" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="12-you-have-a-csv-with-1m-rows-how-would-you-load-it-efficiently">12. You have a CSV with 1M rows. How would you load it efficiently?<a class="headerlink" href="#12-you-have-a-csv-with-1m-rows-how-would-you-load-it-efficiently" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;large_file.csv&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>  <span class="c1"># Load in parts</span>
+</code></pre></div>
+<p>preview first few rows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;large_file.csv&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="data-analysus">Data Analysus<a class="headerlink" href="#data-analysus" title="Permanent link">&para;</a></h2>
+<h3 id="1-what-is-data-analysis">1. What is data analysis?<a class="headerlink" href="#1-what-is-data-analysis" title="Permanent link">&para;</a></h3>
+<p>Data analysis is the process of inspecting, cleaning, transforming, and modeling data to find useful information and support decision-making.</p>
+<h3 id="2-what-steps-do-you-take-when-cleaning-a-dataset">2. What steps do you take when cleaning a dataset?<a class="headerlink" href="#2-what-steps-do-you-take-when-cleaning-a-dataset" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Remove duplicates</li>
+<li>Handle missing values (dropna() or fillna())</li>
+<li>Fix incorrect data types</li>
+<li>Normalize or standardize if needed</li>
+<li>Rename inconsistent column names</li>
+</ul>
+<h3 id="3-how-do-you-handle-missing-data">3. How do you handle missing data?<a class="headerlink" href="#3-how-do-you-handle-missing-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Remove rows (dropna())</li>
+<li>Fill with mean/median/mode (fillna())</li>
+<li>Use interpolation or predictive models</li>
+</ul>
+<h3 id="4-what-is-the-difference-between-correlation-and-causation">4. What is the difference between correlation and causation?<a class="headerlink" href="#4-what-is-the-difference-between-correlation-and-causation" title="Permanent link">&para;</a></h3>
+<p>Correlation: A relationship between two variables.</p>
+<p>Causation: One variable causes the change in another.</p>
+<h3 id="5-what-is-the-purpose-of-a-group-by-clause-in-sql">5. What is the purpose of a GROUP BY clause in SQL?<a class="headerlink" href="#5-what-is-the-purpose-of-a-group-by-clause-in-sql" title="Permanent link">&para;</a></h3>
+<p>It groups rows that have the same values into summary rows like SUM, AVG, COUNT.</p>
+<h3 id="6-how-do-you-visualize-categorical-vs-numerical-data">6. How do you visualize categorical vs numerical data?<a class="headerlink" href="#6-how-do-you-visualize-categorical-vs-numerical-data" title="Permanent link">&para;</a></h3>
+<p>Categorical: Bar chart, Pie chart</p>
+<p>Numerical: Histogram, Box plot, Line plot</p>
+<h3 id="7-how-would-you-find-duplicate-rows-in-a-dataset-using-pandas">7. How would you find duplicate rows in a dataset using Pandas?<a class="headerlink" href="#7-how-would-you-find-duplicate-rows-in-a-dataset-using-pandas" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">duplicates</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span>
+</code></pre></div>
+<h3 id="8-explain-the-difference-between-inner-join-and-left-join">8. Explain the difference between INNER JOIN and LEFT JOIN<a class="headerlink" href="#8-explain-the-difference-between-inner-join-and-left-join" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>INNER JOIN: Returns matching records from both tables.
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>LEFT JOIN: Returns all records from the left table, and matched ones from the right.
+</code></pre></div>
+<h3 id="9-what-is-an-outlier-and-how-can-you-detect-it">9. What is an outlier and how can you detect it?<a class="headerlink" href="#9-what-is-an-outlier-and-how-can-you-detect-it" title="Permanent link">&para;</a></h3>
+<p>An outlier is a data point that is significantly different from others.
+Detected using:</p>
+<ul>
+<li>Box plot</li>
+<li>Z-score</li>
+<li>IQR (Interquartile Range)</li>
+</ul>
+<h3 id="revenue-dropped-last-month-what-would-you-check">Revenue dropped last month. What would you check?<a class="headerlink" href="#revenue-dropped-last-month-what-would-you-check" title="Permanent link">&para;</a></h3>
+<p>Answer:</p>
+<ul>
+<li>Compare sales across months</li>
+<li>Check customer churn or drop in high-value orders</li>
+<li>Analyze product-level trends</li>
+<li>Look for marketing or external factors</li>
+</ul>
+<h2 id="statistics-probability">Statistics &amp; Probability<a class="headerlink" href="#statistics-probability" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-the-difference-between-mean-median-and-mode">What is the difference between mean, median, and mode?<a class="headerlink" href="#what-is-the-difference-between-mean-median-and-mode" title="Permanent link">&para;</a></h3>
+<h2 id="difference-between-mean-median-and-mode">✅ <strong>Difference Between Mean, Median, and Mode</strong><a class="headerlink" href="#difference-between-mean-median-and-mode" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Definition</th>
+<th>Use Case</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mean</strong> (Average)</td>
+<td>Sum of all values divided by the number of values</td>
+<td>Best for normally distributed data</td>
+<td><code>(2 + 3 + 4 + 5 + 6) / 5 = 4</code></td>
+</tr>
+<tr>
+<td><strong>Median</strong></td>
+<td>The middle value when data is sorted</td>
+<td>Best when data has outliers</td>
+<td>Sorted <code>[1, 2, 3, 100] → Median = 2.5</code></td>
+</tr>
+<tr>
+<td><strong>Mode</strong></td>
+<td>The value that appears most frequently</td>
+<td>Best for categorical or discrete data</td>
+<td><code>[1, 2, 2, 3] → Mode = 2</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="example_1">🔍 Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
+<p>Given this list:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">mean</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>     <span class="c1"># 21.6</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="n">median</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># 2</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="n">mode</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>     <span class="c1"># 2</span>
+</code></pre></div>
+<ul>
+<li><strong>Mean</strong> = 21.6 → pulled up by <strong>100</strong> (an outlier)</li>
+<li><strong>Median</strong> = 2 → unaffected by extreme values</li>
+<li><strong>Mode</strong> = 2 → the most frequent number</li>
+</ul>
+<hr />
+<h3 id="summary">🧠 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Sensitive to Outliers?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Median</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Mode</td>
+<td>❌ No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="what-is-standard-deviation-why-is-it-important">What is standard deviation? Why is it important?<a class="headerlink" href="#what-is-standard-deviation-why-is-it-important" title="Permanent link">&para;</a></h3>
+<h3 id="explain-the-concept-of-p-value">Explain the concept of p-value<a class="headerlink" href="#explain-the-concept-of-p-value" title="Permanent link">&para;</a></h3>
+<h3 id="what-is-correlation-vs-causation">What is correlation vs causation?<a class="headerlink" href="#what-is-correlation-vs-causation" title="Permanent link">&para;</a></h3>
+<h2 id="excelpandassql-skills">Excel/Pandas/SQL Skills<a class="headerlink" href="#excelpandassql-skills" title="Permanent link">&para;</a></h2>
+<h3 id="how-would-you-find-duplicate-entries-in-a-dataset-using-excel-or-pandas">How would you find duplicate entries in a dataset using Excel or Pandas?<a class="headerlink" href="#how-would-you-find-duplicate-entries-in-a-dataset-using-excel-or-pandas" title="Permanent link">&para;</a></h3>
+<h3 id="write-an-sql-query-to-find-the-second-highest-salary-from-an-employee-table">Write an SQL query to find the second highest salary from an employee table<a class="headerlink" href="#write-an-sql-query-to-find-the-second-highest-salary-from-an-employee-table" title="Permanent link">&para;</a></h3>
+<h3 id="how-do-you-merge-two-datasets-in-pandas">How do you merge two datasets in Pandas?<a class="headerlink" href="#how-do-you-merge-two-datasets-in-pandas" title="Permanent link">&para;</a></h3>
+<h3 id="what-are-group-by-and-having-clauses-in-sql">What are GROUP BY and HAVING clauses in SQL?<a class="headerlink" href="#what-are-group-by-and-having-clauses-in-sql" title="Permanent link">&para;</a></h3>
+<h2 id="data-cleaning-preprocessing">🔹 Data Cleaning &amp; Preprocessing<a class="headerlink" href="#data-cleaning-preprocessing" title="Permanent link">&para;</a></h2>
+<h3 id="what-steps-do-you-follow-for-data-cleaning">What steps do you follow for data cleaning?<a class="headerlink" href="#what-steps-do-you-follow-for-data-cleaning" title="Permanent link">&para;</a></h3>
+<h3 id="how-do-you-handle-outliers-in-a-dataset">How do you handle outliers in a dataset?<a class="headerlink" href="#how-do-you-handle-outliers-in-a-dataset" title="Permanent link">&para;</a></h3>
+<h3 id="what-is-data-normalization-and-why-is-it-necessary">What is data normalization and why is it necessary<a class="headerlink" href="#what-is-data-normalization-and-why-is-it-necessary" title="Permanent link">&para;</a></h3>
+<h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
+<h3 id="what-tools-have-you-used-for-data-visualization">What tools have you used for data visualization?<a class="headerlink" href="#what-tools-have-you-used-for-data-visualization" title="Permanent link">&para;</a></h3>
+<h3 id="when-would-you-use-a-bar-chart-vs-a-pie-chart">When would you use a bar chart vs a pie chart?<a class="headerlink" href="#when-would-you-use-a-bar-chart-vs-a-pie-chart" title="Permanent link">&para;</a></h3>
+<h3 id="how-do-you-visualize-relationships-between-two-numerical-variables">How do you visualize relationships between two numerical variables?<a class="headerlink" href="#how-do-you-visualize-relationships-between-two-numerical-variables" title="Permanent link">&para;</a></h3>
+<h2 id="scenario-based-practical-thinking">🔹 Scenario-Based (Practical Thinking)<a class="headerlink" href="#scenario-based-practical-thinking" title="Permanent link">&para;</a></h2>
+<h3 id="you-are-given-sales-data-with-inconsistent-date-formats-and-missing-customer-ids-what-would-be-your-approach-to-clean-and-analyze-it">You are given sales data with inconsistent date formats and missing customer IDs. What would be your approach to clean and analyze it?<a class="headerlink" href="#you-are-given-sales-data-with-inconsistent-date-formats-and-missing-customer-ids-what-would-be-your-approach-to-clean-and-analyze-it" title="Permanent link">&para;</a></h3>
+<h3 id="if-the-companys-revenue-dropped-last-quarter-how-would-you-investigate-the-cause-using-data">If the company’s revenue dropped last quarter, how would you investigate the cause using data?<a class="headerlink" href="#if-the-companys-revenue-dropped-last-quarter-how-would-you-investigate-the-cause-using-data" title="Permanent link">&para;</a></h3>
+<h2 id="behavioralsoft-skills">🔹 Behavioral/Soft Skills<a class="headerlink" href="#behavioralsoft-skills" title="Permanent link">&para;</a></h2>
+<h3 id="tell-us-about-a-time-you-worked-on-a-team-project-with-data">Tell us about a time you worked on a team project with data<a class="headerlink" href="#tell-us-about-a-time-you-worked-on-a-team-project-with-data" title="Permanent link">&para;</a></h3>
+<h3 id="how-do-you-prioritize-tasks-when-working-on-multiple-datasets-with-tight-deadlines">How do you prioritize tasks when working on multiple datasets with tight deadlines?<a class="headerlink" href="#how-do-you-prioritize-tasks-when-working-on-multiple-datasets-with-tight-deadlines" title="Permanent link">&para;</a></h3>
+<h2 id="data-science-libraries">Data Science Libraries<a class="headerlink" href="#data-science-libraries" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-numpy-used-for-in-data-science">What is NumPy used for in data science?<a class="headerlink" href="#what-is-numpy-used-for-in-data-science" title="Permanent link">&para;</a></h3>
+<h3 id="how-is-pandas-useful-for-data-manipulation">How is Pandas useful for data manipulation?<a class="headerlink" href="#how-is-pandas-useful-for-data-manipulation" title="Permanent link">&para;</a></h3>
+<h3 id="what-are-dataframes-in-pandas-and-how-do-you-create-one">What are DataFrames in Pandas and how do you create one?<a class="headerlink" href="#what-are-dataframes-in-pandas-and-how-do-you-create-one" title="Permanent link">&para;</a></h3>
+<h3 id="how-would-you-filter-rows-in-a-dataframe-based-on-a-condition">How would you filter rows in a DataFrame based on a condition?<a class="headerlink" href="#how-would-you-filter-rows-in-a-dataframe-based-on-a-condition" title="Permanent link">&para;</a></h3>
+<h3 id="whats-the-difference-between-loc-and-iloc-in-pandas">What’s the difference between .loc[] and .iloc[] in Pandas?<a class="headerlink" href="#whats-the-difference-between-loc-and-iloc-in-pandas" title="Permanent link">&para;</a></h3>
+<h2 id="visualization-matplotlibseaborn">📈 Visualization (Matplotlib/Seaborn)<a class="headerlink" href="#visualization-matplotlibseaborn" title="Permanent link">&para;</a></h2>
+<h3 id="how-do-you-create-a-basic-line-plot-using-matplotlib">How do you create a basic line plot using Matplotlib?<a class="headerlink" href="#how-do-you-create-a-basic-line-plot-using-matplotlib" title="Permanent link">&para;</a></h3>
+<h3 id="what-types-of-plots-can-you-create-with-seaborn">What types of plots can you create with Seaborn?<a class="headerlink" href="#what-types-of-plots-can-you-create-with-seaborn" title="Permanent link">&para;</a></h3>
+<h3 id="how-would-you-visualize-missing-values-in-a-dataset">How would you visualize missing values in a dataset?<a class="headerlink" href="#how-would-you-visualize-missing-values-in-a-dataset" title="Permanent link">&para;</a></h3>
+<h2 id="data-preprocessing-cleaning">📦 Data Preprocessing &amp; Cleaning<a class="headerlink" href="#data-preprocessing-cleaning" title="Permanent link">&para;</a></h2>
+<h3 id="how-do-you-handle-missing-values-in-pandas">How do you handle missing values in Pandas?<a class="headerlink" href="#how-do-you-handle-missing-values-in-pandas" title="Permanent link">&para;</a></h3>
+<h3 id="what-is-the-difference-between-dropna-and-fillna">What is the difference between dropna() and fillna()?<a class="headerlink" href="#what-is-the-difference-between-dropna-and-fillna" title="Permanent link">&para;</a></h3>
+<h3 id="how-do-you-normalize-or-scale-numerical-data">How do you normalize or scale numerical data?<a class="headerlink" href="#how-do-you-normalize-or-scale-numerical-data" title="Permanent link">&para;</a></h3>
+<h3 id="what-is-one-hot-encoding-and-when-do-you-use-it">What is one-hot encoding and when do you use it?<a class="headerlink" href="#what-is-one-hot-encoding-and-when-do-you-use-it" title="Permanent link">&para;</a></h3>
+<h2 id="statistics-machine-learning-basics">🔢 Statistics &amp; Machine Learning (Basics)<a class="headerlink" href="#statistics-machine-learning-basics" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-the-difference-between-supervised-and-unsupervised-learning">### What is the difference between supervised and unsupervised learning?<a class="headerlink" href="#what-is-the-difference-between-supervised-and-unsupervised-learning" title="Permanent link">&para;</a></h3>
+<h3 id="name-a-few-common-algorithms-used-for-classification">Name a few common algorithms used for classification<a class="headerlink" href="#name-a-few-common-algorithms-used-for-classification" title="Permanent link">&para;</a></h3>
+<h3 id="what-does-train-test-split-mean-and-why-is-it-important">What does train-test split mean and why is it important?<a class="headerlink" href="#what-does-train-test-split-mean-and-why-is-it-important" title="Permanent link">&para;</a></h3>
+<h3 id="what-is-overfitting-and-how-do-you-prevent-it">What is overfitting and how do you prevent it?<a class="headerlink" href="#what-is-overfitting-and-how-do-you-prevent-it" title="Permanent link">&para;</a></h3>
+<h3 id="explain-the-purpose-of-cross-validation">Explain the purpose of cross-validation<a class="headerlink" href="#explain-the-purpose-of-cross-validation" title="Permanent link">&para;</a></h3>
+<h3 id="what-is-a-confusion-matrix">What is a confusion matrix?<a class="headerlink" href="#what-is-a-confusion-matrix" title="Permanent link">&para;</a></h3>
+<h2 id="project-scenario-based">📁 Project &amp; Scenario-Based<a class="headerlink" href="#project-scenario-based" title="Permanent link">&para;</a></h2>
+<h3 id="you-have-a-csv-file-with-1-million-rows-how-would-you-load-and-analyze-it-efficiently-in-python">You have a CSV file with 1 million rows. How would you load and analyze it efficiently in Python?<a class="headerlink" href="#you-have-a-csv-file-with-1-million-rows-how-would-you-load-and-analyze-it-efficiently-in-python" title="Permanent link">&para;</a></h3>
+<h3 id="if-your-model-accuracy-is-95-what-additional-metrics-would-you-check">If your model accuracy is 95%, what additional metrics would you check?<a class="headerlink" href="#if-your-model-accuracy-is-95-what-additional-metrics-would-you-check" title="Permanent link">&para;</a></h3>
+<h3 id="describe-a-python-project-youve-worked-on-can-be-academic-or-personal-what-libraries-did-you-use">Describe a Python project you've worked on (can be academic or personal). What libraries did you use?<a class="headerlink" href="#describe-a-python-project-youve-worked-on-can-be-academic-or-personal-what-libraries-did-you-use" title="Permanent link">&para;</a></h3>
+<p>Great! Here's a <strong>visual summary + mini challenge</strong> for handling missing data in Pandas.</p>
+<hr />
+<h2 id="visual-summary-how-to-handle-missing-data">📊 <strong>Visual Summary: How to Handle Missing Data</strong><a class="headerlink" href="#visual-summary-how-to-handle-missing-data" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>🔧 Method</th>
+<th>📘 Code Example</th>
+<th>💡 When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detect Missing</td>
+<td><code>df.isnull().sum()</code></td>
+<td>To find how many values are missing</td>
+</tr>
+<tr>
+<td>Drop rows</td>
+<td><code>df.dropna()</code></td>
+<td>If missing data is minimal</td>
+</tr>
+<tr>
+<td>Drop columns</td>
+<td><code>df.dropna(axis=1)</code></td>
+<td>If a column has too many missing values</td>
+</tr>
+<tr>
+<td>Fill with value</td>
+<td><code>df.fillna('Unknown')</code></td>
+<td>For categorical columns like 'City'</td>
+</tr>
+<tr>
+<td>Fill with mean</td>
+<td><code>df['Age'].fillna(df['Age'].mean())</code></td>
+<td>For numerical data like age or income</td>
+</tr>
+<tr>
+<td>Forward fill</td>
+<td><code>df.fillna(method='ffill')</code></td>
+<td>For time series or ordered data</td>
+</tr>
+<tr>
+<td>Group-wise fill</td>
+<td><code>df.groupby('Gender')['Age'].transform(...)</code></td>
+<td>When filling based on a related category</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="mini-challenge">🧪 Mini Challenge<a class="headerlink" href="#mini-challenge" title="Permanent link">&para;</a></h2>
+<p>You are given a messy employee dataset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    <span class="s1">&#39;EmployeeID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">105</span><span class="p">],</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Eva&#39;</span><span class="p">],</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    <span class="s1">&#39;Department&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sales&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;IT&#39;</span><span class="p">],</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="p">}</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original DataFrame:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="your-tasks">🎯 Your Tasks<a class="headerlink" href="#your-tasks" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Find the number of missing values in each column.</li>
+<li>Fill <code>Name</code> and <code>Department</code> with <code>"Unknown"</code>.</li>
+<li>Fill <code>Age</code> with the median age.</li>
+<li>Print the cleaned DataFrame.</li>
+</ol>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/ashishbindra2"  target="_blank" rel="noopener">Ashish Bindra</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ashishbindra2" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://in.linkedin.com/in/ashishbindra2/" target="_blank" rel="noopener" title="in.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.sections", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
