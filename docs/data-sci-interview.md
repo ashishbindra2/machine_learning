@@ -362,9 +362,11 @@ Correlation: A relationship between two variables.
 Causation: One variable causes the change in another.
 
 ### 5. What is the purpose of a GROUP BY clause in SQL?
+
 It groups rows that have the same values into summary rows like SUM, AVG, COUNT.
 
 ### 6. How do you visualize categorical vs numerical data?
+
 Categorical: Bar chart, Pie chart
 
 Numerical: Histogram, Box plot, Line plot
@@ -375,7 +377,7 @@ Numerical: Histogram, Box plot, Line plot
 duplicates = df[df.duplicated()]
 ```
 
-### 8. Explain the difference between INNER JOIN and LEFT JOIN.
+### 8. Explain the difference between INNER JOIN and LEFT JOIN
 
 ```
 INNER JOIN: Returns matching records from both tables.
@@ -404,6 +406,48 @@ Answer:
 ## Statistics & Probability
 
 ### What is the difference between mean, median, and mode?
+
+## ✅ **Difference Between Mean, Median, and Mode**
+
+| Measure            | Definition                                        | Use Case                              | Example                                |
+| ------------------ | ------------------------------------------------- | ------------------------------------- | -------------------------------------- |
+| **Mean** (Average) | Sum of all values divided by the number of values | Best for normally distributed data    | `(2 + 3 + 4 + 5 + 6) / 5 = 4`          |
+| **Median**         | The middle value when data is sorted              | Best when data has outliers           | Sorted `[1, 2, 3, 100] → Median = 2.5` |
+| **Mode**           | The value that appears most frequently            | Best for categorical or discrete data | `[1, 2, 2, 3] → Mode = 2`              |
+
+---
+
+### 🔍 Example
+
+Given this list:
+
+```python
+data = [1, 2, 2, 3, 100]
+```
+
+```python
+import statistics as stats
+
+mean = stats.mean(data)     # 21.6
+median = stats.median(data) # 2
+mode = stats.mode(data)     # 2
+```
+
+- **Mean** = 21.6 → pulled up by **100** (an outlier)
+- **Median** = 2 → unaffected by extreme values
+- **Mode** = 2 → the most frequent number
+
+---
+
+### 🧠 Summary
+
+| Term   | Sensitive to Outliers? |
+| ------ | ---------------------- |
+| Mean   | ✅ Yes                  |
+| Median | ❌ No                   |
+| Mode   | ❌ No                   |
+
+---
 
 ### What is standard deviation? Why is it important?
 
@@ -483,7 +527,7 @@ Answer:
 
 ### ### What is the difference between supervised and unsupervised learning?
 
-### Name a few common algorithms used for classification.
+### Name a few common algorithms used for classification
 
 ### What does train-test split mean and why is it important?
 
@@ -500,3 +544,48 @@ Answer:
 ### If your model accuracy is 95%, what additional metrics would you check?
 
 ### Describe a Python project you've worked on (can be academic or personal). What libraries did you use?
+
+Great! Here's a **visual summary + mini challenge** for handling missing data in Pandas.
+
+---
+
+## 📊 **Visual Summary: How to Handle Missing Data**
+
+| 🔧 Method       | 📘 Code Example                              | 💡 When to Use                           |
+| --------------- | -------------------------------------------- | ---------------------------------------- |
+| Detect Missing  | `df.isnull().sum()`                          | To find how many values are missing      |
+| Drop rows       | `df.dropna()`                                | If missing data is minimal               |
+| Drop columns    | `df.dropna(axis=1)`                          | If a column has too many missing values  |
+| Fill with value | `df.fillna('Unknown')`                       | For categorical columns like 'City'      |
+| Fill with mean  | `df['Age'].fillna(df['Age'].mean())`         | For numerical data like age or income    |
+| Forward fill    | `df.fillna(method='ffill')`                  | For time series or ordered data          |
+| Group-wise fill | `df.groupby('Gender')['Age'].transform(...)` | When filling based on a related category |
+
+---
+
+## 🧪 Mini Challenge
+
+You are given a messy employee dataset:
+
+```python
+import pandas as pd
+
+data = {
+    'EmployeeID': [101, 102, 103, 104, 105],
+    'Name': ['Alice', 'Bob', None, 'David', 'Eva'],
+    'Department': ['Sales', None, 'HR', None, 'IT'],
+    'Age': [25, None, 30, None, 35]
+}
+
+df = pd.DataFrame(data)
+print("Original DataFrame:\n", df)
+```
+
+### 🎯 Your Tasks
+
+1. Find the number of missing values in each column.
+2. Fill `Name` and `Department` with `"Unknown"`.
+3. Fill `Age` with the median age.
+4. Print the cleaned DataFrame.
+
+---
