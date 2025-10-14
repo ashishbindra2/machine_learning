@@ -1206,7 +1206,7 @@ DATABASES
     ├── Graph         (Neo4j, ArangoDB)
     └── Vector DB     (Pinecone, Weaviate, Milvus)
 ```
-
+![alt text](<ChatGPT Image Jun 21, 2025, 12_19_01 PM.png>)
 ---
 
 Would you like this turned into a **real image or flowchart diagram** (`.png`)? I can generate a visual version for you!
