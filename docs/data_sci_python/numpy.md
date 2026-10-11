@@ -1,54 +1,163 @@
-https://intellipaat.com/blog/interview-question/numpy-interview-questions/
+# Numpy
 
-1. What is Numpy? Why do we use it?
-NumPy is a Python library used for numerical computing, especially for handling arrays and matrices. We use it because it provides efficient operations on large datasets and supports mathematical functions essential for scientific computing and data analysis.
+Link: <https://intellipaat.com/blog/interview-question/numpy-interview-questions/>
 
-2. How can I make an array in NumPy?
+## 1. What is Numpy? Why do we use it?
+
+- NumPy is a Python library used for numerical computing, especially for handling arrays and matrices.
+- We use it because it provides efficient operations on large datasets and supports mathematical functions essential for scientific computing and data analysis.
+
+## 2.. What are the advantages and disadvantages of Numpy?
+
+Advantages Disadvantages
+Efficient numerical operations Limited support for non-numeric data types  
+Simplified syntax for complex mathematical computations Memory-intensive for large arrays
+Seamless integration with other Python libraries like SciPy and Pandas Lack of built-in support for distributed computing
+Extensive documentation and community support Steep learning curve for beginners due to its complex syntax and advanced functionalities
+
+## 3. Why do we need NumPy arrays?
+
+- NumPy arrays are faster and more efficient than Python lists
+- When dealing with a huge dataset with millions of data, NumPy arrays can be 100x faster than traditional Python lists.
+- When you have a handful of items, lists are great. But when dealing with thousands or even millions of numbers, NumPy arrays are the way to go!
+
+## 4. How to check numpy version
+
+```py
+import numpy as np
+print(np.__version__)
+```
+
+## 5. How can I make an array in NumPy?
+
 You can make an array in NumPy using the numpy.array() function.
 
-For example,
-
+```py
+# For example,
 import numpy as np<br>
 my_array = np.array([1, 2, 3])
-Array in NumPy
+print(my_array)
+```
 
-3. What are the advantages and disadvantages of Numpy?
-Advantages	Disadvantages
-Efficient numerical operations	Limited support for non-numeric data types  
-Simplified syntax for complex mathematical computations	Memory-intensive for large arrays
-Seamless integration with other Python libraries like SciPy and Pandas	Lack of built-in support for distributed computing
-Extensive documentation and community support	Steep learning curve for beginners due to its complex syntax and advanced functionalities
-4. Why is NumPy better than Yorick, Matlab, Octave, or Idl?
-NumPy outperforms Yorick, MATLAB, Octave, and IDL due to its efficient combination of Python and optimized C/C++ code, providing faster numerical computations. It offers a vast library of functions and data structures, seamlessly integrating with the broader Python ecosystem. NumPy’s large and active community ensures better documentation, more third-party packages, and quicker development of new features. As an open-source and cross-platform library, NumPy is free to use and accessible on various operating systems, making it a more versatile and scalable choice for scientific and data-intensive applications.
+## 6. Numpy functions
 
-5. What are ndarrays in NumPy?
+NumPy also comes with a bunch of math functions
+Here are some of the common ones:
+
+- .min() Return the minimum value of an array.
+- .max() Return the maximum value of an array.
+- .sum() Return the total sum of an array's values.
+- .average() Return the average value of an array.
+
+## 7. axis
+
+- axis=0: each column
+- axis=1: each row
+
+```py
+temperatures = np.array([[50, 51, 54, 59, 59, 53, 54, 51],
+                         [45, 50, 38, 44, 40, 46, 43, 39]])
+
+np.sum(temperatures, axis=0)   # Sum of each column
+np.min(temperatures, axis=1)   # Min of each row
+```
+
+## 8. shape
+
+NumPy arrays have a property called `.shape` that returns a tuple containing number of elements each dimension has.
+
+```py
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]]) 
+print(arr.shape)     # Output: (2, 4)
+```
+
+When we print `arr.shape`, we get (2, 4) because there are two dimensions:
+
+- The 1st dimension has 2 elements (for the rows).
+- The 2nd dimension has 4 elements (for the columns).
+
+## 9. reshape()
+
+- If we want to change the shape of an array, we use the `.reshape()` function.
+- Suppose we want to convert the following 1D array into a 2D one
+
+```py
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8]) 
+new_arr = arr.reshape(2, 4)
+
+print(new_arr)
+
+# Output:
+# [[1 2 3 4]
+# [5 6 7 8]]
+```
+
+Here we are turning the array into two dimensions:
+
+- The 1st dimension has 2 rows.
+- The 2nd dimension has 4 columns.
+
+## 10. arange()
+
+The .arange() function, short for “array range”, is a function that creates an array with evenly spaced values.
+
+```py
+arr = np.arange(5)
+print(arr)    # Output: [0 1 2 3 4]
+```
+
+You can go further with its three parameters:
+
+- `start` is the first value in the array.
+- `stop` is end of the range.
+- `step` is step size of the intervals.
+
+```py
+arr = np.arange(start=1, stop=10, step=3)
+print(arr)   # Output: [1 4 7]
+```
+
+### we learned
+
+- Math operations with +, -, *, /, and %.
+- Math functions like .min(), .max(), .sum(), .average().
+- .shape shows the number of elements for each dimension and .reshape() updates it.
+- .arange() to create an array with evenly spaced values.
+
+<!-- ## 11. Why is NumPy better than Yorick, Matlab, Octave, or Idl? -->
+
+<!-- NumPy outperforms Yorick, MATLAB, Octave, and IDL due to its efficient combination of Python and optimized C/C++ code, providing faster numerical computations. It offers a vast library of functions and data structures, seamlessly integrating with the broader Python ecosystem. NumPy’s large and active community ensures better documentation, more third-party packages, and quicker development of new features. As an open-source and cross-platform library, NumPy is free to use and accessible on various operating systems, making it a more versatile and scalable choice for scientific and data-intensive applications. -->
+
+## 11. What are ndarrays in NumPy?
+
 Ndarrays are multi-dimensional arrays in NumPy used for efficient numerical computations and data manipulation. They are the main building block of NumPy.
 
 It’s basically a way to store data in tables with multiple dimensions, like spreadsheets. They’re super fast because they’re optimized for math stuff. Once you make one, you can’t change its size, but you can do basic mathematics with it. They only like to store the same type of data, like all numbers or all text.
 
-Get 100% Hike!
+## 12. Explain the difference between shallow copy and deep copy in NumPy
 
-Master Most in Demand Skills Now!
+|Shallow Copy |Deep Copy|
+|-------------|---------|
+|Creates a new object with references to the original data Creates a completely new and independent object
+Changes to the copied object affect the original Changes to the copied object don’t affect the original
+Faster and uses less memory Slower and uses more memory
+Copies only the top-level structure, not the nested objects Copies of both the top-level structure and nested objects
 
-Email Address
+## 13. In a NumPy array, how can we access the elements?
 
-+91  IN          INDIA
-Phone Number
-By providing your contact details, you agree to our Terms of Use & Privacy Policy
-6. Explain the difference between shallow copy and deep copy in NumPy.
-Shallow Copy	Deep Copy
-Creates a new object with references to the original data	Creates a completely new and independent object
-Changes to the copied object affect the original	Changes to the copied object don’t affect the original
-Faster and uses less memory	Slower and uses more memory
-Copies only the top-level structure, not the nested objects	Copies of both the top-level structure and nested objects
-7. In a NumPy array, how can we access the elements?
 In NumPy, we can access an array in two ways. Either by slicing or by indexing. For example:
 
-To access a single element: array[index]
-To access a slice of elements: array[start_index:end_index]
-For multi-dimensional arrays, you can use comma-separated indices: array[row_index, column_index]
-8. What is a var function in NumPy?
-In NumPy, the “var” function calculates the variance of elements within an array or across a designated axis. Variance is a measure of the spread or dispersion of a set of data points.
+- To access a single element: array[index]
+- To access a slice of elements: array[start_index:end_index]
+- For multi-dimensional arrays, you can use comma-separated indices: array[row_index, column_index]
+
+## 14. What is a var function in NumPy?
+
+In NumPy, the “var” function calculates the variance of elements within an array or across a designated axis.
+
+- Variance is a measure of the spread or dispersion of a set of data points.
 
 np.var(a, axis=None, dtype=None)
 
@@ -58,16 +167,20 @@ axis: Specifies the axis or axes for variance computation. If not provided, vari
 
 dtype: Defines the data type of the resultant variance. If unspecified, the data type is inferred from the input array.
 
-9. How can you create arrays in NumPy that are 1D, 2D, and 3D?
+## 15. How can you create arrays in NumPy that are 1D, 2D, and 3D?
+
 Let’s say you have a standard Python list. Using the array function, we can generate NumPy arrays in the manner described below:
 
 One dimensional array:
 
+```py
 import numpy as np<br>
 arr = [1,2,3,4] #python list<br>
 numpy_arr = np.array(arr) #numpy array
 Two-dimensional arrays:
+```
 
+```py
 import numpy as np<br>
 arr = [[1,2,3,4],[4,5,6,7]]<br>
 numpy_arr = np.array(arr)
@@ -76,73 +189,88 @@ Three-dimensional arrays:
 import numpy as np<br>
 arr = [[[1,2,3,4],[4,5,6,7],[7,8,9,10]]]<br>
 numpy_arr = np.array(arr)
-10. How can you create a NumPy array from a Python list?
+```
+
+## 16. How can you create a NumPy array from a Python list?
+
 You can create a NumPy array from a Python list using the “numpy.array()” function. Here’s an example:
 
-import numpy as np<br>
-# Create a Python list<br>
-my_list = [1, 2, 3, 4, 5]<br>
-# Convert the list to a NumPy array<br>
-my_array = np.array(my_list)<br>
-# Print the NumPy array<br>
-print(my_array)
-This will give you the following output:
+```py
+import numpy as np
 
-[1 2 3 4 5]
+# Create a Python list
+my_list = [1, 2, 3, 4, 5]
 
-11. Which common data types does NumPy support?
-NumPy supports several common data types. These data types allow for flexibility in representing different kinds of numerical and non-numerical data in NumPy arrays. These types are:
+# Convert the list to a NumPy array
+my_array = np.array(my_list)
 
-Common Data Types That NumPy Supports
+# Print the NumPy array
+print(my_array) # [1 2 3 4 5]
+```
 
-12. How is NumPy different from Pandas?
+## 17. Which common data types does NumPy support?
+
+NumPy supports several common data types. These data types allow for flexibility in representing different kinds of numerical and non-numerical data in NumPy arrays.
+
+These types are:
+
+- int8, int16, int32, int64 - signed integer types with different bit sizes
+- uint8, uint16, uint32, uint64 - unsigned integer types with different bit sizes
+- float32, float64 - floating-point types with different precision levels
+- complex64, complex128 - complex number types with different precision levels
+
+## 18. How is NumPy different from Pandas?
+
 NumPy and Pandas are two essential libraries in the Python ecosystem for data manipulation and analysis, but they serve slightly different purposes.
 
-NumPy is primarily focused on numerical computing, providing support for multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. 
+- NumPy is primarily focused on numerical computing, providing support for multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently.
+- On the other hand, Pandas is built on top of NumPy and provides higher-level data structures, notably the DataFrame, a tabular, spreadsheet-like data structure.
+- Pandas excel in data manipulation, cleaning, and analysis tasks, offering powerful tools for handling missing data, reshaping datasets, grouping, merging, and joining datasets.
 
-On the other hand, Pandas is built on top of NumPy and provides higher-level data structures, notably the DataFrame, a tabular, spreadsheet-like data structure. Pandas excel in data manipulation, cleaning, and analysis tasks, offering powerful tools for handling missing data, reshaping datasets, grouping, merging, and joining datasets.
+## 19. How do you count the number of times a given value appears in an array of integers?
 
-13. How do you count the number of times a given value appears in an array of integers?
-The number of times a given value appears can be counted using the “bincount()” function. It’s important to remember that the bincount() method accepts two types of arguments: boolean expressions and positive integers. Null values are not permitted to be used. Use the function NumPy.bincount ().
-For example,
+- The number of times a given value appears can be counted using the `bincount()` function.
+- It’s important to remember that the bincount() method accepts two types of arguments: boolean expressions and positive integers.
+- Null values are not permitted to be used. Use the function `NumPy.bincount()`.
 
-import numpy as np<br>
-arr = np.array([2,3,1,5,0,3,8,1,0,0,3,7,6])<br>
-print(np.bincount(arr))
-This will give us the following output:
+```py
+# For example,
+import numpy as np
 
-[3 2 1 3 0 1 1 1 1]
+arr = np.array([2,3,1,5,0,3,8,1,0,0,3,7,6])
+print(np.bincount(arr)) # [3 2 1 3 0 1 1 1 1]
+```
 
-14. What is the difference between copy and view?
+## 20. What is the difference between copy and view?
+
 Copy: When you create a copy of a NumPy array, you get a new array with its own separate data.
 Any changes to the copied array won’t affect the original array, and vice versa.
 A copy essentially duplicates the data in memory.
 
-import numpy as np<br>
-original_array = np.array([1, 2, 3, 4, 5])<br>
-copied_array = original_array.copy()<br>
-copied_array[0] = 100<br>
-print("Original array:", original_array)<br>
-print("Copied array:", copied_array)
-Output:
+```py
+import numpy as np
 
-Original array: [1 2 3 4 5]
-Copied array: [100 2 3 4 5]
+original_array = np.array([1, 2, 3, 4, 5])
+copied_array = original_array.copy()
+copied_array[0] = 100
+print("Original array:", original_array) # Original array: [1 2 3 4 5]
+print("Copied array:", copied_array)     # Copied array: [100 2 3 4 5]
+```
 
 View: It is a new array object that refers to the same underlying data as the original array.
 Modifications to the view will affect the original array, and vice versa.
 Views provide different ways to look at the same data without copying it.
 
-import numpy as np<br>
-original_array = np.array([1, 2, 3, 4, 5])<br>
-view_array = original_array.view()<br>
-view_array[0] = 100<br>
-print("Original array:", original_array)<br>
-print("View array:", view_array)
-Output:
+```py
+import numpy as np
 
-Original array: [100 2 3 4 5]
-View array: [100 2 3 4 5]
+original_array = np.array([1, 2, 3, 4, 5])
+view_array = original_array.view()
+view_array[0] = 100
+
+print("Original array:", original_array) # Original array: [100 2 3 4 5]
+print("View array:", view_array)         # View array: [100 2 3 4 5]
+```
 
 15. How do you identify the data type of an array?
 One can identify the data type of a NumPy array using the “dtype” attribute. Let’s check out the given code to know “how”.
@@ -213,17 +341,6 @@ Advanced NumPy Interview Questions
 19. How do you check whether an array is empty or contains zero elements?
 In NumPy, you can utilize the “size” attribute to determine if an array is empty or has zero elements. This attribute provides the total count of elements in the array. If the size is zero, it signifies that the array is empty or has no elements.
 
-
-
-
-
-
-
-
-
-
-
-
 Process Advisors
 
 ey-logo
@@ -231,11 +348,11 @@ ey-logo
 20. What is the difference between slicing and indexing in NumPy?
 The basic methods for accessing and modifying elements in arrays are indexing and slicing, but some key distinctions must be noted.
 
-Slicing	Indexing
-Returns a portion of the original array as a new array	Returns a single element or a subset of elements from the original array
-Allows selecting a range of elements using start, stop, and step parameters	Selects a specific element or elements using integer indices
-Can create arrays with fewer dimensions than the original array	Can access individual elements or subsets of elements from the original array
-Syntax: array[start:stop:step]	Syntax: array[index] or array[row_index, column_index]
+Slicing Indexing
+Returns a portion of the original array as a new array Returns a single element or a subset of elements from the original array
+Allows selecting a range of elements using start, stop, and step parameters Selects a specific element or elements using integer indices
+Can create arrays with fewer dimensions than the original array Can access individual elements or subsets of elements from the original array
+Syntax: array[start:stop:step] Syntax: array[index] or array[row_index, column_index]
 Check out our blog on Data Science Tutorial to learn more about Data Science.
 
 21. What is vectorization in NumPy?
@@ -271,7 +388,9 @@ for i in range(1, len(arr) - 1):<br>
 if arr[i] > arr[i - 1] and arr[i] > arr[i + 1]:<br>
 peaks.append(i)<br>
 return peaks
+
 # Example usage:<br>
+
 arr = np.array([1, 3, 7, 2, 5, 8, 4])<br>
 peaks = find_peaks(arr)<br>
 print("Peaks found at indices:", peaks)<br>
@@ -293,7 +412,9 @@ matrix1 = np.array([[1, 2, 3],<br>
 matrix2 = np.array([[10, 11, 12],<br>
 [13, 14, 15],<br>
 [16, 17, 18]])<br>
+
 # Add the matrices<br>
+
 result = matrix1 + matrix2<br>
 print(result)
 Output:
@@ -338,9 +459,13 @@ import numpy as np<br>
 arr_2d = np.array([[1, 2, 3],<br>
 [4, 5, 6],<br>
 [7, 8, 9]])<br>
+
 # Swap rows using advanced indexing<br>
+
 arr_2d[[0, 1]] = arr_2d[[1, 0]]<br>
+
 # Swap columns using advanced indexing<br>
+
 arr_2d[:, [0, 1]] = arr_2d[:, [1, 0]]<br>
 print(arr_2d)
 Output:
@@ -369,7 +494,9 @@ You can sort a NumPy array in ascending or descending order using the “np.sort
 
 import numpy as np<br>
 arr = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3])<br>
+
 # Sort the array in ascending order<br>
+
 sorted_arr_ascending = np.sort(arr)<br>
 print(sorted_arr_ascending)
 Output:
@@ -380,8 +507,10 @@ In descending order:
 
 import numpy as np<br>
 arr = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3])<br>
+
 # Sort the array in descending order<br>
-sorted_arr_descending = np.sort(arr)[::-1]<br>
+
+sorted_arr_descending = np.sort[arr](::-1)<br>
 print(sorted_arr_descending)
 Output:
 
@@ -391,11 +520,17 @@ Output:
 The np.array_split() function in NumPy is used to split a NumPy array into multiple sub-arrays along a specified axis. It takes two arguments: the original array and the number of sub-arrays to create. The function returns a list of the split sub-arrays, with the length of the list equal to the number of sections specified.
 
 import numpy as np<br>
+
 # Create a sample NumPy array<br>
+
 original_array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])<br>
+
 # Split the array into 3 sub-arrays<br>
+
 split_arrays = np.array_split(original_array, 3)<br>
+
 # Print the results<br>
+
 print("Original Array:", original_array)<br>
 print("Split Arrays:")<br>
 for sub_array in split_arrays:<br>
@@ -413,14 +548,18 @@ Converting a Pandas DataFrame into a NumPy array can be done using the .to_numpy
 
 import pandas as pd<br>
 import numpy as np<br>
+
 # Create a sample DataFrame<br>
+
 data = {<br>
 'A': [1, 2, 3],<br>
 'B': [4, 5, 6],<br>
 'C': [7, 8, 9]<br>
 }<br>
 df = pd.DataFrame(data)<br>
+
 # Convert the DataFrame to a NumPy array<br>
+
 numpy_array = df.to_numpy()<br>
 print(numpy_array)
 Output:
@@ -444,11 +583,17 @@ Output:
 One can accomplish this by employing a masked array or a boolean mask to filter out missing or null data. For example:
 
 import numpy as np<br>
+
 # Create a NumPy array with missing values (NaN)<br>
+
 arr = np.array([10, 20, np.nan, 40, 50])<br>
+
 # Create a masked array where missing values are masked<br>
+
 masked_arr = np.ma.masked_invalid(arr)<br>
+
 # Access only non-missing values<br>
+
 clean_data = masked_arr.compressed()<br>
 print(clean_data)
 Output:
@@ -485,9 +630,9 @@ np.flipud(arr)
 where the array that has to be flipped is arr
 
 37. Discuss the role of NumPy in feature engineering for machine learning.
-NumPy, the fundamental package for scientific computing with Python, plays a pivotal role in feature engineering for machine learning. Its multidimensional arrays enable easy storage and manipulation of datasets, facilitating preprocessing tasks such as scaling, normalization, and transformation. 
+NumPy, the fundamental package for scientific computing with Python, plays a pivotal role in feature engineering for machine learning. Its multidimensional arrays enable easy storage and manipulation of datasets, facilitating preprocessing tasks such as scaling, normalization, and transformation.
 
-In feature engineering, NumPy empowers practitioners to create new features by combining existing ones, extracting meaningful information, or encoding categorical variables. Its broadcasting and vectorized operations accelerate computations, enhancing the scalability of feature engineering pipelines. Additionally, NumPy seamlessly integrates with other machine learning frameworks like sci-kit-learn, enabling smooth data flow from feature engineering to model training and evaluation. 
+In feature engineering, NumPy empowers practitioners to create new features by combining existing ones, extracting meaningful information, or encoding categorical variables. Its broadcasting and vectorized operations accelerate computations, enhancing the scalability of feature engineering pipelines. Additionally, NumPy seamlessly integrates with other machine learning frameworks like sci-kit-learn, enabling smooth data flow from feature engineering to model training and evaluation.
 
 Overall, NumPy’s speed, versatility, and compatibility make it an indispensable tool for crafting informative features that contribute to the performance and interpretability of machine learning models.
 
@@ -560,18 +705,22 @@ Inverse Transform: The numpy.fft.irfft function computes the inverse DFT for rea
 These Fourier transform functions enable efficient signal and image analysis by allowing manipulation in the frequency domain, such as filtering and spectral analysis.
 
 43. What is the difference between hstack() and vstack() in NumPy?
-Function	Description	Axis of Concatenation	Example
-hstack()	Stack arrays horizontally (side by side)	Second axis (axis 1)	If arrays have the same number of rows, they are concatenated horizontally.
-vstack()	Stack arrays vertically (on top of each other)	First axis (axis 0)	If arrays have the same number of columns, they are concatenated vertically.
+Function Description Axis of Concatenation Example
+hstack() Stack arrays horizontally (side by side) Second axis (axis 1) If arrays have the same number of rows, they are concatenated horizontally.
+vstack() Stack arrays vertically (on top of each other) First axis (axis 0) If arrays have the same number of columns, they are concatenated vertically.
 44. How do you extract the diagonal elements of a square 2D NumPy array matrix?
 To extract the diagonal elements of a square 2D NumPy array matrix, you can use the np.diagonal() function. Here’s an example:
 
 import numpy as np<br>
+
 # Create a square 2D NumPy array matrix<br>
+
 matrix = np.array([[1, 2, 3],<br>
 [4, 5, 6],<br>
 [7, 8, 9]])<br>
+
 # Extract the diagonal elements<br>
+
 diagonal_elements = np.diagonal(matrix)<br>
 print(diagonal_elements)
 Output:
@@ -582,7 +731,9 @@ Output:
 One can achieve this using NumPy’s vectorized string operations. Here’s a Python program that demonstrates this:
 
 import numpy as np<br>
+
 # Create Sample NumPy array<br>
+
 arr = np.array(['Intellipaat', 'Software', 'Solutions'], dtype=str)
 upper_case_arr = np.char.upper(arr)<br>
 lower_case_arr = np.char.lower(arr)<br>
@@ -607,12 +758,18 @@ Here’s an example code:
 
 import numpy as np<br>
 def add_spaces_to_array(arr):<br>
+
 # Convert the array to string type<br>
+
 arr = arr.astype(str)<br>
+
 # Add spaces to each character<br>
+
 spaced_array = np.char.add(arr, ' ')<br>
 return spaced_array<br>
+
 # Example usage<br>
+
 array = np.array(["Intellipaat", "Software", "Solutions"])<br>
 spaced_array = add_spaces_to_array(array)<br>
 print(spaced_array)
@@ -624,9 +781,13 @@ Output:
 You can create a 3×3 matrix with values from 1 to 9 using NumPy’s arange() function to generate the values and then reshape it into a 3×3 matrix. Here’s how you can do it:
 
 import numpy as np<br>
+
 # Generate values from 1 to 9<br>
+
 values = np.arange(1, 10)<br>
+
 # Reshape the values into a 3x3 matrix<br>
+
 matrix = values.reshape(3, 3)<br>
 print(matrix)
 Output:
@@ -639,10 +800,14 @@ Output:
 We can use numpy.linalg.eig() function to find the eigenvalues and eigenvectors of a matrix. Here’s an example:
 
 import numpy as np<br>
+
 # Define your matrix<br>
+
 matrix = np.array([[1, 2],<br>
 [3, 4]])<br>
+
 # Find eigenvalues and eigenvectors<br>
+
 eigenvalues, eigenvectors = np.linalg.eig(matrix)
 print("Eigenvalues:")<br>
 print(eigenvalues)<br>
@@ -661,12 +826,18 @@ Eigenvectors:
 If the arrays meet specific compatibility requirements, NumPy’s powerful broadcasting capability makes it easier to conduct actions between arrays of different forms. Combining a 2D array with a scalar value is one of the actions that may be done via broadcasting. Here’s an example:
 
 import numpy as np<br>
+
 # Define a scalar value<br>
+
 scalar_value = 5<br>
+
 # Define a 2D array<br>
+
 array_2d = np.array([[1, 2, 3],<br>
 [4, 5, 6]])<br>
+
 # Add the scalar value to the 2D array<br>
+
 result = array_2d + scalar_value
 print("Original 2D array:")<br>
 print(array_2d)<br>

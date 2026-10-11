@@ -27,6 +27,100 @@ df = pd.DataFrame(data)<br>
 print(df)
 Output of DataFrames in Pandas
 
+## Series
+
+When we select a single column, we’re actually getting a Pandas Series (not a full DataFrame).
+
+If a DataFrame is like a table, a Series is like a single column of that table. It’s still powerful
+
+```py
+type(movies)            # Prints pandas.core.frame.DataFrame
+type(movies['genre'])   # Prints pandas.core.series.Series
+```
+
+### Accessing Multiple Column
+
+We can access multiple columns by using a Python list of column names. For example, the following line of code would return the genre and studio columns:
+
+```py
+only_genre_and_studio_df = movies[['genre', 'studio']]
+```
+
+Because this returns multiple columns, it will be a DataFrame rather than a Series.
+
+### Accessing All But One Column with .drop()
+
+Sometimes we want everything except one column. That’s where .drop() comes in handy
+
+```py
+removed_title_df = movies.drop("title", axis = 1)
+```
+
+The above line of code creates a new DataFrame named removied_title_df that contains all of the columns from movies except for the title column
+
+axis = 1 tells Pandas that we want to drop a column rather than a row.
+
+## Filtering Rows
+
+Here's how we could filter for movies longer than 120 minutes:
+
+```py
+long_movies = movies[movies['runtime_minutes'] > 120]
+```
+
+This filtering syntax can be a bit confusing. Why do we need to include movies twice?
+
+## AND and OR
+
+You can filter based on multiple conditions by using AND (&) and OR (|).
+
+For example, if you wanted to filter for movies that are longer than 120 minutes AND in the genre 'Sci-Fi'
+
+```py
+long_movies = movies[
+  (movies['runtime_minutes'] > 120) &
+  (movies['genre'] == 'Sci-Fi')
+]
+```
+
+## Sorting, Renaming, and Adding Columns
+
+### Sorting By Columns with .sort_values()
+
+Want to see which movie made the most money? We can sort a DataFrame by a specific column by using .sort_values():
+
+```PY
+box_office_sorted = movies.sort_values(by='box_office', ascending=False)
+```
+
+If we wanted to sort from low to high, just use ascending = True.
+
+## Rename Columns with .rename()
+
+Let’s say we want to rename the 'budget' column to 'budget_usd'. We can do that by using .rename():
+
+```py
+movies = movies.rename(columns={'budget': 'budget_usd'})
+```
+
+Notice that we used movies = . This is because .rename() doesn't automatically change the original DataFrame unless we assign the result back to movies (or use inplace=True).
+
+If we wanted to rename multiple columns at once, we could have passed additional key:value pairs to the columns dictionary.
+
+## Adding Columns
+
+We can add new columns by assigning a list or a calculation to a column name. Here’s how to add a 'lead_actor' colum
+
+```py
+movies['lead_actor'] = ['Keanu Reeves', 'Leonardo DiCaprio', 'Song Kang-ho', 'Matthew Broderick', 'Michelle Yeoh']
+```
+
+We can also add new columns based on existing data! For example:
+
+```py
+movies['budget (millions)'] = movies['budget'] / 1000000
+```
+
 4. How do you iterate over DataFrame in Pandas?
 To iterate over a DataFrame in Pandas, you can use several methods. Each method serves different purposes and has its advantages in terms of readability and performance.
 
@@ -730,94 +824,163 @@ NaN Values: The initial calculations may result in `NaN` values due to insuffici
 Adjustability: The window size and minimum periods can be adjusted to suit the specific characteristics of the data being analyzed.
 The rolling mean is widely used in various fields, such as finance for stock price analysis, meteorology for temperature data, and any domain involving time series data to reveal important patterns and trends.
 
-47. How can we convert a NumPy array into a DataFrame?
+## 47. How can we convert a NumPy array into a DataFrame?
+
 To convert a NumPy array into a Pandas DataFrame, you can use the pd.DataFrame() constructor. This allows you to specify the data, along with optional arguments such as column names and index labels. Here’s an example code:
 
+```py
 import numpy as np<br>
 import pandas as pd
 
-# Creating a NumPy array<br>
-
+# Creating a NumPy array
 array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
-# Converting NumPy array to DataFrame<br>
-
-df = pd.DataFrame(array, columns=['A', 'B', 'C'])<br>
+# Converting NumPy array to DataFrame
+df = pd.DataFrame(array, columns=['A', 'B', 'C'])
 print(df)
-Output:
+```
 
-convert a NumPy array into a DataFrame
+## 48. How can we get the frequency count of unique items in a Pandas DataFrame?
 
-48. How can we get the frequency count of unique items in a Pandas DataFrame?
 To get the frequency count of unique items in a Pandas DataFrame, you can use the value_counts() method. This method is typically applied to a specific column of the DataFrame to count the occurrences of each unique value.
 
+```py
 import pandas as pd
 
 # Creating a sample DataFrame<br>
-
-df = pd.DataFrame({<br>
-'Category': ['A', 'B', 'A', 'C', 'B', 'A', 'C', 'C', 'B']<br>
+df = pd.DataFrame({
+'Category': ['A', 'B', 'A', 'C', 'B', 'A', 'C', 'C', 'B']
 })
 
-# Getting the frequency count of unique items in the 'Category' column<br>
+# Getting the frequency count of unique items in the 'Category' column
 
-frequency_count = df['Category'].value_counts()<br>
+frequency_count = df['Category'].value_counts()
 print(frequency_count)
-Output:
 
-frequency count of unique items in a Pandas DataFrame
+# Output:
+# frequency count of unique items in a Pandas DataFrame
+# Category
+# A    3
+# B    3
+# C    3
+# Name: count, dtype: int64
+```
 
-49. What do describe() percentiles values represent?
+## 49. What do describe() percentiles values represent?
+
 The describe() method in Pandas generates descriptive statistics for the DataFrame columns. The percentile values represent specific points in the data distribution. Percentile values typically include:
 
-50% (median): The middle value separates the higher half from the lower half of the data set.
-25% (first quartile): The value below which 25% of the data falls.
-75% (third quartile): The value below which 75% of the data falls.
-50. Explain data operations in Pandas.
+- 50% (median): The middle value separates the higher half from the lower half of the data set.
+- 25% (first quartile): The value below which 25% of the data falls.
+- 75% (third quartile): The value below which 75% of the data falls.
+
+## 50. Explain data operations in Pandas
+
 Data operations in Pandas are a set of functions and methods that allow for efficient data manipulation and analysis. Some common operations include:
 
-Selection and Indexing: Accessing data using labels, positions, or a boolean array. Examples include df.loc[], df.iloc[], and direct column access df[‘column’].
-Filtering: Extracting subsets of data based on conditions. This can be done using boolean indexing.
+- Selection and Indexing: Accessing data using labels, positions, or a boolean array.
+  - Examples include df.loc[], df.iloc[], and direct column access df[‘column’].
+- Filtering: Extracting subsets of data based on conditions.
+- This can be done using boolean indexing.
 Aggregation and Grouping: Summarizing data using functions like sum(), mean(), count(), often combined with groupby().
-Merging and Joining: Combining multiple DataFrames using merge(), join(), and concatenation with concat().
-Reshaping: Changing the structure of DataFrames with methods like pivot(), melt(), and stack()/unstack().
+- Merging and Joining: Combining multiple DataFrames using merge(), join(), and concatenation with concat().
+- Reshaping: Changing the structure of DataFrames with methods like pivot(), melt(), and stack()/unstack().
 Handling Missing Data: Managing NaN values using methods like fillna(), dropna(), and isna().
-51. What is vectorization in Pandas?
-Vectorization in Pandas refers to performing operations on entire arrays or DataFrames without using explicit loops. This approach leverages optimized, low-level implementations to achieve higher performance and efficiency.
 
-Benefits of Vectorization:
+## 51. What is vectorization in Pandas?
+
+Vectorization in Pandas refers to performing operations on entire arrays or DataFrames without using explicit loops.
+
+- This approach leverages optimized, low-level implementations to achieve higher performance and efficiency.
+
+```py
+import pandas as pd
+
+# Create a DataFrame
+data = {'A': [1, 2, 3, 4, 5], 
+        'B': [6, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+# Vectorized addition
+df['C'] = df['A'] + df['B']
+
+print(df)
+```
+
+### Benefits of Vectorization
 
 Performance: Vectorized operations are much faster than using Python loops.
 Simplicity: Code is more concise and easier to read.
-52. How will you combine different Data Frames in Panda?
+
+## 52. How will you combine different Data Frames in Panda?
+
 Combining DataFrames in Pandas can be done using several methods:
 
-A. Concatenation: Stacking DataFrames either vertically or horizontally using concat().
+1. Concatenation: Stacking DataFrames either vertically or horizontally using `concat()`.
+
+```
+pandas.concat(objs, axis=0, join='outer', ignore_index=False, keys=None, ...)
+```
+
+'outer' (default) or 'inner'
+
+```py
+import pandas as pd
+df1 = pd.DataFrame({'A': ['A0', 'A1'], 'B': ['B0', 'B1']})
+df2 = pd.DataFrame({'A': ['A2', 'A3'], 'B': ['B2', 'B3']})
 
 df_combined = pd.concat([df1, df2], axis=0)  # Vertical concatenation
+#     A   B
+# 0  A0  B0
+# 1  A1  B1
+# 0  A2  B2
+# 1  A3  B3
 df_combined = pd.concat([df1, df2], axis=1)  # Horizontal concatenation
-B. Merge: Combining DataFrames based on common columns or indices using merge(). This can perform inner, outer, left, and right joins.
 
-df_merged = pd.merge(df1, df2, on=’key’)
-C. Join: Combining DataFrames based on their index using `join()`. This is similar to merge but more index-oriented.
+#     A   B   A   B
+# 0  A0  B0  A2  B2
+# 1  A1  B1  A3  B3
+```
 
+2. Merge: Combining DataFrames based on common columns or indices using `merge()`. This can perform inner, outer, left, and right joins.
+
+```py
+df_merged = pd.merge(df1, df2, on='key')
+
+>>> df2 = pd.DataFrame({'A': ['A1', 'A2'], 'B': ['B1', 'B3']}) 
+>>> df1 = pd.DataFrame({'A': ['A1', 'A1'], 'B': ['B1', 'B1']}) 
+>>> res1 = pd.merge(df1, df2, on=['A', 'B'])
+>>> res1
+    A   B
+0  A1  B1
+1  A1  B1
+```
+
+3. Join: Combining DataFrames based on their index using `join()`. This is similar to merge but more index-oriented.
+
+```py
 df_joined = df1.join(df2, on=’key’)
 For example:
 
-import pandas as pd<br>
-
+import pandas as pd
 # Creating sample DataFrames<br>
 
-df1 = pd.DataFrame({<br>
-'ID': [1, 2, 3],<br>
-'Value1': ['A', 'B', 'C']<br>
+df1 = pd.DataFrame({
+'ID': [1, 2, 3],
+'Value1': ['A', 'B', 'C']
 })
-df2 = pd.DataFrame({<br>
+
+df2 = pd.DataFrame({
 'ID': [3, 4, 5],<br>
-'Value2': ['X', 'Y', 'Z']<br>
+'Value2': ['X', 'Y', 'Z']
 })
 
-# Merging DataFrames<br>
-
-df_combined = pd.merge(df1, df2, on='ID', how='outer')<br>
+# Merging DataFrames
+df_combined = pd.merge(df1, df2, on='ID', how='outer')
 print(df_combined)
+
+res = pd.merge(df, df1, how='left', on=['key', 'key1'])
+res1 = pd.merge(df, df1, how='right', on=['key', 'key1'])
+res3 = pd.merge(df, df1, how='inner', on=['key', 'key1'])
+
+```

@@ -49,88 +49,63 @@ This way, we get a clear idea of how well our model might perform in a real-worl
 
 ---
 
-Great! Let's do a **mock interview** focused on **model evaluation**, starting from the **train/test split**, and moving into related topics like **overfitting**, **cross-validation**, and **evaluation metrics**.
+## *"Can you explain the purpose of train/test split in machine learning?"*
+
+Yes, the train/test split is a fundamental technique used to evaluate the performance of a machine learning model.
+
+- We divide the dataset into two parts
+- the **training set** is used to train the model, and the **test set** is used to evaluate how well it generalizes to unseen data.
+
+- This helps ensure that the model doesn’t just memorize the training data (i.e., overfit), but can also make accurate predictions on new, real-world data.
 
 ---
 
-## 🧪 MOCK INTERVIEW SESSION – MODEL EVALUATION
+### *"You mentioned overfitting. Can you explain what overfitting is and how to detect it?"*
 
-### 🎤 **Interviewer**
-
-*"Can you explain the purpose of train/test split in machine learning?"*
-
-### ✅ **Your Answer**
-
-> Yes, the train/test split is a fundamental technique used to evaluate the performance of a machine learning model.
-
-> We divide the dataset into two parts — the **training set** is used to train the model, and the **test set** is used to evaluate how well it generalizes to unseen data.
-
-> This helps ensure that the model doesn’t just memorize the training data (i.e., overfit), but can also make accurate predictions on new, real-world data.
-
----
-
-### 🎤 **Interviewer**
-
-*"You mentioned overfitting. Can you explain what overfitting is and how to detect it?"*
-
-### ✅ **Your Answer**
-
-> Overfitting occurs when a model learns not only the underlying patterns in the training data but also the noise and random fluctuations.
+- Overfitting occurs when a model learns not only the underlying patterns in the training data but also the noise and random fluctuations.
 
 > As a result, it performs very well on the training set but poorly on the test set.
 
-> We can detect overfitting by comparing training and test accuracy:
->
-> * If training accuracy is high and test accuracy is low, it’s a sign of overfitting.
->
-> To prevent it, we can:
->
-> * Use simpler models
-> * Apply regularization
-> * Get more training data
-> * Use techniques like **cross-validation** for more robust evaluation
+- We can detect overfitting by comparing training and test accuracy:
+  - If training accuracy is high and test accuracy is low, it’s a sign of overfitting.
+
+To prevent it, we can:
+
+- Use simpler models
+- Apply regularization
+- Get more training data
+- Use techniques like **cross-validation** for more robust evaluation
 
 ---
 
-### 🎤 **Interviewer**
+### What is cross-validation, and how is it better than a simple train/test split?"*
 
-*"Interesting. What is cross-validation, and how is it better than a simple train/test split?"*
+Cross-validation is a more reliable method of evaluating a model, especially when the dataset is small.
+> The most common type is **k-fold cross-validation**, where the data is split into `k` parts. The model is trained on `k-1` parts and tested on the remaining part.
+This process repeats `k` times, and the results are averaged.
 
-### ✅ **Your Answer**
-
-> Cross-validation is a more reliable method of evaluating a model, especially when the dataset is small.
-> The most common type is **k-fold cross-validation**, where the data is split into `k` parts. The model is trained on `k-1` parts and tested on the remaining part. This process repeats `k` times, and the results are averaged.
->
 > Compared to a simple train/test split, cross-validation:
->
-> * Reduces variance in the evaluation
-> * Provides a more **stable and unbiased estimate** of model performance
-> * Helps ensure that every data point is used for both training and testing
+
+> - Reduces variance in the evaluation
+> - Provides a more **stable and unbiased estimate** of model performance
+> - Helps ensure that every data point is used for both training and testing
 
 ---
 
-### 🎤 **Interviewer**
-
-*"What metrics would you use to evaluate a classification model?"*
-
-### ✅ **Your Answer**
+### *"What metrics would you use to evaluate a classification model?"*
 
 > It depends on the problem, but commonly used metrics for classification include:
->
-> * **Accuracy**: Ratio of correctly predicted instances. Good when classes are balanced.
-> * **Precision**: How many predicted positives are actually positive. Useful when false positives are costly.
-> * **Recall**: How many actual positives were correctly predicted. Important when missing positives is costly.
-> * **F1-score**: Harmonic mean of precision and recall — good balance when data is imbalanced.
-> * **Confusion Matrix**: Gives a detailed breakdown of true/false positives and negatives.
-> * For probabilistic models, I might also look at **ROC-AUC** to evaluate performance at different thresholds.
+
+- **Accuracy**: Ratio of correctly predicted instances. Good when classes are balanced.
+- **Precision**: How many predicted positives are actually positive. Useful when false positives are costly.
+- **Recall**: How many actual positives were correctly predicted. Important when missing positives is costly.
+- **F1-score**: Harmonic mean of precision and recall — good balance when data is imbalanced.
+- **Confusion Matrix**: Gives a detailed breakdown of true/false positives and negatives.
+- For probabilistic models, I might also look at **ROC-AUC** to evaluate performance at different thresholds.
 
 ---
 
-### 🎤 **Interviewer**
-
-*"Let's say you get 95% accuracy on your model. Is that enough to consider your model good?"*
-
-### ✅ **Your Answer**
+### *"Let's say you get 95% accuracy on your model. Is that enough to consider your model good?"*
 
 > Not necessarily. Accuracy alone can be misleading — especially in **imbalanced datasets**.
 >
@@ -140,45 +115,30 @@ Great! Let's do a **mock interview** focused on **model evaluation**, starting f
 
 ---
 
-That's totally okay — this is exactly what practice is for!
-
-Let me give you a solid interview-style answer you can **learn and rephrase in your own words** later.
-
----
-
-### ✅ **Model Interview Answer:**
+###
 
 > A **confusion matrix** is a performance evaluation tool used for **classification problems**.
 > It is a **2x2 table** for binary classification that compares the **actual labels** with the **predicted labels** made by the model.
 >
 > The matrix includes:
 >
-> * **True Positives (TP)**: The model correctly predicted the positive class.
-> * **True Negatives (TN)**: The model correctly predicted the negative class.
-> * **False Positives (FP)**: The model predicted positive when it was actually negative. (Type I error)
-> * **False Negatives (FN)**: The model predicted negative when it was actually positive. (Type II error)
->
+> - **True Positives (TP)**: The model correctly predicted the positive class.
+> - **True Negatives (TN)**: The model correctly predicted the negative class.
+> - **False Positives (FP)**: The model predicted positive when it was actually negative. (Type I error)
+> - **False Negatives (FN)**: The model predicted negative when it was actually positive. (Type II error)
+
 > From the confusion matrix, we can calculate several key metrics:
 >
-> * **Accuracy** = (TP + TN) / (Total)
-> * **Precision** = TP / (TP + FP)
-> * **Recall** = TP / (TP + FN)
-> * **F1 Score** = 2 × (Precision × Recall) / (Precision + Recall)
+> - **Accuracy** = (TP + TN) / (Total)
+> - **Precision** = TP / (TP + FP)
+> - **Recall** = TP / (TP + FN)
+> - **F1 Score** = 2 × (Precision × Recall) / (Precision + Recall)
 >
 > It helps us understand **where** the model is making mistakes — for example, whether it's misclassifying more positives or negatives — which is especially important when the classes are imbalanced.
 
 ---
 
-### 📘 Pro Tip
-
-In interviews, it’s okay to say:
-
-> “I’m not sure, but I’d like to learn about it.”
-> That shows humility and a willingness to grow — qualities interviewers respect.
-
----
-
-"Can you explain the difference between precision and recall? When would you prefer one over the other?"
+## "Can you explain the difference between precision and recall? When would you prefer one over the other?"
 
 Precision and recall are two important metrics used to evaluate the performance of classification models, especially when dealing with imbalanced datasets.
 
@@ -219,13 +179,8 @@ Excellent — this is a **classic data analysis interview question** often asked
 
 ---
 
-## 🎯 Interview Question:
+## *"Revenue dropped last month. What would you check?"**
 
-**"Revenue dropped last month. What would you check?"**
-
----
-
-## ✅ Model Interview Answer (Detailed & Structured):
 
 > If revenue dropped last month, I would follow a structured approach to identify the root cause. Here’s how I would break it down:
 
@@ -233,11 +188,11 @@ Excellent — this is a **classic data analysis interview question** often asked
 
 ### 🧩 1. **Verify the Drop Is Real (Data Sanity Check)**
 
-* First, I would ensure the data is correct and up-to-date:
+- First, I would ensure the data is correct and up-to-date:
 
-  * Are we comparing the same time frames (e.g., full month vs partial month)?
-  * Were there any issues in data pipelines, delays, or missing entries?
-  * Are currency conversions or reporting time zones consistent?
+  - Are we comparing the same time frames (e.g., full month vs partial month)?
+  - Were there any issues in data pipelines, delays, or missing entries?
+  - Are currency conversions or reporting time zones consistent?
 
 ---
 
@@ -251,9 +206,9 @@ $$
 
 So, I would check:
 
-* 🔢 **Transaction Count** – Did fewer customers buy something?
-* 💸 **AOV** – Are people spending less per order?
-* 🧾 **Refunds or Cancellations** – Did returns increase?
+- 🔢 **Transaction Count** – Did fewer customers buy something?
+- 💸 **AOV** – Are people spending less per order?
+- 🧾 **Refunds or Cancellations** – Did returns increase?
 
 ---
 
@@ -261,29 +216,29 @@ So, I would check:
 
 Break down revenue by key dimensions to localize the issue:
 
-* **By Product or Category** – Did a specific product or service decline?
-* **By Customer Segment** – Are certain customer groups (new vs returning) behaving differently?
-* **By Geography** – Did the drop happen in a specific region?
-* **By Channel** – Did revenue drop in paid ads, organic search, referrals, etc.?
+- **By Product or Category** – Did a specific product or service decline?
+- **By Customer Segment** – Are certain customer groups (new vs returning) behaving differently?
+- **By Geography** – Did the drop happen in a specific region?
+- **By Channel** – Did revenue drop in paid ads, organic search, referrals, etc.?
 
 ---
 
 ### 📅 4. **Compare Trends Over Time**
 
-* How does this month compare with:
+- How does this month compare with:
 
-  * Last month?
-  * The same month last year (to account for seasonality)?
-* Are there any long-term trends or one-off events?
+  - Last month?
+  - The same month last year (to account for seasonality)?
+- Are there any long-term trends or one-off events?
 
 ---
 
 ### ⚠️ 5. **Look for External Factors**
 
-* Market changes, economic conditions, competitor actions.
-* Did any promotions end?
-* Were there product stockouts or supply chain issues?
-* Did any website or app outages occur that may have affected sales?
+- Market changes, economic conditions, competitor actions.
+- Did any promotions end?
+- Were there product stockouts or supply chain issues?
+- Did any website or app outages occur that may have affected sales?
 
 ---
 
@@ -291,17 +246,17 @@ Break down revenue by key dimensions to localize the issue:
 
 I would check supporting KPIs such as:
 
-* Website traffic & conversion rate
-* Cart abandonment rate
-* Marketing campaign performance (CTR, ROI, etc.)
-* Customer acquisition and retention rates
+- Website traffic & conversion rate
+- Cart abandonment rate
+- Marketing campaign performance (CTR, ROI, etc.)
+- Customer acquisition and retention rates
 
 ---
 
 ### 🧠 7. **Talk to Stakeholders**
 
-* Collaborate with Sales, Marketing, and Product teams.
-* Any known pricing changes, feature rollouts, or customer feedback trends?
+- Collaborate with Sales, Marketing, and Product teams.
+- Any known pricing changes, feature rollouts, or customer feedback trends?
 
 ---
 
@@ -401,13 +356,13 @@ print(summary.tail(2))  # Last 2 months
 
 ---
 
-### 💡 Interpretation:
+### 💡 Interpretation
 
 From the plots and tables, you can:
 
-* **Spot where the revenue dropped** (channel, category, region, etc.)
-* See if it’s due to **fewer orders**, **lower AOV**, or both
-* Understand which **segment** contributed most to the change
+- **Spot where the revenue dropped** (channel, category, region, etc.)
+- See if it’s due to **fewer orders**, **lower AOV**, or both
+- Understand which **segment** contributed most to the change
 
 ---
 
@@ -415,7 +370,7 @@ Great! Here's the **SQL version** of how you'd investigate a **drop in monthly r
 
 ---
 
-### 🧾 Assumptions:
+### 🧾 Assumptions
 
 You're working with a table named `orders` that contains the following fields:
 
@@ -530,9 +485,9 @@ ORDER BY month;
 
 You can also analyze:
 
-* 🛒 High-return products (`WHERE amount < 0`)
-* 🧍‍♂️ Revenue from **new vs returning customers**
-* 📦 Stock availability logs (if available)
+- 🛒 High-return products (`WHERE amount < 0`)
+- 🧍‍♂️ Revenue from **new vs returning customers**
+- 📦 Stock availability logs (if available)
 
 ---
 Got it! Here's a **sample dataset schema and some example rows** matching the SQL queries above — so you can load it into your SQL environment and try the queries yourself.
@@ -582,9 +537,9 @@ INSERT INTO orders VALUES
 
 ### Next Steps
 
-* Run the **SQL queries** I shared earlier on this sample data.
-* You’ll be able to see revenue trends by month, category, region, and channel.
-* This will help you understand how to identify drops and segment revenue changes.
+- Run the **SQL queries** I shared earlier on this sample data.
+- You’ll be able to see revenue trends by month, category, region, and channel.
+- This will help you understand how to identify drops and segment revenue changes.
 
 ---
 Got it! Here’s a clear step-by-step guide to **load your sample data into Power BI** and **create key visuals** to analyze the revenue drop, just like in your SQL/Python analysis.
@@ -639,70 +594,66 @@ Month = FORMAT('orders'[order_date], "YYYY-MM")
 
 #### 1. **Monthly Revenue Trend**
 
-* Create a **Line Chart** or **Column Chart**.
-* Axis: `Month`
-* Values: Sum of `amount`
-* This shows how total revenue changes month to month.
+- Create a **Line Chart** or **Column Chart**.
+- Axis: `Month`
+- Values: Sum of `amount`
+- This shows how total revenue changes month to month.
 
 ---
 
 #### 2. **Number of Orders and Average Order Value**
 
-* Create a **Card visual** for **Total Orders**:
+- Create a **Card visual** for **Total Orders**:
 
 ```DAX
 Total Orders = DISTINCTCOUNT('orders'[order_id])
 ```
 
-* Create another **Card visual** for **Average Order Value (AOV)**:
+- Create another **Card visual** for **Average Order Value (AOV)**:
 
 ```DAX
 AOV = DIVIDE(SUM('orders'[amount]), DISTINCTCOUNT('orders'[order_id]))
 ```
 
-* Or create a **table visual** with these measures grouped by `Month`.
+- Or create a **table visual** with these measures grouped by `Month`.
 
 ---
 
 #### 3. **Revenue by Product Category**
 
-* Use a **Stacked Column Chart**.
-* Axis: `Month`
-* Legend: `product_category`
-* Values: Sum of `amount`
+- Use a **Stacked Column Chart**.
+- Axis: `Month`
+- Legend: `product_category`
+- Values: Sum of `amount`
 
 ---
 
 #### 4. **Revenue by Region**
 
-* Use another **Stacked Column Chart**.
-* Axis: `Month`
-* Legend: `region`
-* Values: Sum of `amount`
+- Use another **Stacked Column Chart**.
+- Axis: `Month`
+- Legend: `region`
+- Values: Sum of `amount`
 
 ---
 
 #### 5. **Revenue by Channel**
 
-* Repeat similar steps with a **Stacked Column Chart** for `channel`.
+- Repeat similar steps with a **Stacked Column Chart** for `channel`.
 
 ---
 
 ### Step 5: Add Filters and Slicers
 
-* Add **Slicers** for filtering by `Month`, `Region`, `Product Category`, or `Channel` to drill down interactively.
+- Add **Slicers** for filtering by `Month`, `Region`, `Product Category`, or `Channel` to drill down interactively.
 
 ---
 
 ### Step 6: Interpret Your Report
 
-* Compare revenue across months and segments.
-* Spot the month with revenue drop.
-* Identify whether fewer orders or lower AOV caused it.
-* Look for which categories, regions, or channels contributed most to the drop.
+- Compare revenue across months and segments.
+- Spot the month with revenue drop.
+- Identify whether fewer orders or lower AOV caused it.
+- Look for which categories, regions, or channels contributed most to the drop.
 
 ---
-
-
-
-

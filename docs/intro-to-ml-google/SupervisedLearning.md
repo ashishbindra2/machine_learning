@@ -22,17 +22,16 @@ we might have a dataset of the following:
 - Housing prices
 - Weather information
 
-Datasets are made up of individual examples that contain features and a label
-an example as analogous to a single row in a spreadsheet.
+Datasets are made up of individual examples that contain features and a label an example as analogous to a single row in a spreadsheet.
 
 - Features are the values that a supervised model uses to predict the label.
 - The label is the "answer," or the value we want the model to predict.
 
- In a weather model that predicts rainfall, the features could be latitude, longitude, temperature, humidity, cloud coverage, wind direction, and atmospheric pressure. The label would be rainfall amount.
+In a weather model that predicts rainfall, the features could be latitude, longitude, temperature, humidity, cloud coverage, wind direction, and atmospheric pressure. The label would be rainfall amount.
 
 ### Labeled Example
 
-#### fundamentals
+Fundamentals
 
 An example that contains one or more features and a label. For example, the following table shows three labeled examples from a house valuation model, each with three features and one label:
 
@@ -67,10 +66,12 @@ For instance, a dataset might contain 100 years worth of data, but only for the 
 
 ### What attributes of a dataset would be ideal to use for ML?
 
-Large size / High diversity
+#### Large size / High diversity
+
 A large number of examples that cover a variety of use cases is essential for a machine learning system to understand the underlying patterns in the data. A model trained on this type of dataset is more likely to make good predictions on new data.
 
-A dataset can also be characterized by the number of its features. For example, some weather datasets might contain hundreds of features, ranging from satellite imagery to cloud coverage values. Other datasets might contain only three or four features, like humidity, atmospheric pressure, and temperature. Datasets with more features can help a model discover additional patterns and make better predictions. However, datasets with more features don't always produce models that make better predictions because some features might have no causal relationship to the label.
+- A dataset can also be characterized by the number of its features. For example, some weather datasets might contain hundreds of features, ranging from satellite imagery to cloud coverage values. Other datasets might contain only three or four features, like humidity, atmospheric pressure, and temperature. - Datasets with more features can help a model discover additional patterns and make better predictions.
+- However, datasets with more features don't always produce models that make better predictions because some features might have no causal relationship to the label.
 
 ## Model
 
@@ -124,6 +125,6 @@ Figure 4. Evaluating an ML model by comparing its predictions to the actual valu
 
 Depending on the model's predictions, we might do more training and evaluating before deploying the model in a real-world application.
 
-Why does a model need to be trained before it can make predictions?
-A model needs to be trained to learn the mathematical relationship between the features and the label in a dataset.
+## Why does a model need to be trained before it can make predictions?
 
+A model needs to be trained to learn the mathematical relationship between the features and the label in a dataset.

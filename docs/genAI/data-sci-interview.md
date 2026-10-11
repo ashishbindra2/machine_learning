@@ -41,7 +41,7 @@ print(df)
     1  Bob     27    London
     2  Charlie 22     Paris
 
-🔍 Step 2: Select the second row
+Step 2: Select the second row
 
 ```py
 second_row_iloc = df.iloc[1]
