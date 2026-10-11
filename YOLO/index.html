@@ -1,0 +1,1374 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>YOLO (You Only Look Once) - Machine Learning Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#yolo-you-only-look-once" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Machine Learning Tutorials" class="md-header__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              YOLO (You Only Look Once)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../intro-to-ml-google/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  intro-to-ml-google
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../interview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../data-sci-interview.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  data-sci
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../mini-projects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mini-projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../sql/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../random/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview-ai
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../unimportant/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mixed
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Machine Learning Tutorials" class="md-nav__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Machine Learning Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../intro-to-ml-google/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro-to-ml-google
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    intro-to-ml-google
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-to-ml-google/SupervisedLearning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supervised Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-to-ml-google/test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    test-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    interview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-sci-interview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    data-sci
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mini-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mini-projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    interview-ai
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unimportant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mixed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YOLO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="YOLO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loocalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        loocalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yolo-paramerters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yolo paramerters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-about-multiple-objects-in-an-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What about multiple objects in an image?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iou-intersection-over-union" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IOU (Intersection over Union)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-if-one-single-cell-has-center-of-two-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What if one single cell has center of two objects?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-in-yolo-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps in YOLO V1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps in YOLO V1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#which-cell-is-responsible-for-object-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which cell is responsible for object detection?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-targets-calculated-for-trainging-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How targets calculated for trainging model?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-semi-supervised-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is semi-supervised machine learning?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-you-choose-which-algorithm-to-use-for-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do you choose which algorithm to use for a dataset?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-the-knn-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In the KNN classifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-overfitting-in-machine-learning-and-how-can-it-be-avoided" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is overfitting in machine learning, and how can it be avoided?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is overfitting in machine learning, and how can it be avoided?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-supervised-and-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between supervised and unsupervised learning?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-confusion-matrix-and-why-is-it-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a confusion matrix, and why is it useful?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-parametric-and-non-parametric-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between parametric and non-parametric models?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-bias-variance-tradeoff-in-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the bias-variance tradeoff in machine learning?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-you-have-a-small-dataset-suggest-a-way-to-train-a-convolutional-neural-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When you have a small dataset, suggest a way to train a convolutional neural network
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q1-what-is-the-main-difference-between-python-lists-and-numpy-arrays-in-ml-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. What is the main difference between Python lists and NumPy arrays in ML workflows?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q2-why-is-numpy-preferred-over-pure-python-for-ml-computations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2. Why is NumPy preferred over pure Python for ML computations?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q4-how-does-vectorization-improve-ml-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4. How does vectorization improve ML code?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-machine-learning-and-how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What is machine learning and how does it work?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="yolo-you-only-look-once">YOLO (You Only Look Once)<a class="headerlink" href="#yolo-you-only-look-once" title="Permanent link">&para;</a></h1>
+<p>YOLO is the state of art object detection alogithm.</p>
+<ul>
+<li>It is so fast that it has become alomst a standard way of detection object in the field of computer vsion.</li>
+<li>perviously people were using sliding window object detection.</li>
+</ul>
+<p>Then more faster version were invented</p>
+<ul>
+<li>R CNN</li>
+<li>fast RCNN</li>
+<li>Faster RCNN</li>
+<li>2015 YOLO was invited in 2015 which out perform all previous versions</li>
+</ul>
+<h2 id="yolo">YOLO<a class="headerlink" href="#yolo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>In image classification problem where you have to decied that image is dog or person suppose output by neuro network is dog 1 and person 0</li>
+</ul>
+<h3 id="loocalization">loocalization<a class="headerlink" href="#loocalization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>But in object Localization we are not telling which class is like dog we are also telling the bonding box or the postion of an object with in the image output = Dog + Bonding box</li>
+</ul>
+<p>output of nuronetork is like this we have 2 vector</p>
+<h3 id="yolo-paramerters">Yolo paramerters<a class="headerlink" href="#yolo-paramerters" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[pc,bx,by, bw, bh, c1, c2]
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[1, 50, 70, 60, 70, 1, 0]
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>pc    =&gt; Probabilty of a class # If there is dog/ persion then 1 else 0
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>bx,by =&gt; are the codinate of the center
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>bw,bh =&gt; are the width and height of the box
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>c1    =&gt; class 1 # 1 -&gt;  this class is detected
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>c2    =&gt; class 2 # 0 -&gt;  means class is not detected
+</code></pre></div>
+<p>When we have no opebject in the images then vector should look like this</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[pc,bx,by, bw, bh, c1, c2]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[0, -, -, -, -, -, -]
+</code></pre></div>
+<p>So <code>x_train</code> will be labeled image and <code>y_train</code> will be a vector</p>
+<h3 id="what-about-multiple-objects-in-an-image">What about multiple objects in an image?<a class="headerlink" href="#what-about-multiple-objects-in-an-image" title="Permanent link">&para;</a></h3>
+<p>If we have more than 2 bounding boxes then YOLO wil  divide the image into grid cell. It could be 4by 4 3*3 19*19 any thing. then object is expnding into multiple cell of grid then we try to find center pointof dog belogin to particlular grid.
+so we have 4*4*7 7 is number of vector</p>
+<p>See the alorith migth detect multiple bounding rectongle for a given object</p>
+<ul>
+<li>suppose a person have 3 bonding box</li>
+<li>
+<p>we cannot just take max for each clas</p>
+</li>
+<li>
+<p>If we take max then it might not detect anothere person</p>
+</li>
+</ul>
+<p>we use a concept called IOU</p>
+<h3 id="iou-intersection-over-union">IOU (Intersection over Union)<a class="headerlink" href="#iou-intersection-over-union" title="Permanent link">&para;</a></h3>
+<p>iou = interection/unioun</p>
+<p>Wwe have to find overlaping area to find overlaping we use IOU</p>
+<ul>
+<li>If completly ovelaping the value will be one</li>
+<li>if not ovelaing at all then  0</li>
+<li>if IOU is grater than percentile of bonding box then we kept which has max probabilty</li>
+</ul>
+<p>This technique is also called no max suppreion.</p>
+<h3 id="what-if-one-single-cell-has-center-of-two-objects">What if one single cell has center of two objects?<a class="headerlink" href="#what-if-one-single-cell-has-center-of-two-objects" title="Permanent link">&para;</a></h3>
+<p>So insted of 7 dimention vectore how about we have 14 size vetor</p>
+<ul>
+<li>we have concatinate 2 vector box</li>
+</ul>
+<h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">&para;</a></h2>
+<p>2016 YOLO V1</p>
+<ul>
+<li>
+<p>In 2016 the first version of YOLO was invented vu Joseph Redman, santosh,ross, ali</p>
+</li>
+<li>
+<p>2017 YOLO V2 (YOLO9000): They imove the speed. 67fps (joseph,ali)</p>
+</li>
+<li>2018 YOLO V3: after 3 joseph stoped becouse of miltery</li>
+<li>2020 YOLO v4/pp YOLO V5:</li>
+<li>
+<p>2021 YOLO x /YOLOR</p>
+</li>
+<li>
+<p>2023 YOLO v8</p>
+</li>
+</ul>
+<p>Idea of YOLO:</p>
+<ul>
+<li>A single network (single shot) for object detectopn.</li>
+<li>Remove complexity of mulitple models.we dont have to train mltiple times</li>
+<li>Rephrase object detection as the single regression problem.</li>
+</ul>
+<p>why single shot?</p>
+<ul>
+<li>Becase we are going to pass image only once.Not like muliple time like RCNN</li>
+</ul>
+<p>classification:</p>
+<ul>
+<li>If you have a tar that which you want to predict is called classfication,binary and mutiple</li>
+</ul>
+<p>regression</p>
+<ul>
+<li>
+<p>if target is cotinous then it regression Problem,eg Predicting the height of a persion</p>
+</li>
+<li>
+<p>Mae</p>
+</li>
+</ul>
+<h2 id="steps-in-yolo-v1">Steps in YOLO V1<a class="headerlink" href="#steps-in-yolo-v1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Input Image</li>
+</ol>
+<ul>
+<li>size: Typically YOLOv1 takes an input image of size 448x448</li>
+<li>Preprocessing: The image is resized to fit modelss input dimensions while preserving the aspect ratio as much as possible.</li>
+</ul>
+<ol start="2">
+<li>Grid Division</li>
+</ol>
+<ul>
+<li>The input image is divided into a 7x7 grid.</li>
+<li>Each grid cell is responsible for detecting objects whose center falls within the cell.</li>
+</ul>
+<p>448/7 each cell has 64 pixels</p>
+<h3 id="which-cell-is-responsible-for-object-detection">Which cell is responsible for object detection?<a class="headerlink" href="#which-cell-is-responsible-for-object-detection" title="Permanent link">&para;</a></h3>
+<p>The cell where the centre of the object falls, that is responsible for the object prediction.</p>
+<h3 id="how-targets-calculated-for-trainging-model">How targets calculated for trainging model?<a class="headerlink" href="#how-targets-calculated-for-trainging-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Calculating the grid poitions basd on realtive positions based on relative postions.</li>
+<li>This will reduce the number scale to lower numbers</li>
+</ul>
+<p>relative postion:</p>
+<ul>
+<li>Loss Function: A method to evaluate how well your algorithm models your dataset. If your predictions are totally off, your loss function will output a higher number.</li>
+<li>Handling Overfit Models: Strategies to reduce overfitting include adding more data, reducing the complexity of the model, and using techniques like cross-validation.</li>
+</ul>
+<p>Can you explain what a loss function is and how it impacts the training of machine learning models?
+A loss function, also known as a cost function, is a critical component in training machine learning models. It quantifies the difference between the predicted values by the model and the actual values in the dataset. This function provides a measure of how well the model is performing; the lower the loss, the better the model's predictions align with the true data. During the training process, the goal is to minimize this loss through various optimization techniques, such as gradient descent. The choice of loss function can significantly affect the model's training process and its ultimate performance, as it guides the optimization algorithm on how to adjust the model parameters effectively to reduce prediction errors. Common examples of loss functions include mean squared error for regression tasks and cross-entropy loss for classification tasks.</p>
+<h2 id="what-is-semi-supervised-machine-learning">What is semi-supervised machine learning?<a class="headerlink" href="#what-is-semi-supervised-machine-learning" title="Permanent link">&para;</a></h2>
+<p>Semi-supervised learning is the blend of supervised and unsupervised learning. The algorithm is trained on a mix of labeled and unlabeled data. Generally, it is utilized when we have a very small labeled dataset and a large unlabeled dataset.</p>
+<p>In simple terms, the unsupervised algorithm is used to create clusters and by using existing labeled data to label the rest of the unlabelled data. A Semi-supervised algorithm assumes continuity assumption, cluster assumption, and manifold assumption.</p>
+<p>It is generally used to save the cost of acquiring labeled data. For example, protein sequence classification, automatic speech recognition, and self-driving cars</p>
+<h2 id="how-do-you-choose-which-algorithm-to-use-for-a-dataset">How do you choose which algorithm to use for a dataset?<a class="headerlink" href="#how-do-you-choose-which-algorithm-to-use-for-a-dataset" title="Permanent link">&para;</a></h2>
+<p>part from the dataset, you need a business use case or application requirements. You can apply supervised and unsupervised learning to the same data.</p>
+<p>Generally:</p>
+<p>Supervised learning algorithms require labeled data.
+Regression algorithms require continuous numerical targets
+Classification algorithms require categorical targets
+Unsupervised learning algorithms require unlabeled data.
+Semi-supervised learning requires the combination of labeled and unlabeled datasets.
+Reinforcement learning algorithms require environment, agent, state, and reward data.</p>
+<p>Explain the K Nearest Neighbor algorithm.
+The K Nearest Neighbor (KNN) is a supervised learning classifier. It uses proximity to classify labels or predict the grouping of individual data points. We can use it for regression and classification. KNN algorithm is non-parametric, meaning it doesn't make an underlying assumption of data distribution.</p>
+<h2 id="in-the-knn-classifier">In the KNN classifier<a class="headerlink" href="#in-the-knn-classifier" title="Permanent link">&para;</a></h2>
+<p>We find K-neighbors nearest to the white point. In the example below, we chose k=5.
+To find the five nearest neighbors, we calculate the euclidean distance between the white point and the others. Then, we chose the 5 points closest to the white point.
+There are three red and two green points at K=5. Since the red has a majority, we assign a red label to it.</p>
+<h2 id="what-is-overfitting-in-machine-learning-and-how-can-it-be-avoided">What is overfitting in machine learning, and how can it be avoided?<a class="headerlink" href="#what-is-overfitting-in-machine-learning-and-how-can-it-be-avoided" title="Permanent link">&para;</a></h2>
+<p>Overfitting occurs when a model performs well on training data but fails to generalize to unseen data because it has memorized the training data instead of learning the underlying patterns. It can be avoided by:</p>
+<p>Using cross-validation techniques.
+Applying regularization (L1, L2).
+Reducing model complexity.
+Collecting more training data or using data augmentation.</p>
+<h3 id="what-is-the-difference-between-supervised-and-unsupervised-learning">What is the difference between supervised and unsupervised learning?<a class="headerlink" href="#what-is-the-difference-between-supervised-and-unsupervised-learning" title="Permanent link">&para;</a></h3>
+<p>Supervised Learning: The model is trained on labeled data, where the target variable is known. Examples include classification and regression.
+Unsupervised Learning: The model is trained on unlabeled data to find patterns or groupings. Examples include clustering and dimensionality reduction</p>
+<h2 id="what-is-a-confusion-matrix-and-why-is-it-useful">What is a confusion matrix, and why is it useful?<a class="headerlink" href="#what-is-a-confusion-matrix-and-why-is-it-useful" title="Permanent link">&para;</a></h2>
+<p>A confusion matrix is a table used to evaluate the performance of a classification model. It shows the counts of true positives, true negatives, false positives, and false negatives. It is useful for calculating metrics like accuracy, precision, recall, and F1 score.</p>
+<h2 id="what-is-the-difference-between-parametric-and-non-parametric-models">What is the difference between parametric and non-parametric models?<a class="headerlink" href="#what-is-the-difference-between-parametric-and-non-parametric-models" title="Permanent link">&para;</a></h2>
+<p>Parametric Models: These make assumptions about the data’s underlying distribution and have a fixed number of parameters (e.g., Linear Regression).</p>
+<p>Non-Parametric Models: These make no assumptions about data distribution and can adapt to complexity as more data is added (e.g., K-Nearest Neighbors).</p>
+<h2 id="what-is-the-bias-variance-tradeoff-in-machine-learning">What is the bias-variance tradeoff in machine learning?<a class="headerlink" href="#what-is-the-bias-variance-tradeoff-in-machine-learning" title="Permanent link">&para;</a></h2>
+<p>The bias-variance tradeoff refers to the balance between a model’s ability to capture complex patterns (low bias) and its sensitivity to fluctuations in the training data (low variance). A good model achieves a balance by minimizing both bias and variance to avoid underfitting and overfitting.</p>
+<h2 id="when-you-have-a-small-dataset-suggest-a-way-to-train-a-convolutional-neural-network">When you have a small dataset, suggest a way to train a convolutional neural network<a class="headerlink" href="#when-you-have-a-small-dataset-suggest-a-way-to-train-a-convolutional-neural-network" title="Permanent link">&para;</a></h2>
+<p>If you do not have enough data to train a convolutional neural network, you can use transfer learning to train your model and get state-of-the-art results. You need a pre-trained model which was trained on a general but larger dataset. After that, you will fine-tune it on newer data by training the last layers of the models.</p>
+<p>Transfer learning allows data scientists to train models on smaller data by using fewer resources, computing, and storage. You can find open-source pre-trained models for various use cases easily, and most of them have a commercial license which means you can use them to create your application</p>
+<h2 id="q1-what-is-the-main-difference-between-python-lists-and-numpy-arrays-in-ml-workflows">Q1. What is the main difference between Python lists and NumPy arrays in ML workflows?<a class="headerlink" href="#q1-what-is-the-main-difference-between-python-lists-and-numpy-arrays-in-ml-workflows" title="Permanent link">&para;</a></h2>
+<p>Lists are flexible containers for mixed data types, but are slow for numerical computation. NumPy arrays store homogeneous data in contiguous memory, enabling vectorization and fast matrix operations crucial for ML tasks like batch gradient updates.</p>
+<p>Tip: Keep this distinction in mind, using lists instead of arrays in ML code can drastically increase runtime.</p>
+<h2 id="q2-why-is-numpy-preferred-over-pure-python-for-ml-computations">Q2. Why is NumPy preferred over pure Python for ML computations?<a class="headerlink" href="#q2-why-is-numpy-preferred-over-pure-python-for-ml-computations" title="Permanent link">&para;</a></h2>
+<p>NumPy uses optimized C libraries under the hood, offering vectorized operations and broadcasting. This drastically reduces loop overhead, making ML algorithms like linear regression or k-means clustering faster and more scalable.</p>
+<p>Tip: If a loop looks slow in Python, rewrite it with NumPy, since it cuts execution time by 10–100×.</p>
+<h2 id="q4-how-does-vectorization-improve-ml-code">Q4. How does vectorization improve ML code?<a class="headerlink" href="#q4-how-does-vectorization-improve-ml-code" title="Permanent link">&para;</a></h2>
+<p>Vectorization allows entire arrays or matrices to be processed at once, avoiding Python loops. For instance, updating all weights in a neural network can be expressed in one NumPy operation, improving speed and readability.</p>
+<p>Q5. What are potential pitfalls of broadcasting in NumPy?</p>
+<p>Q3. What is the bias-variance tradeoff?</p>
+<p>Bias represents underfitting (oversimplification), while variance represents overfitting (too much complexity). The tradeoff is finding a balance where the model generalizes well (balance between overfitting and underfitting). Techniques like regularization and ensemble methods address this.</p>
+<p>Q5. What role does cross-validation play in ML evaluation?</p>
+<p>Cross-validation splits the dataset into multiple folds, training and testing on each to reduce variance in evaluation. It provides a more reliable performance estimate than a single train/test split.</p>
+<p>Tip: Mention KFold or StratifiedKFold from scikit-learn, they show you know practical implementation details.</p>
+<h2 id="1-what-is-machine-learning-and-how-does-it-work">1. What is machine learning and how does it work?<a class="headerlink" href="#1-what-is-machine-learning-and-how-does-it-work" title="Permanent link">&para;</a></h2>
+<p>Machine learning is a field of artificial intelligence focused on building algorithms that enable computers to learn from data without explicit programming. It uses algorithms to analyse and identify patterns in data, and make predictions based on those patterns.</p>
+<ol start="2">
+<li>What is overfitting in machine learning and how can it be avoided?</li>
+<li>Overfitting: It occurs when a model not only learns the true patterns in the training data but also memorizes the noise or random fluctuations. This results in high accuracy on training data but poor performance on unseen/test data.</li>
+</ol>
+<p>Ways to Avoid Overfitting:</p>
+<p>Early Stopping: Stop training when validation accuracy stops improving, even if training accuracy is still increasing.
+Regularization: Apply techniques like L1 (Lasso) or L2 (Ridge) regularization which add penalties to large weights to reduce model complexity.
+Cross-Validation: Use k-fold cross-validation to ensure the model generalizes well.
+Dropout (for Neural Networks): Randomly drop neurons during training to prevent over-reliance on specific nodes.
+Simpler Models: Avoid overly complex models when simpler ones can explain the data well.
+2. Underfitting: It occurs when a model is too simple to capture the underlying patterns in the data. This leads to poor accuracy on both training and test data.</p>
+<p>Ways to Avoid Underfitting:</p>
+<p>Use a More Complex Model: Choose models with higher complexity to learn pattern like decision trees, neural networks, etc.
+Add Relevant Features: Include meaningful features that better represent the data.
+Reduce Regularization: Too much regularization can restrict the model’s ability to learn.
+Train Longer: Allow the model more epochs or iterations to properly learn patterns.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/ashishbindra2"  target="_blank" rel="noopener">Ashish Bindra</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ashishbindra2" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://in.linkedin.com/in/ashishbindra2/" target="_blank" rel="noopener" title="in.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.sections", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

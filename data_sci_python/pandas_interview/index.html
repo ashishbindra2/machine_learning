@@ -1,0 +1,2277 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Pandas interview - Machine Learning Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#series" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Machine Learning Tutorials" class="md-header__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pandas interview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../intro-to-ml-google/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  intro-to-ml-google
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data-sci-interview.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  data-sci
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../mini-projects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mini-projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sql/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../random/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview-ai
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../unimportant/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mixed
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Machine Learning Tutorials" class="md-nav__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Machine Learning Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../intro-to-ml-google/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro-to-ml-google
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    intro-to-ml-google
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-ml-google/SupervisedLearning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supervised Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-ml-google/test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    test-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    interview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-sci-interview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    data-sci
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mini-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mini-projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    interview-ai
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unimportant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mixed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Series
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Series">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accessing-multiple-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Multiple Column
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-all-but-one-column-with-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing All But One Column with .drop()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering Rows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#and-and-or" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AND and OR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sorting-renaming-and-adding-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting, Renaming, and Adding Columns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sorting, Renaming, and Adding Columns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sorting-by-columns-with-sort_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting By Columns with .sort_values()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-columns-with-rename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rename Columns with .rename()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Columns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-pandas-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a pandas Series
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-the-series-to-a-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert the Series to a DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-the-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Display the DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-dataframe-to-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert DataFrame to Excel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-the-csv-file-into-a-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read the CSV file into a DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe-with-your-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame with your data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-standardscaler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialize StandardScaler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fit-the-scaler-to-your-data-and-transform-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fit the scaler to your data and transform it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-the-scaled-data-back-to-a-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert the scaled data back to a DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#print-the-scaled-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print the scaled DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-sample-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a sample DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort-by-age-in-ascending-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sort by Age in ascending order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort-by-age-in-descending-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sort by Age in descending order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort-by-multiple-columns-first-by-age-then-by-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sort by multiple columns (first by Age, then by Name)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe-with-sample-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame with sample data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-a-boxplot-for-the-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a boxplot for the DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-title-and-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add title and labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#show-the-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show the plot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe-with-sample-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame with sample data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-the-id-column-as-the-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set the 'ID' column as the index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe-with-sample-data_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame with sample data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-both-country-and-city-columns-as-the-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set both 'Country' and 'City' columns as the index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe-with-duplicate-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame with duplicate values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-for-duplicate-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check for duplicate rows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe-with-duplicate-values_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame with duplicate values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-duplicate-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove duplicate rows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-row-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New row data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-the-new-row-using-loc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add the new row using loc
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dataframe_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-row-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New row data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-the-new-row-using-the-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add the new row using the append
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-a-string-format-to-a-timedelta-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert a string format to a Timedelta object
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-an-integer-to-a-timedelta-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert an integer to a Timedelta object
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-two-dataframes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create two DataFrames
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-both-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge both dataframe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge both dataframe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#47-how-can-we-convert-a-numpy-array-into-a-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47. How can we convert a NumPy array into a DataFrame?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-how-can-we-get-the-frequency-count-of-unique-items-in-a-pandas-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        48. How can we get the frequency count of unique items in a Pandas DataFrame?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-what-do-describe-percentiles-values-represent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        49. What do describe() percentiles values represent?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#50-explain-data-operations-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        50. Explain data operations in Pandas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#51-what-is-vectorization-in-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        51. What is vectorization in Pandas?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="51. What is vectorization in Pandas?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-vectorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of Vectorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-how-will-you-combine-different-data-frames-in-panda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        52. How will you combine different Data Frames in Panda?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>Pandas Interview Questions for Freshers</p>
+<ol>
+<li>
+<p>What is Pandas in Python?
+Pandas is a powerful open-source data analysis and manipulation library for Python. It provides data structures like Series and DataFrame for handling structured data, making tasks like data cleaning, transformation, and visualization straightforward and efficient. Pandas is widely used in data science, finance, and many other fields for their robust data-handling capabilities.</p>
+</li>
+<li>
+<p>What is Series in Pandas?
+A Series in Pandas is a one-dimensional array-like object that can hold data of any type (integers, strings, floats, etc.). Each element in a Series is associated with a unique label, called an index, which can be used to access individual elements.</p>
+</li>
+</ol>
+<p>For example,</p>
+<p>import pandas as pd<br>
+a = [1, 7, 2]<br>
+myvar = pd.Series(a)<br>
+print(myvar)
+​</p>
+<p>Output of Series in Pandas</p>
+<ol start="3">
+<li>What is a DataFrame in Pandas?
+A DataFrame in Pandas is a 2-dimensional, size-mutable, and heterogeneous tabular data structure with labeled axes (rows and columns). It is similar to a table in a database or a data frame in R. Each column can contain different data types.</li>
+</ol>
+<p>2-dimensional DataFrame means it has rows and columns like a table; size-mutable means that we can add or remove rows and columns; and heterogeneous means that different columns can hold different types of data (e.g., integers, strings, floats).</p>
+<p>import pandas as pd<br>
+data = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}<br>
+df = pd.DataFrame(data)<br>
+print(df)
+Output of DataFrames in Pandas</p>
+<h2 id="series">Series<a class="headerlink" href="#series" title="Permanent link">&para;</a></h2>
+<p>When we select a single column, we’re actually getting a Pandas Series (not a full DataFrame).</p>
+<p>If a DataFrame is like a table, a Series is like a single column of that table. It’s still powerful</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">type</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span>            <span class="c1"># Prints pandas.core.frame.DataFrame</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">type</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="s1">'genre'</span><span class="p">])</span>   <span class="c1"># Prints pandas.core.series.Series</span>
+</code></pre></div>
+<h3 id="accessing-multiple-column">Accessing Multiple Column<a class="headerlink" href="#accessing-multiple-column" title="Permanent link">&para;</a></h3>
+<p>We can access multiple columns by using a Python list of column names. For example, the following line of code would return the genre and studio columns:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">only_genre_and_studio_df</span> <span class="o">=</span> <span class="n">movies</span><span class="p">[[</span><span class="s1">'genre'</span><span class="p">,</span> <span class="s1">'studio'</span><span class="p">]]</span>
+</code></pre></div>
+<p>Because this returns multiple columns, it will be a DataFrame rather than a Series.</p>
+<h3 id="accessing-all-but-one-column-with-drop">Accessing All But One Column with .drop()<a class="headerlink" href="#accessing-all-but-one-column-with-drop" title="Permanent link">&para;</a></h3>
+<p>Sometimes we want everything except one column. That’s where .drop() comes in handy</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">removed_title_df</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">"title"</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>The above line of code creates a new DataFrame named removied_title_df that contains all of the columns from movies except for the title column</p>
+<p>axis = 1 tells Pandas that we want to drop a column rather than a row.</p>
+<h2 id="filtering-rows">Filtering Rows<a class="headerlink" href="#filtering-rows" title="Permanent link">&para;</a></h2>
+<p>Here's how we could filter for movies longer than 120 minutes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">long_movies</span> <span class="o">=</span> <span class="n">movies</span><span class="p">[</span><span class="n">movies</span><span class="p">[</span><span class="s1">'runtime_minutes'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">]</span>
+</code></pre></div>
+<p>This filtering syntax can be a bit confusing. Why do we need to include movies twice?</p>
+<h2 id="and-and-or">AND and OR<a class="headerlink" href="#and-and-or" title="Permanent link">&para;</a></h2>
+<p>You can filter based on multiple conditions by using AND (&amp;) and OR (|).</p>
+<p>For example, if you wanted to filter for movies that are longer than 120 minutes AND in the genre 'Sci-Fi'</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">long_movies</span> <span class="o">=</span> <span class="n">movies</span><span class="p">[</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="s1">'runtime_minutes'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">)</span> <span class="o">&amp;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  <span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="s1">'genre'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Sci-Fi'</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">]</span>
+</code></pre></div>
+<h2 id="sorting-renaming-and-adding-columns">Sorting, Renaming, and Adding Columns<a class="headerlink" href="#sorting-renaming-and-adding-columns" title="Permanent link">&para;</a></h2>
+<h3 id="sorting-by-columns-with-sort_values">Sorting By Columns with .sort_values()<a class="headerlink" href="#sorting-by-columns-with-sort_values" title="Permanent link">&para;</a></h3>
+<p>Want to see which movie made the most money? We can sort a DataFrame by a specific column by using .sort_values():</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">box_office_sorted</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'box_office'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<p>If we wanted to sort from low to high, just use ascending = True.</p>
+<h2 id="rename-columns-with-rename">Rename Columns with .rename()<a class="headerlink" href="#rename-columns-with-rename" title="Permanent link">&para;</a></h2>
+<p>Let’s say we want to rename the 'budget' column to 'budget_usd'. We can do that by using .rename():</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">movies</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'budget'</span><span class="p">:</span> <span class="s1">'budget_usd'</span><span class="p">})</span>
+</code></pre></div>
+<p>Notice that we used movies = . This is because .rename() doesn't automatically change the original DataFrame unless we assign the result back to movies (or use inplace=True).</p>
+<p>If we wanted to rename multiple columns at once, we could have passed additional key:value pairs to the columns dictionary.</p>
+<h2 id="adding-columns">Adding Columns<a class="headerlink" href="#adding-columns" title="Permanent link">&para;</a></h2>
+<p>We can add new columns by assigning a list or a calculation to a column name. Here’s how to add a 'lead_actor' colum</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">movies</span><span class="p">[</span><span class="s1">'lead_actor'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Keanu Reeves'</span><span class="p">,</span> <span class="s1">'Leonardo DiCaprio'</span><span class="p">,</span> <span class="s1">'Song Kang-ho'</span><span class="p">,</span> <span class="s1">'Matthew Broderick'</span><span class="p">,</span> <span class="s1">'Michelle Yeoh'</span><span class="p">]</span>
+</code></pre></div>
+<p>We can also add new columns based on existing data! For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">movies</span><span class="p">[</span><span class="s1">'budget (millions)'</span><span class="p">]</span> <span class="o">=</span> <span class="n">movies</span><span class="p">[</span><span class="s1">'budget'</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000000</span>
+</code></pre></div>
+<ol start="4">
+<li>How do you iterate over DataFrame in Pandas?
+To iterate over a DataFrame in Pandas, you can use several methods. Each method serves different purposes and has its advantages in terms of readability and performance.</li>
+</ol>
+<p>iterrows(): Iterates over DataFrame rows as (index, Series) pairs.
+itertuples(): Iterates over DataFrame rows as namedtuples.
+apply(): Applies a function along an axis of the DataFrame.
+items(): Iterates over DataFrame columns as (column name, Series) pairs.
+Get 100% Hike!</p>
+<p>Master Most in Demand Skills Now!</p>
+<p>Email Address</p>
+<p>Phone Number
+By providing your contact details, you agree to our Terms of Use &amp; Privacy Policy
+5. How do you select a single column named 'Age' from a DataFrame called df?
+To select a single column named ‘Age’ from a DataFrame called ‘df’, you can use square brackets and the column name like this:</p>
+<p>age_column = df['Age']
+This will create a new variable ‘age_column’ containing the values from the ‘Age’ column of the DataFrame ‘df’.</p>
+<ol start="6">
+<li>What is the difference between Series and DataFrame?
+Series DataFrame
+1-dimensional labeled array 2-dimensional labeled data structure
+Contains data of a single data type Can contain data of multiple data types across columns
+Single column of data Multiple columns, each can be of different data types
+Indexed by a single axis (labels) Indexed by two axes (rows and columns)
+Created using pd.Series() Created using pd.DataFrame()</li>
+<li>
+<p>What is an index in Pandas?
+In Pandas, an index is a fundamental data structure that labels and identifies rows or elements within a DataFrame or Series. It provides a way to uniquely identify each row, enabling efficient data retrieval, alignment, and manipulation. Indexing facilitates easy access, selection, and alignment of data in Pandas data structures.</p>
+</li>
+<li>
+<p>Explain MultiIndexing in Pandas.
+MultiIndexing in Pandas allows creating a DataFrame with multiple levels of indexes, providing a way to represent higher-dimensional data in a tabular structure. It’s particularly useful for handling complex datasets with hierarchical row or column labels. MultiIndexing facilitates advanced data manipulation, selection, and aggregation operations across different levels of the index hierarchy efficiently.</p>
+</li>
+<li>
+<p>What is reindexing in Pandas?
+Reindexing in Pandas is the process of altering the index of a DataFrame or Series to match a new set of labels. It can be used to rearrange data according to a new index or to align data from multiple sources. Reindexing allows for handling missing data, aligning different datasets, and reshaping data structures to facilitate analysis.</p>
+</li>
+</ol>
+<p>Syntax: df.reindex(new_index)</p>
+<ol start="10">
+<li>
+<p>Why is there no parenthesis in DataFrame.shape?
+The absence of parentheses in “DataFrame.shape” is because it’s an attribute, not a method. In Python, attributes are accessed without parentheses, while methods require them. “DataFrame.shape” returns a tuple representing the dimensions of the DataFrame, typically in the form of rows or columns.</p>
+</li>
+<li>
+<p>What are the different ways to create a Series?
+Using a list or array: Create a Series from a Python list or NumPy array.
+Using a dictionary: Convert a dictionary into a Series where keys become index labels.
+Using scalar value: Repeat a scalar value to create a series of specified lengths.
+Using a DataFrame column: Extract a column from a DataFrame to create a Series.
+Using a file or URL: Read data from a file or URL into a Series.</p>
+</li>
+<li>Using a list or array:</li>
+</ol>
+<p>import pandas as pd<br>
+my_list = [10, 20, 30, 40, 50]<br>
+series_from_list = pd.Series(my_list)
+2. Using a dictionary:</p>
+<p>import pandas as pd<br>
+my_dict = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}<br>
+series_from_dict = pd.Series(my_dict)
+3. Using scalar value:</p>
+<p>import pandas as pd<br>
+series_from_scalar = pd.Series(5, index=[0, 1, 2, 3, 4])
+4. Using a DataFrame column:</p>
+<p>import pandas as pd<br>
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],<br>
+'Age': [25, 30, 35, 40]}<br>
+df = pd.DataFrame(data)<br>
+series_from_df = df['Age']
+5. Using a file or URL:</p>
+<p>import pandas as pd<br>
+url = '<a href="https://example.com/data.csv">https://example.com/data.csv</a>'<br>
+series_from_file = pd.read_csv(url, squeeze=True)
+12. What are the different ways to create a DataFrame in Pandas?
+From a Dictionary: Create a DataFrame by passing a dictionary of lists as input.
+From a List of Lists: Construct a DataFrame from a list of lists.
+From a List of Dictionaries: Convert a list of dictionaries into a DataFrame.
+From a NumPy Array: Generate a DataFrame from a NumPy array.
+From a CSV File: Read data from a CSV file into a DataFrame using “pd.read_csv()”.
+From an Excel File: Load data from an Excel file using “pd.read_excel()”.</p>
+<ol>
+<li>From a Dictionary:</li>
+</ol>
+<p>import pandas as pd<br>
+data = {'Name': ['Alice', 'Bob', 'Charlie'],<br>
+'Age': [25, 30, 35],<br>
+'City': ['New York', 'Los Angeles', 'Chicago']}<br>
+df = pd.DataFrame(data)
+2. From a List of Lists:</p>
+<p>import pandas as pd<br>
+data = [['Alice', 25, 'New York'],<br>
+['Bob', 30, 'Los Angeles'],<br>
+['Charlie', 35, 'Chicago']]<br>
+df = pd.DataFrame(data, columns=['Name', 'Age', 'City'])
+3. From a List of Dictionaries:</p>
+<p>import pandas as pd<br>
+data = [{'Name': 'Alice', 'Age': 25, 'City': 'New York'},<br>
+{'Name': 'Bob', 'Age': 30, 'City': 'Los Angeles'},<br>
+{'Name': 'Charlie', 'Age': 35, 'City': 'Chicago'}]<br>
+df = pd.DataFrame(data)
+4. From a NumPy Array:</p>
+<p>import pandas as pd<br>
+import numpy as np<br>
+data = np.array([['Alice', 25, 'New York'],<br>
+['Bob', 30, 'Los Angeles'],<br>
+['Charlie', 35, 'Chicago']])<br>
+df = pd.DataFrame(data, columns=['Name', 'Age', 'City'])
+5. From a CSV File:</p>
+<p>import pandas as pd<br>
+df = pd.read_csv('data.csv')
+6. From an Excel File:</p>
+<p>import pandas as pd<br>
+df = pd.read_excel('data.xlsx')
+13. How do you read data into a DataFrame from a CSV file?
+A CSV file, or “Comma Separated Values,” can be used to generate a data frame. This can be accomplished by passing the CSV file as an argument to the read_csv() method.
+pandas.read_csv(file_name)</p>
+<p>Alternatively, you can use the read_table() method, which accepts a CSV file as an input along with a delimiter value.
+pandas.read_table(file_name, delimiter)</p>
+<p>Pandas Interview Questions for Experienced
+14. What are some limitations of Pandas?
+Memory Usage: Pandas can be memory-intensive, struggling with large datasets that exceed available RAM.
+Speed: Processing speed can be slower compared to low-level languages like C or C++.
+Performance: Certain operations, such as group-by and pivot tables, may lack efficiency on large datasets.
+Limited Visualization: Direct visualization capabilities are not as advanced as specialized libraries like Matplotlib or Seaborn.
+Data Cleaning Challenges: Handling missing or inconsistent data can be cumbersome and time-consuming.
+15. Explain categorical data in Pandas.
+In Pandas, categorical data represents variables with a fixed and finite set of unique values, like gender or color. It optimizes memory usage and can speed up operations like “groupby” and “value_counts”. Pandas assign a numerical code to each category, making computations more efficient while retaining the original labels for readability and analysis.</p>
+<ol start="16">
+<li>
+<p>Give a brief description of the time series in Pandas.
+In Pandas, a time series is a one-dimensional array-like data structure where each element is associated with a timestamp or a specific time period. It’s commonly used for analyzing and manipulating time-based data, such as stock prices, temperature readings, or website traffic over time. Pandas offers powerful tools for indexing, slicing, and analyzing time series data efficiently.</p>
+</li>
+<li>
+<p>How can we convert Series to DataFrame?
+To convert a Pandas Series to a DataFrame, use the “to_frame()” method. This method converts the Series into a DataFrame with a single column.</p>
+</li>
+</ol>
+<p>For example, if “s” is a Series, “df = s.to_frame()” will create a DataFrame “df” with the Series “s” as its column. Optionally, specify a column name: “df = s.to_frame(‘column_name’)”.</p>
+<p>Let’s see the code for the same:</p>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-pandas-series">Create a pandas Series<br><a class="headerlink" href="#create-a-pandas-series" title="Permanent link">&para;</a></h1>
+<p>s = pd.Series([1, 2, 3, 4, 5])<br></p>
+<h1 id="convert-the-series-to-a-dataframe">Convert the Series to a DataFrame<br><a class="headerlink" href="#convert-the-series-to-a-dataframe" title="Permanent link">&para;</a></h1>
+<p>df = s.to_frame()<br></p>
+<h1 id="display-the-dataframe">Display the DataFrame<br><a class="headerlink" href="#display-the-dataframe" title="Permanent link">&para;</a></h1>
+<p>print(df)
+Output:</p>
+<p>0
+0 1
+1 2
+2 3
+3 4
+4 5</p>
+<ol start="18">
+<li>
+<p>What is TimeDelta?
+TimeDelta is a data type used to represent the difference between two points in time. It measures the duration, typically in days, seconds, and microseconds. It’s commonly employed in programming languages like Python to perform arithmetic operations on dates and times, facilitating tasks such as calculating intervals or scheduling events.</p>
+</li>
+<li>
+<p>How can we convert DataFrame to an Excel file?
+To convert a DataFrame to an Excel file in Python, you can use the “to_excel()” function from the Pandas library. First, import Pandas, then use “DataFrame.to_excel()” with the file path specified to save the DataFrame to an Excel file.</p>
+</li>
+</ol>
+<p>For example,</p>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-dataframe">Create a DataFrame<br><a class="headerlink" href="#create-a-dataframe" title="Permanent link">&para;</a></h1>
+<p>data = {'Name': ['John', 'Emma', 'Peter'],<br>
+'Age': [30, 25, 35],<br>
+'City': ['New York', 'London', 'Paris']}<br>
+df = pd.DataFrame(data)<br></p>
+<h1 id="convert-dataframe-to-excel">Convert DataFrame to Excel<br><a class="headerlink" href="#convert-dataframe-to-excel" title="Permanent link">&para;</a></h1>
+<p>df.to_excel('example.xlsx', index=False)
+This code snippet creates a DataFrame with columns for Name, Age, and City. Then, it saves this DataFrame to an Excel file named “example.xlsx” without including the index.</p>
+<ol start="20">
+<li>How can you retrieve the top six rows and bottom seven rows in Pandas DataFrame?
+To retrieve the top six rows of a Pandas DataFrame, use the .head(6) method.
+For the bottom seven rows, utilize the .tail(7) method.</li>
+<li>How do you read text files with Pandas?
+To read text files with Pandas, you can use the “read_csv()” function, which is versatile enough to handle various text-based file formats. For example, to read a comma-separated values (CSV) file named “data.csv,” you can simply use:</li>
+</ol>
+<p>import pandas as pd<br></p>
+<h1 id="read-the-csv-file-into-a-dataframe">Read the CSV file into a DataFrame<br><a class="headerlink" href="#read-the-csv-file-into-a-dataframe" title="Permanent link">&para;</a></h1>
+<p>df = pd.read_csv('data.csv')
+Pandas automatically infers the delimiter from the file extension.</p>
+<p>However, if your file has a different delimiter, you can specify it using the “sep” parameter, like “pd.read_csv(‘data.txt’, sep=’\t’)” for tab-separated files.</p>
+<p>Additionally, you can customize other parameters, like headers, indexes, column names, etc., according to your file’s structure. This flexibility makes Pandas an excellent choice for reading and manipulating text-based data files efficiently.</p>
+<ol start="22">
+<li>What is the difference between merge() and concat() in Pandas?
+Features Merge() Concat()
+Purpose Combines DataFrames based on common columns or indices Combines DataFrames along a particular axis
+Similar to SQL JOIN operation (INNER, OUTER, LEFT, RIGHT) UNION operation
+Key Column Requires specifying keys to merge on Does not require keys, concatenates along axis
+Axis Operates primarily along columns (axis=1) Operates along both rows (axis=0) and columns (axis=1)
+Syntax Example pd.merge(df1, df2, on=’key’) pd.concat([df1, df2], axis=0)
+Complexity More complex, allowing for detailed joins Simpler, primarily stacking DataFrames
+Handling Indexes Aligns DataFrames based on keys Can choose to ignore or preserve indexes
+Result Single DataFrame with combined data Single DataFrame with stacked data</li>
+<li>How do you convert categorical values in a column into numerical ones?
+To convert categorical values into numerical ones in a column, you can use techniques like label encoding or one-hot encoding.</li>
+</ol>
+<p>Label Encoding: Assigns a unique number to each category.</p>
+<p>For example,</p>
+<p>Category A: 0
+Category B: 1
+Category C: 2</p>
+<p>One-Hot Encoding: Creates new binary columns for each category, where 1 indicates the presence of the category and 0 indicates absence.</p>
+<p>For example,</p>
+<p>Category A: [1, 0, 0]
+Category B: [0, 1, 0]
+Category C: [0, 0, 1]</p>
+<p>Label encoding is suitable when there is an ordinal relationship between categories, meaning one category is greater or better than another. One-hot encoding is appropriate when categories are unordered or when you don’t want to impose any ordinal relationship.</p>
+<ol start="24">
+<li>Why should standardization be performed on data, and how can you perform it using Pandas?
+Standardization is important because it helps bring all features to the same scale. This is crucial for many machine learning algorithms because features with larger scales might dominate those with smaller scales, leading to biased results.</li>
+</ol>
+<p>Standardization ensures that each feature has a mean of 0 and a standard deviation of 1, putting them all on a comparable scale.</p>
+<p>To perform standardization using Pandas, you can use the “StandardScaler” class from the sci-kit-learn library, which can easily handle Pandas DataFrame objects. Here’s how you can do it:</p>
+<p>from sklearn.preprocessing import StandardScaler<br>
+import pandas as pd</p>
+<h1 id="create-a-dataframe-with-your-data">Create a DataFrame with your data<br><a class="headerlink" href="#create-a-dataframe-with-your-data" title="Permanent link">&para;</a></h1>
+<p>data = pd.DataFrame({<br>
+'feature1': [10, 20, 30, 40],<br>
+'feature2': [0.1, 0.2, 0.3, 0.4]<br>
+})</p>
+<h1 id="initialize-standardscaler">Initialize StandardScaler<br><a class="headerlink" href="#initialize-standardscaler" title="Permanent link">&para;</a></h1>
+<p>scaler = StandardScaler()</p>
+<h1 id="fit-the-scaler-to-your-data-and-transform-it">Fit the scaler to your data and transform it<br><a class="headerlink" href="#fit-the-scaler-to-your-data-and-transform-it" title="Permanent link">&para;</a></h1>
+<p>scaled_data = scaler.fit_transform(data)</p>
+<h1 id="convert-the-scaled-data-back-to-a-dataframe">Convert the scaled data back to a DataFrame<br><a class="headerlink" href="#convert-the-scaled-data-back-to-a-dataframe" title="Permanent link">&para;</a></h1>
+<p>scaled_df = pd.DataFrame(scaled_data, columns=data.columns)</p>
+<h1 id="print-the-scaled-dataframe">Print the scaled DataFrame<br><a class="headerlink" href="#print-the-scaled-dataframe" title="Permanent link">&para;</a></h1>
+<p>print(scaled_df)
+This will standardize the “data” in data DataFrame and store the scaled values in “scaled_df”. Now, both “feature1” and “feature2” will have a mean of 0 and a standard deviation of 1.</p>
+<ol start="25">
+<li>Suppose you have a DataFrame “sales_data” with columns “Product” and “Revenue”. How can you select the first 5 rows and only the “Revenue” column?
+To select the first 5 rows and only the “Revenue” column from a DataFrame “sales_data”, you can use either the “.iloc” or “.loc” method:</li>
+</ol>
+<p>Using “.iloc” (integer-based indexing):</p>
+<p>revenue_first_5 = sales_data.iloc[:5, sales_data.columns.get_loc('Revenue')]
+Using “.loc” (label-based indexing):</p>
+<p>revenue_first_5 = sales_data.loc[:4, 'Revenue']
+Both of these methods will select the first 5 rows and the ‘Revenue’ column from the DataFrame <code>sales_data</code>.</p>
+<ol start="26">
+<li>Name some statistical functions in Pandas.
+Pandas offers several statistical functions for data analysis. Some key ones include:</li>
+</ol>
+<p>mean(): Calculates the average of values.
+Syntax: df[‘column_name’].mean()
+median(): Finds the median value.
+Syntax: df[‘column_name’].median()
+std(): Computes the standard deviation
+Syntax: df[‘column_name’].std()
+var(): Calculates the variance.
+Syntax: df[‘column_name’].var()
+describe(): Provides a summary of statistics for DataFrame columns.
+Syntax: df.describe()
+Python Pandas Interview Questions
+27. Differentiate between map(), applymap(), and apply().
+map() applymap() apply()
+Defined only in series Defined only in DataFrame Defined in both Series and DataFrame
+Accept dictionary, series, or callables only Accept callables only Accept callables only
+Series.map() operates on one element at a time DataFrame.applymap() operates on one element at a time operates on entire rows or columns at a time for DataFrame, and one at a time for Series.apply
+Missing values will be recorded as NaN in the output. Performs better operation than apply().  Suited to more complex operations and aggregation.
+Here’s a graphical illustration of these functions:</p>
+<p>map function</p>
+<p>applymap function</p>
+<p>apply function</p>
+<ol start="28">
+<li>How do you split a DataFrame according to a Boolean criterion?
+To split a DataFrame according to a Boolean criterion in Pandas, you use conditional filtering to create two separate DataFrames based on the criterion.</li>
+</ol>
+<p>Here’s a step-by-step example:</p>
+<p>Step 1: Create a DataFrame:</p>
+<p>import pandas as pd<br>
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],<br>
+'Age': [24, 17, 35, 19]}<br>
+df = pd.DataFrame(data)
+Step2: Define the Boolean Criterion:</p>
+<p>criterion = df['Age'] &gt;= 18
+Step 3: Split the DataFrame:</p>
+<p>df_adults = df[criterion]<br>
+df_minors = df[~criterion]
+In this example, “df_adults” will contain rows where the “Age” is 18 or above, while “df_minors” will contain rows where the “Age” is below 18. This method allows for efficient and readable DataFrame splitting based on any Boolean condition.</p>
+<ol start="29">
+<li>How do you optimize performance while working with large datasets in Pandas?
+To optimize performance when working with large datasets in Pandas, several strategies can be employed:</li>
+</ol>
+<p>Efficient Data Types: Converting columns to more memory-efficient data types reduces memory consumption, which can significantly improve performance.
+Chunk Processing: Processing data in smaller chunks rather than loading the entire dataset into memory at once helps in managing memory usage and avoids overwhelming system resources.
+Vectorized Operations: Utilizing Pandas’ built-in vectorized operations instead of looping through rows leverages highly optimized C-based operations, leading to faster execution times.
+Parallel Processing: Libraries like Dask or Swifter can parallelize operations, distributing the workload across multiple CPU cores and speeding up data processing tasks.
+Learn how to change column data types in Pandas through this blog.</p>
+<ol start="30">
+<li>What is Data Aggregation in Pandas?
+Data aggregation in Pandas refers to the process of summarizing, combining, or grouping data to extract meaningful insights. This typically involves operations like sum, mean, count, min, max, etc., on groups of data.</li>
+</ol>
+<p>For example, consider a DataFrame <code>df</code> with columns ‘category’ and ‘values’:</p>
+<p>import pandas as pd<br>
+data = {<br>
+'category': ['A', 'A', 'B', 'B', 'C', 'C'],<br>
+'values': [10, 20, 30, 40, 50, 60]<br>
+}
+df = pd.DataFrame(data)
+To aggregate the data by ‘category’ and compute the sum of ‘values’ for each category:</p>
+<p>aggregated_data = df.groupby(‘category’).sum()</p>
+<p>This results in:</p>
+<p>Category    Values  </p>
+<p>A                  30</p>
+<p>B                  70</p>
+<p>C                 110</p>
+<p>Here, the data is grouped by ‘category’ and the sum of ‘values’ is calculated for each group. Aggregation helps in simplifying and summarizing large datasets for analysis.</p>
+<ol start="31">
+<li>What is the difference between iloc() and loc()?
+Feature iloc() loc()
+Purpose Index-based selection Label-based selection
+Types of Indexing Integer positions Labels or Boolean arrays
+Usage df.iloc[row_index, column_index] df.loc[row_label, column_label]
+Primary Use Case Selecting rows and columns by numerical index Selecting rows and columns by labels
+Index Type Always integers Can be strings, integers, or other data types
+Example for Rows df.iloc[1:3] selects 2nd to 3rd rows df.loc[‘a’:’c’] selects rows with labels ‘a’ to ‘c’
+Example for Columns df.iloc[:, 1:3] selects 2nd to 3rd columns df.loc[:, ‘col1′:’col3’] selects ‘col1’ to ‘col3’
+Error Handling Raises “IndexError” if index is out of bounds Raises “KeyError” if label is not found</li>
+<li>How will you sort a DataFrame?
+To sort a DataFrame in Pandas, you can use the “sort_values” method. This method allows you to sort by one or more columns. You can specify the column name to sort by and the order (ascending or descending). Additionally, you can sort by index using the “sort_index” method. Here’s a basic example:</li>
+</ol>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-sample-dataframe">Create a sample DataFrame<br><a class="headerlink" href="#create-a-sample-dataframe" title="Permanent link">&para;</a></h1>
+<p>data = {<br>
+'Name': ['John', 'Anna', 'Peter', 'Linda'],<br>
+'Age': [28, 24, 35, 32]<br>
+}<br>
+df = pd.DataFrame(data)</p>
+<h1 id="sort-by-age-in-ascending-order">Sort by Age in ascending order<br><a class="headerlink" href="#sort-by-age-in-ascending-order" title="Permanent link">&para;</a></h1>
+<p>sorted_df = df.sort_values(by='Age')</p>
+<h1 id="sort-by-age-in-descending-order">Sort by Age in descending order<br><a class="headerlink" href="#sort-by-age-in-descending-order" title="Permanent link">&para;</a></h1>
+<p>sorted_df_desc = df.sort_values(by='Age', ascending=False)</p>
+<h1 id="sort-by-multiple-columns-first-by-age-then-by-name">Sort by multiple columns (first by Age, then by Name)<br><a class="headerlink" href="#sort-by-multiple-columns-first-by-age-then-by-name" title="Permanent link">&para;</a></h1>
+<p>sorted_df_multi = df.sort_values(by=['Age', 'Name'])
+print("Ascending sort by Age:\n", sorted_df)<br>
+print("Descending sort by Age:\n", sorted_df_desc)<br>
+print("Sort by Age, then Name:\n", sorted_df_multi)
+Output:</p>
+<p>Output of sorting of DataFrame</p>
+<ol start="33">
+<li>What’s the difference between interpolate() and fillna() in Pandas?
+interpolate() fillna()
+Fill NaN values using interpolation techniques Fill NaN values with specified values or methods
+Methods: Linear, polynomial, spline, and more Methods: Constant values, forward fill, backward fill, and more
+Commonly used for time series or numerical data Commonly used for replacing missing data with specific values or strategies
+df.interpolate(method=’linear’) df.fillna(value=0)</li>
+<li>How can we use pivot and melt data in Pandas?
+In Pandas, “pivot” and “melt” functions are essential tools for reshaping data.</li>
+</ol>
+<p>a. Pivot: It restructures data, typically from long to wide format, based on column values. For example, consider a DataFrame where each row represents a different date and each column represents a different city’s temperature. Using “pivot”, you can reshape this DataFrame so that each row represents a city and each column represents a date, making it easier to analyze trends over time.</p>
+<p>pivoted_data = df.pivot(index=’Date’, columns=’City’, values=’Temperature’)</p>
+<p>b. Melt: It performs the reverse operation of “pivot,” transforming wide data into a long format. For example, if you have a DataFrame with multiple columns representing different types of observations, “melt” can reshape it so that each row represents a single observation.</p>
+<p>melted_data = pd.melt(df, id_vars=[‘ID’], value_vars=[‘Type1’, ‘Type2′], var_name=’Observation Type’, value_name=’Value’)</p>
+<ol start="35">
+<li>How do I calculate different quantile ranges in Pandas and the mean, median, mode, variance, and standard deviation?
+To calculate different quantile ranges in Pandas and the mean, median, mode, variance, and standard deviation, you can use the following methods:</li>
+</ol>
+<p>Quantile Ranges:  quantiles = df.quantile([0.25, 0.5, 0.75])
+Mean: mean_value = df.mean()
+Median:  median_value = df.median()
+Mode:  mode_value = df.mode().iloc[0]
+Variance: variance_value = df.var()
+Standard Deviation: std_deviation_value = df.std()
+Replace “df” with your DataFrame and adjust parameters as needed. These operations provide key statistical insights into your dataset.</p>
+<ol start="36">
+<li>How do you make label encoding using Pandas?
+Label encoding is a technique used to convert categorical data into numerical format, often required by machine learning algorithms. In Pandas, label encoding can be achieved by mapping each unique category to a numerical value. This transformation simplifies data processing and analysis. Pandas provides two common methods for label encoding:</li>
+</ol>
+<p>Using astype() method: This method involves converting the categorical column to a string type and then mapping each category to a numerical value using a dictionary.
+Using cat.codes attribute: For categorical data stored as Pandas categorical type, label encoding can be applied directly using the cat.codes attribute, which assigns a unique numerical code to each category.
+Label encoding is useful when dealing with ordinal categorical data, where the categories have a meaningful order. However, it may not be suitable for nominal categorical data with no inherent order, as it could introduce unintended relationships between the encoded values.</p>
+<ol start="37">
+<li>How do I create a boxplot with Pandas?
+You can create a boxplot using Pandas’ <code>boxplot()</code> function, which is a wrapper around Matplotlib’s boxplot functionality. Here’s how to do it:</li>
+</ol>
+<p>import pandas as pd<br>
+import matplotlib.pyplot as plt</p>
+<h1 id="create-a-dataframe-with-sample-data">Create a DataFrame with sample data<br><a class="headerlink" href="#create-a-dataframe-with-sample-data" title="Permanent link">&para;</a></h1>
+<p>data = {'A': [1, 2, 3, 4, 5],<br>
+'B': [2, 4, 6, 8, 10]}<br>
+df = pd.DataFrame(data)</p>
+<h1 id="plot-a-boxplot-for-the-dataframe">Plot a boxplot for the DataFrame<br><a class="headerlink" href="#plot-a-boxplot-for-the-dataframe" title="Permanent link">&para;</a></h1>
+<p>df.boxplot()</p>
+<h1 id="add-title-and-labels">Add title and labels<br><a class="headerlink" href="#add-title-and-labels" title="Permanent link">&para;</a></h1>
+<p>plt.title('Boxplot of Columns A and B')<br>
+plt.xlabel('Columns')<br>
+plt.ylabel('Values')</p>
+<h1 id="show-the-plot">Show the plot<br><a class="headerlink" href="#show-the-plot" title="Permanent link">&para;</a></h1>
+<p>plt.show()
+This will give you the output:</p>
+<p>boxplot with Pandas</p>
+<ol start="38">
+<li>How do you set an index to a Pandas DataFrame?
+Setting an index in a Pandas DataFrame can be done using the “set_index()” method. This allows you to set one or more columns as the index of the DataFrame. Here’s how you can do it:</li>
+</ol>
+<p>Changing Index column: In this example, the First Name column has been made the index column of DataFrame.</p>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-dataframe-with-sample-data_1">Create a DataFrame with sample data<br><a class="headerlink" href="#create-a-dataframe-with-sample-data_1" title="Permanent link">&para;</a></h1>
+<p>data = {'ID': [1, 2, 3, 4, 5],<br>
+'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],<br>
+'Age': [25, 30, 35, 40, 45]}<br>
+df = pd.DataFrame(data)</p>
+<h1 id="set-the-id-column-as-the-index">Set the 'ID' column as the index<br><a class="headerlink" href="#set-the-id-column-as-the-index" title="Permanent link">&para;</a></h1>
+<p>df.set_index('ID', inplace=True)<br>
+print(df)
+Output:</p>
+<p>setting an index to a Pandas DataFrame</p>
+<p>Set Index Using Multiple Columns: Two columns will be created as index columns in this example. The append option is used to append given columns to the already existing index column, while the drop parameter is used to drop the column.</p>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-dataframe-with-sample-data_2">Create a DataFrame with sample data<br><a class="headerlink" href="#create-a-dataframe-with-sample-data_2" title="Permanent link">&para;</a></h1>
+<p>data = {'Country': ['USA', 'Canada', 'USA', 'Canada', 'USA'],<br>
+'City': ['New York', 'Toronto', 'Chicago', 'Vancouver', 'Los Angeles'],<br>
+'Population': [8000000, 2800000, 2700000, 630000, 4000000]}<br>
+df = pd.DataFrame(data)</p>
+<h1 id="set-both-country-and-city-columns-as-the-index">Set both 'Country' and 'City' columns as the index<br><a class="headerlink" href="#set-both-country-and-city-columns-as-the-index" title="Permanent link">&para;</a></h1>
+<p>df.set_index(['Country', 'City'], inplace=True)<br>
+print(df)
+Output of Set Index Using Multiple Columns</p>
+<ol start="39">
+<li>How do you check and remove duplicate values in Pandas?
+In Pandas, duplicate values can be checked by using the duplicated() method.</li>
+</ol>
+<p>DataFrame.duplicated()</p>
+<p>Here’s an example code:</p>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-dataframe-with-duplicate-values">Create a DataFrame with duplicate values<br><a class="headerlink" href="#create-a-dataframe-with-duplicate-values" title="Permanent link">&para;</a></h1>
+<p>data = {'Name': ['Alice', 'Bob', 'Charlie', 'Bob', 'Eva'],<br>
+'Age': [25, 30, 35, 30, 45]}<br>
+df = pd.DataFrame(data)</p>
+<h1 id="check-for-duplicate-rows">Check for duplicate rows<br><a class="headerlink" href="#check-for-duplicate-rows" title="Permanent link">&para;</a></h1>
+<p>duplicates = df.duplicated()<br>
+print(duplicates)
+Output:</p>
+<p>check and remove duplicate values in Pandas</p>
+<p>To remove the duplicate values, we can use the drop_duplicates() method.</p>
+<p>DataFrame.drop_duplicates()</p>
+<p>Here’s an example code:</p>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-dataframe-with-duplicate-values_1">Create a DataFrame with duplicate values<br><a class="headerlink" href="#create-a-dataframe-with-duplicate-values_1" title="Permanent link">&para;</a></h1>
+<p>data = {'Name': ['Alice', 'Bob', 'Charlie', 'Bob', 'Eva'],<br>
+'Age': [25, 30, 35, 30, 45]}<br>
+df = pd.DataFrame(data)</p>
+<h1 id="remove-duplicate-rows">Remove duplicate rows<br><a class="headerlink" href="#remove-duplicate-rows" title="Permanent link">&para;</a></h1>
+<p>df_unique = df.drop_duplicates()<br>
+print(df_unique)
+Output:</p>
+<p>Removing Duplicates in Pandas</p>
+<ol start="40">
+<li>Show two different ways to filter data.
+Filtering data in Pandas involves extracting subsets of a DataFrame that meet certain conditions. This is essential for data analysis, allowing focus on relevant data points. Two common methods to filter data in Pandas are Boolean indexing and the query() method.</li>
+</ol>
+<p>Boolean Indexing:</p>
+<p>Concept: Boolean indexing uses conditional expressions to create a boolean array (True/False) that is applied to the DataFrame. Rows where the condition is “True” are included in the output.
+Usage: It’s used for simple and complex conditions, such as filtering rows where column values meet certain criteria.
+Example: Filtering rows where a column value is greater than a specified threshold or where multiple conditions are met simultaneously.
+Query Method:</p>
+<p>Concept: The “query()” method allows filtering using a query string, making it more readable, especially for complex conditions. It uses a string expression to filter data.
+Usage: It is particularly useful for more readable syntax and complex filtering conditions, utilizing Python’s eval() to interpret the query string.
+Example: Filtering rows where a column value meets a specified condition or combining multiple conditions using logical operators within a string query.
+41. How do you add a row to a Pandas DataFrame?
+Adding a row to a Pandas DataFrame can be done using several methods. Here are two common ways to achieve this:</p>
+<p>Method 1: Using “loc” or “iloc”: You can use the “loc” or “iloc” indexers to add a new row by specifying the index and the row data. Here’s an example code:</p>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-dataframe_1">Create a DataFrame<br><a class="headerlink" href="#create-a-dataframe_1" title="Permanent link">&para;</a></h1>
+<p>data = {'Name': ['Alice', 'Bob'],<br>
+'Age': [25, 30]}<br>
+df = pd.DataFrame(data)</p>
+<h1 id="new-row-data">New row data<br><a class="headerlink" href="#new-row-data" title="Permanent link">&para;</a></h1>
+<p>new_row = {'Name': 'Charlie', 'Age': 35}</p>
+<h1 id="add-the-new-row-using-loc">Add the new row using loc<br><a class="headerlink" href="#add-the-new-row-using-loc" title="Permanent link">&para;</a></h1>
+<p>df.loc[len(df)] = new_row<br>
+print(df)
+Method 2: Using “append()”: You can use the “append()” method to add a new row to the DataFrame. Note that it will return a new DataFrame with the row added, so you need to reassign it to the original DataFrame. Here’s an example code:</p>
+<p>import pandas as pd<br></p>
+<h1 id="create-a-dataframe_2">Create a DataFrame<br><a class="headerlink" href="#create-a-dataframe_2" title="Permanent link">&para;</a></h1>
+<p>data = {'Name': ['Alice', 'Bob'],<br>
+'Age': [25, 30]}<br>
+df = pd.DataFrame(data)</p>
+<h1 id="new-row-data_1">New row data<br><a class="headerlink" href="#new-row-data_1" title="Permanent link">&para;</a></h1>
+<p>new_row = {'Name': 'Charlie', 'Age': 35}</p>
+<h1 id="add-the-new-row-using-the-append">Add the new row using the append<br><a class="headerlink" href="#add-the-new-row-using-the-append" title="Permanent link">&para;</a></h1>
+<p>df = df.append(new_row, ignore_index=True)<br>
+print(df)
+Pandas and Numpy Interview Questions
+42. How do you handle missing data in Pandas?
+Handling missing data effectively ensures robust data analysis and modeling, reducing the risk of biased or invalid results. Here are some methods to handle missing data in Pandas.</p>
+<p>Detecting Missing Data:
+Use isnull() to detect missing values, which returns a DataFrame of the same shape with boolean values indicating missing entries.
+Use isnull().sum() to count missing values per column.
+Removing Missing Data:
+Use dropna() to remove rows or columns with missing values. You can specify axis and subset parameters to control this behavior.
+Imputing Missing Data:
+Use fillna() to fill missing values with a specified constant, mean, median, mode, or other aggregations.
+Interpolating Missing Data:
+Use interpolate() to estimate missing values using interpolation methods like linear, polynomial, etc.
+43. What is resampling?
+Resampling in Pandas refers to the process of converting time series data from one frequency to another. This can involve both upsampling (increasing the frequency of the data) and downsampling (decreasing the frequency of the data). Resampling is commonly used in time series analysis to aggregate data, fill in missing values, or transform the data into a more suitable format for analysis.</p>
+<p>Key Concepts of Resampling:</p>
+<ol>
+<li>Upsampling:</li>
+</ol>
+<p>Definition: Increasing the frequency of the time series data (e.g., from daily to hourly).
+Usage: Often requires filling or interpolating missing data points that arise due to the increased frequency.
+Example: Converting daily data to hourly data.
+2. Downsampling:</p>
+<p>Definition: Decreasing the frequency of the time series data (e.g., from hourly to daily).
+Usage: Involves aggregating data points (e.g., summing, averaging) to match the lower frequency.
+Example: Converting hourly data to daily data.
+Common Methods for Resampling:</p>
+<p>Resample: The resample() method is used to specify a new frequency and apply an aggregation function.
+Asfreq: The asfreq() method is used to change the frequency without applying any aggregation, typically used for upsampling.
+44. How do you create Timedelta objects in Pandas?
+To create a “Timedelta” object using a string, you pass a string literal that specifies the duration.</p>
+<p>Example Code:</p>
+<p>import pandas as pd</p>
+<h1 id="convert-a-string-format-to-a-timedelta-object">Convert a string format to a Timedelta object<br><a class="headerlink" href="#convert-a-string-format-to-a-timedelta-object" title="Permanent link">&para;</a></h1>
+<p>print(pd.Timedelta('20 days 12 hours 45 minutes 3 seconds'))
+Output: 20 days 12:45:03</p>
+<p>To create a “Timedelta” object using an integer, simply pass the integer value along with the unit of time.</p>
+<p>Example Code:</p>
+<p>import pandas as pd<br></p>
+<h1 id="convert-an-integer-to-a-timedelta-object">Convert an integer to a Timedelta object<br><a class="headerlink" href="#convert-an-integer-to-a-timedelta-object" title="Permanent link">&para;</a></h1>
+<p>print(pd.Timedelta(16, unit='h')) # 'h' stands for hours
+Output: 0 days 16:00:00</p>
+<ol start="45">
+<li>How can you Merge Two DataFrames?
+The “.merge()” method, which takes two DataFrames as parameters, allows us to combine two DataFrames.</li>
+</ol>
+<p>import pandas as pd<br></p>
+<h1 id="create-two-dataframes">Create two DataFrames<br><a class="headerlink" href="#create-two-dataframes" title="Permanent link">&para;</a></h1>
+<p>df1 = pd.DataFrame({'A': [1, 2, 3],<br>
+'B': [4, 5, 6]},<br>
+index=[10, 20, 30])
+df2 = pd.DataFrame({'C': [7, 8, 9],<br>
+'D': [10, 11, 12]},<br>
+index=[20, 30, 40])</p>
+<h1 id="merge-both-dataframe">Merge both dataframe<br><a class="headerlink" href="#merge-both-dataframe" title="Permanent link">&para;</a></h1>
+<p>result = pd.merge(df1, df2, left_index=True, right_index=True)<br>
+print(result)
+Output:</p>
+<p>Output of Merging Two DataFrames</p>
+<ol start="46">
+<li>What does rolling mean?
+The rolling mean, also known as the moving average, is a statistical technique used to analyze time series data. It involves calculating the average of a fixed number of sequential data points in a time series. This “rolling” process involves moving the window of fixed size across the data set and recalculating the mean for each position of the window.</li>
+</ol>
+<p>Purpose of Rolling Mean:</p>
+<p>Smoothing Data: It helps reduce noise and short-term fluctuations, making the underlying trend more visible.
+Trend Analysis: By smoothing the data, it becomes easier to identify long-term trends and patterns.
+Seasonality Detection: It assists in recognizing seasonal variations by highlighting the cyclical behavior of the data.
+Parameters of Rolling Mean:</p>
+<p>Window Size: The number of data points included in each calculation of the mean.
+Min Periods: The minimum number of observations required to calculate a mean for the window, allowing for handling of missing data.
+Characteristics:</p>
+<p>NaN Values: The initial calculations may result in <code>NaN</code> values due to insufficient data points to fill the window.
+Adjustability: The window size and minimum periods can be adjusted to suit the specific characteristics of the data being analyzed.
+The rolling mean is widely used in various fields, such as finance for stock price analysis, meteorology for temperature data, and any domain involving time series data to reveal important patterns and trends.</p>
+<h2 id="47-how-can-we-convert-a-numpy-array-into-a-dataframe">47. How can we convert a NumPy array into a DataFrame?<a class="headerlink" href="#47-how-can-we-convert-a-numpy-array-into-a-dataframe" title="Permanent link">&para;</a></h2>
+<p>To convert a NumPy array into a Pandas DataFrame, you can use the pd.DataFrame() constructor. This allows you to specify the data, along with optional arguments such as column names and index labels. Here’s an example code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Creating a NumPy array</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Converting NumPy array to DataFrame</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">])</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="48-how-can-we-get-the-frequency-count-of-unique-items-in-a-pandas-dataframe">48. How can we get the frequency count of unique items in a Pandas DataFrame?<a class="headerlink" href="#48-how-can-we-get-the-frequency-count-of-unique-items-in-a-pandas-dataframe" title="Permanent link">&para;</a></h2>
+<p>To get the frequency count of unique items in a Pandas DataFrame, you can use the value_counts() method. This method is typically applied to a specific column of the DataFrame to count the occurrences of each unique value.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># Creating a sample DataFrame&lt;br&gt;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="s1">'Category'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">]</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">})</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># Getting the frequency count of unique items in the 'Category' column</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">frequency_count</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Category'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">frequency_count</span><span class="p">)</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c1"># Output:</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1"># frequency count of unique items in a Pandas DataFrame</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c1"># Category</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c1"># A    3</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="c1"># B    3</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="c1"># C    3</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c1"># Name: count, dtype: int64</span>
+</code></pre></div>
+<h2 id="49-what-do-describe-percentiles-values-represent">49. What do describe() percentiles values represent?<a class="headerlink" href="#49-what-do-describe-percentiles-values-represent" title="Permanent link">&para;</a></h2>
+<p>The describe() method in Pandas generates descriptive statistics for the DataFrame columns. The percentile values represent specific points in the data distribution. Percentile values typically include:</p>
+<ul>
+<li>50% (median): The middle value separates the higher half from the lower half of the data set.</li>
+<li>25% (first quartile): The value below which 25% of the data falls.</li>
+<li>75% (third quartile): The value below which 75% of the data falls.</li>
+</ul>
+<h2 id="50-explain-data-operations-in-pandas">50. Explain data operations in Pandas<a class="headerlink" href="#50-explain-data-operations-in-pandas" title="Permanent link">&para;</a></h2>
+<p>Data operations in Pandas are a set of functions and methods that allow for efficient data manipulation and analysis. Some common operations include:</p>
+<ul>
+<li>Selection and Indexing: Accessing data using labels, positions, or a boolean array.</li>
+<li>Examples include df.loc[], df.iloc[], and direct column access df[‘column’].</li>
+<li>Filtering: Extracting subsets of data based on conditions.</li>
+<li>This can be done using boolean indexing.
+Aggregation and Grouping: Summarizing data using functions like sum(), mean(), count(), often combined with groupby().</li>
+<li>Merging and Joining: Combining multiple DataFrames using merge(), join(), and concatenation with concat().</li>
+<li>Reshaping: Changing the structure of DataFrames with methods like pivot(), melt(), and stack()/unstack().
+Handling Missing Data: Managing NaN values using methods like fillna(), dropna(), and isna().</li>
+</ul>
+<h2 id="51-what-is-vectorization-in-pandas">51. What is vectorization in Pandas?<a class="headerlink" href="#51-what-is-vectorization-in-pandas" title="Permanent link">&para;</a></h2>
+<p>Vectorization in Pandas refers to performing operations on entire arrays or DataFrames without using explicit loops.</p>
+<ul>
+<li>This approach leverages optimized, low-level implementations to achieve higher performance and efficiency.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># Create a DataFrame</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># Vectorized addition</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="n">df</span><span class="p">[</span><span class="s1">'C'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">'B'</span><span class="p">]</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="benefits-of-vectorization">Benefits of Vectorization<a class="headerlink" href="#benefits-of-vectorization" title="Permanent link">&para;</a></h3>
+<p>Performance: Vectorized operations are much faster than using Python loops.
+Simplicity: Code is more concise and easier to read.</p>
+<h2 id="52-how-will-you-combine-different-data-frames-in-panda">52. How will you combine different Data Frames in Panda?<a class="headerlink" href="#52-how-will-you-combine-different-data-frames-in-panda" title="Permanent link">&para;</a></h2>
+<p>Combining DataFrames in Pandas can be done using several methods:</p>
+<ol>
+<li>Concatenation: Stacking DataFrames either vertically or horizontally using <code>concat()</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pandas.concat(objs, axis=0, join='outer', ignore_index=False, keys=None, ...)
+</code></pre></div>
+<p>'outer' (default) or 'inner'</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A0'</span><span class="p">,</span> <span class="s1">'A1'</span><span class="p">],</span> <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B0'</span><span class="p">,</span> <span class="s1">'B1'</span><span class="p">]})</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A2'</span><span class="p">,</span> <span class="s1">'A3'</span><span class="p">],</span> <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B2'</span><span class="p">,</span> <span class="s1">'B3'</span><span class="p">]})</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Vertical concatenation</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1">#     A   B</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># 0  A0  B0</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1"># 1  A1  B1</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># 0  A2  B2</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># 1  A3  B3</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Horizontal concatenation</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1">#     A   B   A   B</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="c1"># 0  A0  B0  A2  B2</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="c1"># 1  A1  B1  A3  B3</span>
+</code></pre></div>
+<ol start="2">
+<li>Merge: Combining DataFrames based on common columns or indices using <code>merge()</code>. This can perform inner, outer, left, and right joins.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">df_merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'key'</span><span class="p">)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A1'</span><span class="p">,</span> <span class="s1">'A2'</span><span class="p">],</span> <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B1'</span><span class="p">,</span> <span class="s1">'B3'</span><span class="p">]})</span> 
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A1'</span><span class="p">,</span> <span class="s1">'A1'</span><span class="p">],</span> <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B1'</span><span class="p">,</span> <span class="s1">'B1'</span><span class="p">]})</span> 
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">res1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">])</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">res1</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="n">A</span>   <span class="n">B</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="mi">0</span>  <span class="n">A1</span>  <span class="n">B1</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="mi">1</span>  <span class="n">A1</span>  <span class="n">B1</span>
+</code></pre></div>
+<ol start="3">
+<li>Join: Combining DataFrames based on their index using <code>join()</code>. This is similar to merge but more index-oriented.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">df_joined</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="err">’</span><span class="n">key</span><span class="err">’</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">For</span> <span class="n">example</span><span class="p">:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># Creating sample DataFrames&lt;br&gt;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="s1">'ID'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="s1">'Value1'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">]</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="p">})</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="s1">'ID'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="s1">'Value2'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'X'</span><span class="p">,</span> <span class="s1">'Y'</span><span class="p">,</span> <span class="s1">'Z'</span><span class="p">]</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="p">})</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="c1"># Merging DataFrames</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'ID'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">)</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">df_combined</span><span class="p">)</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'key1'</span><span class="p">])</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="n">res1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'right'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'key1'</span><span class="p">])</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="n">res3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'key1'</span><span class="p">])</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/ashishbindra2"  target="_blank" rel="noopener">Ashish Bindra</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ashishbindra2" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://in.linkedin.com/in/ashishbindra2/" target="_blank" rel="noopener" title="in.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.sections", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

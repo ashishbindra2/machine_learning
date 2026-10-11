@@ -1,0 +1,1850 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Numpy - Machine Learning Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#numpy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Machine Learning Tutorials" class="md-header__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Numpy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../intro-to-ml-google/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  intro-to-ml-google
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data-sci-interview.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  data-sci
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../mini-projects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mini-projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sql/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../random/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  interview-ai
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../unimportant/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  mixed
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Machine Learning Tutorials" class="md-nav__button md-logo" aria-label="Machine Learning Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Machine Learning Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../intro-to-ml-google/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro-to-ml-google
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    intro-to-ml-google
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-ml-google/SupervisedLearning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supervised Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-ml-google/test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    test-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    interview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-sci-interview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    data-sci
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mini-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mini-projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    interview-ai
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unimportant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mixed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-numpy-why-do-we-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What is Numpy? Why do we use it?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-are-the-advantages-and-disadvantages-of-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.. What are the advantages and disadvantages of Numpy?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-why-do-we-need-numpy-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Why do we need NumPy arrays?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-to-check-numpy-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How to check numpy version
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-how-can-i-make-an-array-in-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. How can I make an array in NumPy?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-numpy-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Numpy functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. axis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. shape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-reshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. reshape()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-arange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. arange()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. arange()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#we-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        we learned
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-what-are-ndarrays-in-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. What are ndarrays in NumPy?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-explain-the-difference-between-shallow-copy-and-deep-copy-in-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Explain the difference between shallow copy and deep copy in NumPy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-in-a-numpy-array-how-can-we-access-the-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. In a NumPy array, how can we access the elements?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-what-is-a-var-function-in-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. What is a var function in NumPy?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-how-can-you-create-arrays-in-numpy-that-are-1d-2d-and-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. How can you create arrays in NumPy that are 1D, 2D, and 3D?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-how-can-you-create-a-numpy-array-from-a-python-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. How can you create a NumPy array from a Python list?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-which-common-data-types-does-numpy-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Which common data types does NumPy support?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-how-is-numpy-different-from-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. How is NumPy different from Pandas?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-how-do-you-count-the-number-of-times-a-given-value-appears-in-an-array-of-integers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. How do you count the number of times a given value appears in an array of integers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-what-is-the-difference-between-copy-and-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. What is the difference between copy and view?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="numpy">Numpy<a class="headerlink" href="#numpy" title="Permanent link">&para;</a></h1>
+<p>Link: <a href="https://intellipaat.com/blog/interview-question/numpy-interview-questions/">https://intellipaat.com/blog/interview-question/numpy-interview-questions/</a></p>
+<h2 id="1-what-is-numpy-why-do-we-use-it">1. What is Numpy? Why do we use it?<a class="headerlink" href="#1-what-is-numpy-why-do-we-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li>NumPy is a Python library used for numerical computing, especially for handling arrays and matrices.</li>
+<li>We use it because it provides efficient operations on large datasets and supports mathematical functions essential for scientific computing and data analysis.</li>
+</ul>
+<h2 id="2-what-are-the-advantages-and-disadvantages-of-numpy">2.. What are the advantages and disadvantages of Numpy?<a class="headerlink" href="#2-what-are-the-advantages-and-disadvantages-of-numpy" title="Permanent link">&para;</a></h2>
+<p>Advantages Disadvantages
+Efficient numerical operations Limited support for non-numeric data types<br />
+Simplified syntax for complex mathematical computations Memory-intensive for large arrays
+Seamless integration with other Python libraries like SciPy and Pandas Lack of built-in support for distributed computing
+Extensive documentation and community support Steep learning curve for beginners due to its complex syntax and advanced functionalities</p>
+<h2 id="3-why-do-we-need-numpy-arrays">3. Why do we need NumPy arrays?<a class="headerlink" href="#3-why-do-we-need-numpy-arrays" title="Permanent link">&para;</a></h2>
+<ul>
+<li>NumPy arrays are faster and more efficient than Python lists</li>
+<li>When dealing with a huge dataset with millions of data, NumPy arrays can be 100x faster than traditional Python lists.</li>
+<li>When you have a handful of items, lists are great. But when dealing with thousands or even millions of numbers, NumPy arrays are the way to go!</li>
+</ul>
+<h2 id="4-how-to-check-numpy-version">4. How to check numpy version<a class="headerlink" href="#4-how-to-check-numpy-version" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="5-how-can-i-make-an-array-in-numpy">5. How can I make an array in NumPy?<a class="headerlink" href="#5-how-can-i-make-an-array-in-numpy" title="Permanent link">&para;</a></h2>
+<p>You can make an array in NumPy using the numpy.array() function.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># For example,</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="6-numpy-functions">6. Numpy functions<a class="headerlink" href="#6-numpy-functions" title="Permanent link">&para;</a></h2>
+<p>NumPy also comes with a bunch of math functions
+Here are some of the common ones:</p>
+<ul>
+<li>.min() Return the minimum value of an array.</li>
+<li>.max() Return the maximum value of an array.</li>
+<li>.sum() Return the total sum of an array's values.</li>
+<li>.average() Return the average value of an array.</li>
+</ul>
+<h2 id="7-axis">7. axis<a class="headerlink" href="#7-axis" title="Permanent link">&para;</a></h2>
+<ul>
+<li>axis=0: each column</li>
+<li>axis=1: each row</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">temperatures</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">51</span><span class="p">],</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>                         <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">39</span><span class="p">]])</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># Sum of each column</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># Min of each row</span>
+</code></pre></div>
+<h2 id="8-shape">8. shape<a class="headerlink" href="#8-shape" title="Permanent link">&para;</a></h2>
+<p>NumPy arrays have a property called <code>.shape</code> that returns a tuple containing number of elements each dimension has.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span> 
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>     <span class="c1"># Output: (2, 4)</span>
+</code></pre></div>
+<p>When we print <code>arr.shape</code>, we get (2, 4) because there are two dimensions:</p>
+<ul>
+<li>The 1st dimension has 2 elements (for the rows).</li>
+<li>The 2nd dimension has 4 elements (for the columns).</li>
+</ul>
+<h2 id="9-reshape">9. reshape()<a class="headerlink" href="#9-reshape" title="Permanent link">&para;</a></h2>
+<ul>
+<li>If we want to change the shape of an array, we use the <code>.reshape()</code> function.</li>
+<li>Suppose we want to convert the following 1D array into a 2D one</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span> 
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">new_arr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">new_arr</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Output:</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># [[1 2 3 4]</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># [5 6 7 8]]</span>
+</code></pre></div>
+<p>Here we are turning the array into two dimensions:</p>
+<ul>
+<li>The 1st dimension has 2 rows.</li>
+<li>The 2nd dimension has 4 columns.</li>
+</ul>
+<h2 id="10-arange">10. arange()<a class="headerlink" href="#10-arange" title="Permanent link">&para;</a></h2>
+<p>The .arange() function, short for “array range”, is a function that creates an array with evenly spaced values.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>    <span class="c1"># Output: [0 1 2 3 4]</span>
+</code></pre></div>
+<p>You can go further with its three parameters:</p>
+<ul>
+<li><code>start</code> is the first value in the array.</li>
+<li><code>stop</code> is end of the range.</li>
+<li><code>step</code> is step size of the intervals.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>   <span class="c1"># Output: [1 4 7]</span>
+</code></pre></div>
+<h3 id="we-learned">we learned<a class="headerlink" href="#we-learned" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Math operations with +, -, *, /, and %.</li>
+<li>Math functions like .min(), .max(), .sum(), .average().</li>
+<li>.shape shows the number of elements for each dimension and .reshape() updates it.</li>
+<li>.arange() to create an array with evenly spaced values.</li>
+</ul>
+<!-- ## 11. Why is NumPy better than Yorick, Matlab, Octave, or Idl? -->
+
+<!-- NumPy outperforms Yorick, MATLAB, Octave, and IDL due to its efficient combination of Python and optimized C/C++ code, providing faster numerical computations. It offers a vast library of functions and data structures, seamlessly integrating with the broader Python ecosystem. NumPy’s large and active community ensures better documentation, more third-party packages, and quicker development of new features. As an open-source and cross-platform library, NumPy is free to use and accessible on various operating systems, making it a more versatile and scalable choice for scientific and data-intensive applications. -->
+
+<h2 id="11-what-are-ndarrays-in-numpy">11. What are ndarrays in NumPy?<a class="headerlink" href="#11-what-are-ndarrays-in-numpy" title="Permanent link">&para;</a></h2>
+<p>Ndarrays are multi-dimensional arrays in NumPy used for efficient numerical computations and data manipulation. They are the main building block of NumPy.</p>
+<p>It’s basically a way to store data in tables with multiple dimensions, like spreadsheets. They’re super fast because they’re optimized for math stuff. Once you make one, you can’t change its size, but you can do basic mathematics with it. They only like to store the same type of data, like all numbers or all text.</p>
+<h2 id="12-explain-the-difference-between-shallow-copy-and-deep-copy-in-numpy">12. Explain the difference between shallow copy and deep copy in NumPy<a class="headerlink" href="#12-explain-the-difference-between-shallow-copy-and-deep-copy-in-numpy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Shallow Copy</th>
+<th>Deep Copy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creates a new object with references to the original data Creates a completely new and independent object</td>
+<td></td>
+</tr>
+<tr>
+<td>Changes to the copied object affect the original Changes to the copied object don’t affect the original</td>
+<td></td>
+</tr>
+<tr>
+<td>Faster and uses less memory Slower and uses more memory</td>
+<td></td>
+</tr>
+<tr>
+<td>Copies only the top-level structure, not the nested objects Copies of both the top-level structure and nested objects</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-in-a-numpy-array-how-can-we-access-the-elements">13. In a NumPy array, how can we access the elements?<a class="headerlink" href="#13-in-a-numpy-array-how-can-we-access-the-elements" title="Permanent link">&para;</a></h2>
+<p>In NumPy, we can access an array in two ways. Either by slicing or by indexing. For example:</p>
+<ul>
+<li>To access a single element: array[index]</li>
+<li>To access a slice of elements: array[start_index:end_index]</li>
+<li>For multi-dimensional arrays, you can use comma-separated indices: array[row_index, column_index]</li>
+</ul>
+<h2 id="14-what-is-a-var-function-in-numpy">14. What is a var function in NumPy?<a class="headerlink" href="#14-what-is-a-var-function-in-numpy" title="Permanent link">&para;</a></h2>
+<p>In NumPy, the “var” function calculates the variance of elements within an array or across a designated axis.</p>
+<ul>
+<li>Variance is a measure of the spread or dispersion of a set of data points.</li>
+</ul>
+<p>np.var(a, axis=None, dtype=None)</p>
+<p>a: The array for which variance computation is desired.</p>
+<p>axis: Specifies the axis or axes for variance computation. If not provided, variance is computed for the entire array. It can be an integer or a tuple of integers for multiple axes.</p>
+<p>dtype: Defines the data type of the resultant variance. If unspecified, the data type is inferred from the input array.</p>
+<h2 id="15-how-can-you-create-arrays-in-numpy-that-are-1d-2d-and-3d">15. How can you create arrays in NumPy that are 1D, 2D, and 3D?<a class="headerlink" href="#15-how-can-you-create-arrays-in-numpy-that-are-1d-2d-and-3d" title="Permanent link">&para;</a></h2>
+<p>Let’s say you have a standard Python list. Using the array function, we can generate NumPy arrays in the manner described below:</p>
+<p>One dimensional array:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="c1">#python list&lt;br&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">numpy_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c1">#numpy array</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">Two</span><span class="o">-</span><span class="n">dimensional</span> <span class="n">arrays</span><span class="p">:</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">arr</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]]</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">numpy_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">Three</span><span class="o">-</span><span class="n">dimensional</span> <span class="n">arrays</span><span class="p">:</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">arr</span> <span class="o">=</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]]]</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">numpy_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="16-how-can-you-create-a-numpy-array-from-a-python-list">16. How can you create a NumPy array from a Python list?<a class="headerlink" href="#16-how-can-you-create-a-numpy-array-from-a-python-list" title="Permanent link">&para;</a></h2>
+<p>You can create a NumPy array from a Python list using the “numpy.array()” function. Here’s an example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># Create a Python list</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># Convert the list to a NumPy array</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># Print the NumPy array</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span> <span class="c1"># [1 2 3 4 5]</span>
+</code></pre></div>
+<h2 id="17-which-common-data-types-does-numpy-support">17. Which common data types does NumPy support?<a class="headerlink" href="#17-which-common-data-types-does-numpy-support" title="Permanent link">&para;</a></h2>
+<p>NumPy supports several common data types. These data types allow for flexibility in representing different kinds of numerical and non-numerical data in NumPy arrays.</p>
+<p>These types are:</p>
+<ul>
+<li>int8, int16, int32, int64 - signed integer types with different bit sizes</li>
+<li>uint8, uint16, uint32, uint64 - unsigned integer types with different bit sizes</li>
+<li>float32, float64 - floating-point types with different precision levels</li>
+<li>complex64, complex128 - complex number types with different precision levels</li>
+</ul>
+<h2 id="18-how-is-numpy-different-from-pandas">18. How is NumPy different from Pandas?<a class="headerlink" href="#18-how-is-numpy-different-from-pandas" title="Permanent link">&para;</a></h2>
+<p>NumPy and Pandas are two essential libraries in the Python ecosystem for data manipulation and analysis, but they serve slightly different purposes.</p>
+<ul>
+<li>NumPy is primarily focused on numerical computing, providing support for multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently.</li>
+<li>On the other hand, Pandas is built on top of NumPy and provides higher-level data structures, notably the DataFrame, a tabular, spreadsheet-like data structure.</li>
+<li>Pandas excel in data manipulation, cleaning, and analysis tasks, offering powerful tools for handling missing data, reshaping datasets, grouping, merging, and joining datasets.</li>
+</ul>
+<h2 id="19-how-do-you-count-the-number-of-times-a-given-value-appears-in-an-array-of-integers">19. How do you count the number of times a given value appears in an array of integers?<a class="headerlink" href="#19-how-do-you-count-the-number-of-times-a-given-value-appears-in-an-array-of-integers" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The number of times a given value appears can be counted using the <code>bincount()</code> function.</li>
+<li>It’s important to remember that the bincount() method accepts two types of arguments: boolean expressions and positive integers.</li>
+<li>Null values are not permitted to be used. Use the function <code>NumPy.bincount()</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># For example,</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span> <span class="c1"># [3 2 1 3 0 1 1 1 1]</span>
+</code></pre></div>
+<h2 id="20-what-is-the-difference-between-copy-and-view">20. What is the difference between copy and view?<a class="headerlink" href="#20-what-is-the-difference-between-copy-and-view" title="Permanent link">&para;</a></h2>
+<p>Copy: When you create a copy of a NumPy array, you get a new array with its own separate data.
+Any changes to the copied array won’t affect the original array, and vice versa.
+A copy essentially duplicates the data in memory.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">original_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">copied_array</span> <span class="o">=</span> <span class="n">original_array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">copied_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Original array:"</span><span class="p">,</span> <span class="n">original_array</span><span class="p">)</span> <span class="c1"># Original array: [1 2 3 4 5]</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Copied array:"</span><span class="p">,</span> <span class="n">copied_array</span><span class="p">)</span>     <span class="c1"># Copied array: [100 2 3 4 5]</span>
+</code></pre></div>
+<p>View: It is a new array object that refers to the same underlying data as the original array.
+Modifications to the view will affect the original array, and vice versa.
+Views provide different ways to look at the same data without copying it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">original_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">view_array</span> <span class="o">=</span> <span class="n">original_array</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">view_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Original array:"</span><span class="p">,</span> <span class="n">original_array</span><span class="p">)</span> <span class="c1"># Original array: [100 2 3 4 5]</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"View array:"</span><span class="p">,</span> <span class="n">view_array</span><span class="p">)</span>         <span class="c1"># View array: [100 2 3 4 5]</span>
+</code></pre></div>
+<ol start="15">
+<li>How do you identify the data type of an array?
+One can identify the data type of a NumPy array using the “dtype” attribute. Let’s check out the given code to know “how”.</li>
+</ol>
+<p>import numpy as np<br>
+arr = np.array([1, 2, 3, 4, 5])<br>
+data_type = arr.dtype<br>
+print("Data type of the array:", data_type)
+Output:</p>
+<p>Data type of the array: int64</p>
+<ol start="16">
+<li>How do you create an array with all values as zeros or ones?
+For this, we will use the np.zeros() and np.ones() methods.</li>
+</ol>
+<p>Creating an array with all zero values:</p>
+<p>import numpy as np<br>
+zeros_array = np.zeros((3, 3))<br>
+print("Array with all zeros:")<br>
+print(zeros_array)
+Output:</p>
+<p>Array with all zeros:
+[[0. 0. 0.]
+[0. 0. 0.]
+[0. 0. 0.]]</p>
+<p>Creating an array with all one values:</p>
+<p>import numpy as np<br>
+ones_array = np.ones((3,3))<br>
+print("Array with all ones:")<br>
+print(ones_array)
+Output:</p>
+<p>Array with all ones:
+[[1. 1. 1.]
+[1. 1. 1.]
+[1. 1. 1.]]</p>
+<ol start="17">
+<li>Display nine random integer numbers from 1 to 50 in an array.
+We can generate an array with nine random integer numbers from 1 to 50 using “numpy.random.randint()” function.</li>
+</ol>
+<p>import numpy as np<br>
+rand_arr = np.random.randint(1,50,size=9)<br>
+print (rand_arr)
+Output:</p>
+<p>[37 6 32 7 31 45 25 16 35]</p>
+<ol start="18">
+<li>How can you reverse a NumPy array?
+We can reverse a NumPy array using slicing. Here’s an example:</li>
+</ol>
+<p>import numpy as np<br>
+arr = np.array([1, 2, 3, 4, 5])<br>
+reversed_arr = arr[::-1] # Reverse the array using slicing<br>
+print("Reversed array:")<br>
+print(reversed_arr)
+Output:</p>
+<p>Reversed array:
+[5 4 3 2 1]</p>
+<p>Another way to reverse a NumPy array is by using the “numpy.flip()” function.</p>
+<p>Advanced NumPy Interview Questions
+19. How do you check whether an array is empty or contains zero elements?
+In NumPy, you can utilize the “size” attribute to determine if an array is empty or has zero elements. This attribute provides the total count of elements in the array. If the size is zero, it signifies that the array is empty or has no elements.</p>
+<p>Process Advisors</p>
+<p>ey-logo
+*Subject to Terms and Condition
+20. What is the difference between slicing and indexing in NumPy?
+The basic methods for accessing and modifying elements in arrays are indexing and slicing, but some key distinctions must be noted.</p>
+<p>Slicing Indexing
+Returns a portion of the original array as a new array Returns a single element or a subset of elements from the original array
+Allows selecting a range of elements using start, stop, and step parameters Selects a specific element or elements using integer indices
+Can create arrays with fewer dimensions than the original array Can access individual elements or subsets of elements from the original array
+Syntax: array[start:stop:step] Syntax: array[index] or array[row_index, column_index]
+Check out our blog on Data Science Tutorial to learn more about Data Science.</p>
+<ol start="21">
+<li>What is vectorization in NumPy?
+Vectorization in NumPy refers to the process of applying operations on entire arrays rather than on individual elements. This is achieved through NumPy’s ability to perform element-wise operations, broadcasting, and other array manipulation techniques efficiently.</li>
+</ol>
+<p>When you perform operations on NumPy arrays, the operations are automatically applied element-wise, meaning the operation is executed on each element of the array simultaneously. This can significantly improve computational efficiency compared to using explicit loops to iterate over each element.</p>
+<p>For example, consider adding two arrays:</p>
+<p>import numpy as np<br>
+a = np.array([1, 2, 3, 4])<br>
+b = np.array([5, 6, 7, 8])<br>
+result = a + b
+Output:</p>
+<p>[6, 8, 10, 12]</p>
+<p>This addition operation is performed element-wise across the entire arrays a and b without the need for explicit looping.</p>
+<p>Vectorization is a fundamental concept in NumPy and is key to writing concise, efficient, and readable code for numerical computing tasks. It uses underlying C implementations for array operations, making it much faster than equivalent Python loops.</p>
+<ol start="22">
+<li>How can the local maxima or peaks in a 1-D NumPy array be found?
+You can find the local maxima or peaks in a 1-D NumPy array using various methods. One common approach is to iterate over the array and compare each element with its neighbors to determine whether it’s a peak.</li>
+</ol>
+<p>peaks in a 1-D NumPy array</p>
+<p>Here’s a basic implementation of this approach:</p>
+<p>import numpy as np<br>
+def find_peaks(arr):<br>
+peaks = []<br>
+for i in range(1, len(arr) - 1):<br>
+if arr[i] &gt; arr[i - 1] and arr[i] &gt; arr[i + 1]:<br>
+peaks.append(i)<br>
+return peaks</p>
+<h1 id="example-usage">Example usage:<br><a class="headerlink" href="#example-usage" title="Permanent link">&para;</a></h1>
+<p>arr = np.array([1, 3, 7, 2, 5, 8, 4])<br>
+peaks = find_peaks(arr)<br>
+print("Peaks found at indices:", peaks)<br>
+print("Peak values:", arr[peaks])
+Output:</p>
+<p>Peaks found at indices: [2, 5]
+Peak values: [7 8]</p>
+<p>This function iterates over the array and checks if each element is greater than its neighboring elements. If so, it considers the element a peak and adds its index to the list of peaks.</p>
+<ol start="23">
+<li>How do you add matrices using NumPy?
+One can simply achieve this using the “+” addition operator. So, first construct two matrices that you want to add. Then perform simple addition between two ndarrays.</li>
+</ol>
+<p>import numpy as np<br>
+matrix1 = np.array([[1, 2, 3],<br>
+[4, 5, 6],<br>
+[7, 8, 9]])
+matrix2 = np.array([[10, 11, 12],<br>
+[13, 14, 15],<br>
+[16, 17, 18]])<br></p>
+<h1 id="add-the-matrices">Add the matrices<br><a class="headerlink" href="#add-the-matrices" title="Permanent link">&para;</a></h1>
+<p>result = matrix1 + matrix2<br>
+print(result)
+Output:</p>
+<p>[[11 13 15]
+[17 19 21]
+[23 25 27]]</p>
+<ol start="24">
+<li>How do you multiply matrices using NumPy?
+To multiply two matrices, we can use the “np.dot()” function or the “@” operator for Python 3.5. Considering the matrices we created above, let’s perform the multiplication.</li>
+</ol>
+<p>np.dot() function:
+result = np.dot(matrix1, matrix2)
+print(result)</p>
+<p>@ operator:
+result = matrix1 @ matrix2
+print(result)</p>
+<p>For both cases, the output would be:</p>
+<p>[[ 84 90 96]
+[201 216 231]
+[318 342 366]]</p>
+<ol start="25">
+<li>What is array slicing, and how do you do it in NumPy?
+Slicing is the process of taking a subset of the provided array and using it to create a new view of it without actually copying it. In NumPy, array slicing is performed using the colon: operator within square brackets [ ]. The syntax for array slicing is start:stop:step, where
+start is the starting index (inclusive)
+stop is the stopping index (exclusive)
+step is the step size, indicating the spacing between elements</li>
+</ol>
+<p>For example, take an array [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] and consider different cases as shown in the image along with the respective outputs:</p>
+<p>Slicing in NumPy</p>
+<p>Go through these Data Science Interview Questions and Answers to excel in your interview.</p>
+<ol start="26">
+<li>Swap two rows/columns in a 2D array.
+For swapping in 2D arrays, one can use advanced indexing without the need for temporary variables:</li>
+</ol>
+<p>import numpy as np<br>
+arr_2d = np.array([[1, 2, 3],<br>
+[4, 5, 6],<br>
+[7, 8, 9]])<br></p>
+<h1 id="swap-rows-using-advanced-indexing">Swap rows using advanced indexing<br><a class="headerlink" href="#swap-rows-using-advanced-indexing" title="Permanent link">&para;</a></h1>
+<p>arr_2d[[0, 1]] = arr_2d[[1, 0]]<br></p>
+<h1 id="swap-columns-using-advanced-indexing">Swap columns using advanced indexing<br><a class="headerlink" href="#swap-columns-using-advanced-indexing" title="Permanent link">&para;</a></h1>
+<p>arr_2d[:, [0, 1]] = arr_2d[:, [1, 0]]<br>
+print(arr_2d)
+Output:</p>
+<p>[[5 4 6]
+[2 1 3]
+[8 7 9]]</p>
+<ol start="27">
+<li>How are vectorization and broadcasting related to each other in NumPy?
+Vectorization: Imagine you have a list of numbers, and you want to add 5 to each number in that list. You could write a loop that goes through each number, adds 5 to it, and stores the result. That’s how you’d do it in regular Python.
+However, in NumPy, you can do the same thing in one step without any loops. You just tell NumPy to add 5 to the entire list at once. This way, NumPy handles all the individual additions behind the scenes in an optimized way, which is much faster than doing it one by one.</li>
+</ol>
+<p>Broadcasting: Let’s say you have two lists of numbers, and you want to add them together. If both lists are the same size, it’s easy; you just add each pair of numbers together. But what if one list has fewer numbers than the other? That’s where broadcasting comes in.
+NumPy can automatically stretch or “broadcast” the smaller list to match the size of the larger one, so you can still add them together without any issues. It lets you do that resizing automatically, so you can perform operations on arrays of different sizes without any extra effort.</p>
+<p>Vectorization and broadcasting are related in that they both enable efficient and concise array operations in NumPy. Vectorization allows operations to be applied element-wise across entire arrays, eliminating the need for looping in Python. Broadcasting extends this concept by enabling operations between arrays with different shapes, automatically aligning their dimensions to perform element-wise operations seamlessly.</p>
+<ol start="28">
+<li>
+<p>In NumPy, how will the moving average for the 1D array be implemented?
+In NumPy, you can implement the moving average for a 1D array using convolution. Convolution is a mathematical operation that combines two functions to produce a third function, which represents how one function modifies the shape of the other. In the context of moving averages, you can use a simple kernel (also called a “window” or “filter”) of equal weights to compute the average over a sliding window of elements in the array.</p>
+</li>
+<li>
+<p>What is a masked array in NumPy?
+In NumPy, an array that has an additional Boolean mask added to it that designates some entries as invalid or masked is called a masked array. As a result, you can deal with data that contains incorrect or missing numbers without having to change the original data. Masked arrays may be extremely handy, especially when working with real-world datasets that might contain inconsistent or missing data points.</p>
+</li>
+<li>
+<p>How do you sort a NumPy array in ascending or descending order?
+You can sort a NumPy array in ascending or descending order using the “np.sort()” function. By default, this function sorts the array in ascending order. If you want to sort the array in descending order, you can use the [::-1] slicing notation to reverse the sorted array. Here’s an example:</p>
+</li>
+</ol>
+<p>import numpy as np<br>
+arr = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3])<br></p>
+<h1 id="sort-the-array-in-ascending-order">Sort the array in ascending order<br><a class="headerlink" href="#sort-the-array-in-ascending-order" title="Permanent link">&para;</a></h1>
+<p>sorted_arr_ascending = np.sort(arr)<br>
+print(sorted_arr_ascending)
+Output:</p>
+<p>[1 1 2 3 3 4 5 5 6 9]</p>
+<p>In descending order:</p>
+<p>import numpy as np<br>
+arr = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3])<br></p>
+<h1 id="sort-the-array-in-descending-order">Sort the array in descending order<br><a class="headerlink" href="#sort-the-array-in-descending-order" title="Permanent link">&para;</a></h1>
+<p>sorted_arr_descending = np.sort<a href="::-1">arr</a><br>
+print(sorted_arr_descending)
+Output:</p>
+<p>[9 6 5 5 4 3 3 2 1 1]</p>
+<ol start="31">
+<li>What happens if we split the NumPy array using the arrays_split() method?
+The np.array_split() function in NumPy is used to split a NumPy array into multiple sub-arrays along a specified axis. It takes two arguments: the original array and the number of sub-arrays to create. The function returns a list of the split sub-arrays, with the length of the list equal to the number of sections specified.</li>
+</ol>
+<p>import numpy as np<br></p>
+<h1 id="create-a-sample-numpy-array">Create a sample NumPy array<br><a class="headerlink" href="#create-a-sample-numpy-array" title="Permanent link">&para;</a></h1>
+<p>original_array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])<br></p>
+<h1 id="split-the-array-into-3-sub-arrays">Split the array into 3 sub-arrays<br><a class="headerlink" href="#split-the-array-into-3-sub-arrays" title="Permanent link">&para;</a></h1>
+<p>split_arrays = np.array_split(original_array, 3)<br></p>
+<h1 id="print-the-results">Print the results<br><a class="headerlink" href="#print-the-results" title="Permanent link">&para;</a></h1>
+<p>print("Original Array:", original_array)<br>
+print("Split Arrays:")<br>
+for sub_array in split_arrays:<br>
+print(sub_array)
+Output:</p>
+<p>Original Array: [ 1 2 3 4 5 6 7 8 9 10]
+Split Arrays:
+[1 2 3 4]
+[5 6 7]
+[ 8 9 10]</p>
+<ol start="32">
+<li>How do you convert a Pandas DataFrame into a NumPy array?
+Converting a Pandas DataFrame into a NumPy array can be done using the .to_numpy() method. This method is straightforward and efficient, and it allows you to convert the entire DataFrame or a subset of it into a NumPy array. For example:</li>
+</ol>
+<p>import pandas as pd<br>
+import numpy as np<br></p>
+<h1 id="create-a-sample-dataframe">Create a sample DataFrame<br><a class="headerlink" href="#create-a-sample-dataframe" title="Permanent link">&para;</a></h1>
+<p>data = {<br>
+'A': [1, 2, 3],<br>
+'B': [4, 5, 6],<br>
+'C': [7, 8, 9]<br>
+}<br>
+df = pd.DataFrame(data)<br></p>
+<h1 id="convert-the-dataframe-to-a-numpy-array">Convert the DataFrame to a NumPy array<br><a class="headerlink" href="#convert-the-dataframe-to-a-numpy-array" title="Permanent link">&para;</a></h1>
+<p>numpy_array = df.to_numpy()<br>
+print(numpy_array)
+Output:</p>
+<p>[[1 4 7]
+[2 5 8]
+[3 6 9]]</p>
+<ol start="33">
+<li>How can you randomly shuffle the elements of a NumPy array?
+You can use the numpy.random.shuffle function to randomly shuffle the elements of a NumPy array.</li>
+</ol>
+<p>import numpy as np<br>
+my_array = np.array ([7,9,12,5,2,8])<br>
+np.random.shuffle(my_array)<br>
+print (my_array)
+Output:</p>
+<p>[ 8 12 9 2 7 5]</p>
+<ol start="34">
+<li>How do you remove missing or null values from a NumPy array?
+One can accomplish this by employing a masked array or a boolean mask to filter out missing or null data. For example:</li>
+</ol>
+<p>import numpy as np<br></p>
+<h1 id="create-a-numpy-array-with-missing-values-nan">Create a NumPy array with missing values (NaN)<br><a class="headerlink" href="#create-a-numpy-array-with-missing-values-nan" title="Permanent link">&para;</a></h1>
+<p>arr = np.array([10, 20, np.nan, 40, 50])<br></p>
+<h1 id="create-a-masked-array-where-missing-values-are-masked">Create a masked array where missing values are masked<br><a class="headerlink" href="#create-a-masked-array-where-missing-values-are-masked" title="Permanent link">&para;</a></h1>
+<p>masked_arr = np.ma.masked_invalid(arr)<br></p>
+<h1 id="access-only-non-missing-values">Access only non-missing values<br><a class="headerlink" href="#access-only-non-missing-values" title="Permanent link">&para;</a></h1>
+<p>clean_data = masked_arr.compressed()<br>
+print(clean_data)
+Output:</p>
+<p>[10. 20. 40. 50.]</p>
+<ol start="35">
+<li>Which methods are frequently used to normalize data in a NumPy array?
+Normalization of data in a NumPy array is a crucial preprocessing step in many machine learning and data analysis tasks. Normalization ensures that all features have the same scale, which can improve the performance of machine learning algorithms, particularly those sensitive to feature scaling, such as gradient descent-based optimization algorithms. Some commonly used methods for normalizing data in a NumPy array are:</li>
+</ol>
+<p>Min-Max Scaling
+Z-Score Normalization (Standardization)
+Log Transformation
+Box-Cox Transformation
+Robust Scaling
+36. How is fliplr different from flipud methods in NumPy?
+An array can be flipped left or right using the fliplr() function. Although the columns remain unchanged, the pieces within them are arranged differently than they were previously. The following graphic serves as an illustration of this:</p>
+<p>fliplr method in NumPy</p>
+<p>It is clear that in the final product, the element placements are reversed from their initial positions to the left or right.</p>
+<p>Syntax:
+np.fliplr(arr)
+where the array that has to be flipped is denoted by arr.</p>
+<p>The array can also be flipped up or down using the flipud function. In this case, the rows are retained, but the final result may show them in a different order. The picture below illustrates this:</p>
+<p>flipud method in NumPy</p>
+<p>Here, we can observe that the elements with the digits 1, 3, and 5 are inverted in the outcome.</p>
+<p>Syntax:
+np.flipud(arr)
+where the array that has to be flipped is arr</p>
+<ol start="37">
+<li>Discuss the role of NumPy in feature engineering for machine learning.
+NumPy, the fundamental package for scientific computing with Python, plays a pivotal role in feature engineering for machine learning. Its multidimensional arrays enable easy storage and manipulation of datasets, facilitating preprocessing tasks such as scaling, normalization, and transformation.</li>
+</ol>
+<p>In feature engineering, NumPy empowers practitioners to create new features by combining existing ones, extracting meaningful information, or encoding categorical variables. Its broadcasting and vectorized operations accelerate computations, enhancing the scalability of feature engineering pipelines. Additionally, NumPy seamlessly integrates with other machine learning frameworks like sci-kit-learn, enabling smooth data flow from feature engineering to model training and evaluation.</p>
+<p>Overall, NumPy’s speed, versatility, and compatibility make it an indispensable tool for crafting informative features that contribute to the performance and interpretability of machine learning models.</p>
+<p>Pandas and Numpy Interview Questions
+38. What is the difference between using the shape and size attributes of a NumPy array?
+The shape and size attributes of a NumPy array provide different kinds of information about the array. The shape tells you the structure of the array (its dimensions), whereas the size tells you how many elements are there in total.</p>
+<p>Shape: The shape attribute returns a tuple that represents the dimensions of the array. For example, if you have a 2D array with 3 rows and 4 columns, the shape tuple would be (3, 4). It tells you the number of elements in each dimension of the array.</p>
+<p>Size: The size attribute returns the total number of elements in the array. It essentially gives you the count of all the elements in the array, regardless of their dimensions. For example, if you have a 2D array with shape (3, 4), the size would be 3 * 4 = 12.</p>
+<ol start="39">
+<li>In what ways does NumPy incorporate well-known machine learning frameworks?
+NumPy serves as the foundational library for numerical computing in Python, playing a pivotal role in various machine learning frameworks due to its efficient array operations and mathematical functions. Here are some ways NumPy integrates into well-known machine learning frameworks:</li>
+</ol>
+<p>Data Representation: NumPy arrays serve as the standard data format in frameworks like TensorFlow and PyTorch.
+Matrix Operations: Its efficient array operations power matrix computations, foundational for algorithms in sci-kit-learn.
+Integration: NumPy seamlessly integrates with SciPy, Pandas, and Matplotlib for preprocessing, visualization, and analysis.
+Performance: Optimized core routines in C and Fortran accelerate computations, crucial for large datasets and complex models.
+Customization: NumPy’s flexibility allows for easy implementation of custom operations, enhancing framework extensibility.
+Ease of Use: Intuitive syntax and extensive documentation make NumPy accessible to novice and expert users, facilitating smooth integration into machine learning workflows.
+40. What is the purpose of the np.frompyfunc() function? How is it different from a ufunc?
+“np.frompyfunc()” is a function in NumPy that creates a universal function (ufunc) from an arbitrary Python function. The purpose is to provide a way to vectorize (apply element-wise) a Python function across NumPy arrays, allowing for efficient element-wise operations without the need for explicit looping.</p>
+<p>Here’s a breakdown of its purpose and differences compared to a ufunc:</p>
+<p>Purpose</p>
+<p>np.frompyfunc(): It is used to create a ufunc from a Python function. This is particularly useful when you have a custom Python function that you want to apply element-wise to NumPy arrays.
+ufunc: Ufuncs are functions that operate element-wise on NumPy arrays, providing efficient and vectorized computations. They are already implemented for many mathematical operations and built-in functions in NumPy.
+Input and Output</p>
+<p>np.frompyfunc(): Takes a Python function as input and returns a ufunc object.
+ufunc: Operates directly on NumPy arrays as input and produces NumPy arrays as output.
+Performance</p>
+<p>np.frompyfunc(): Although it creates a ufunc, the performance might not be as efficient as native ufuncs because the underlying function is still implemented in Python.
+ufunc: Native ufuncs are implemented in compiled C code, offering optimized performance for element-wise operations on arrays.
+Usage</p>
+<p>np.frompyfunc(): Useful when you have a custom Python function that you want to use with NumPy arrays but it’s not natively supported as a ufunc.
+ufunc: Preferable for standard mathematical operations and built-in functions where native ufuncs are available for efficient computation.
+41. Explain the concept of strides in NumPy. How are they related to array memory layout and performance?
+In NumPy, strides are a tuple of integers that describe the step size in bytes to move from one element to the next in each dimension of an array. They are crucial for understanding the array’s memory layout and accessing elements efficiently.</p>
+<p>Consider a 2D array. The strides determine how many bytes you need to skip to move to the next element in each dimension. For example, in a 2D array with shape (3, 4) and element type float32 (4 bytes), the strides might be (16, 4). This means to move to the next row, you skip 16 bytes (4 elements * 4 bytes each), and to move to the next column within a row, you skip 4 bytes.</p>
+<p>Strides are tightly connected to the array’s memory layout:</p>
+<p>C-contiguous layout: The last dimension has the smallest stride, and elements in the same row are contiguous in memory.
+F-contiguous (Fortran) layout: The first dimension has the smallest stride, and elements in the same column are contiguous in memory.
+Strides affect performance due to memory access patterns:</p>
+<p>Cache efficiency: Accessing contiguous memory locations (like in C-contiguous arrays) is faster due to better cache utilization.
+Element-wise operations: Efficient strides can minimize the number of memory jumps, enhancing performance.
+42. Explain how you can use NumPy to perform Fourier transformations.
+NumPy’s “numpy.fft” module provides essential functions for performing Fourier transformations, which are used to convert signals between the time and frequency domains:</p>
+<p>1D Fourier Transform</p>
+<p>Forward Transform: The numpy.fft.fft function computes the discrete Fourier Transform (DFT) of a one-dimensional array.
+Inverse Transform: The numpy.fft.ifft function computes the inverse DFT, transforming the frequency domain back to the time domain.
+2D Fourier Transform</p>
+<p>Forward Transform: The numpy.fft.fft2 function computes the two-dimensional DFT, commonly used for image processing.
+Inverse Transform: The numpy.fft.ifft2 function computes the inverse two-dimensional DFT.
+Real-Valued Signals</p>
+<p>Forward Transform: The numpy.fft.rfft function is optimized for computing the DFT of real-valued signals, leveraging their properties to reduce computation time and storage.
+Inverse Transform: The numpy.fft.irfft function computes the inverse DFT for real-valued signals, returning the signal to the time domain.
+These Fourier transform functions enable efficient signal and image analysis by allowing manipulation in the frequency domain, such as filtering and spectral analysis.</p>
+<ol start="43">
+<li>What is the difference between hstack() and vstack() in NumPy?
+Function Description Axis of Concatenation Example
+hstack() Stack arrays horizontally (side by side) Second axis (axis 1) If arrays have the same number of rows, they are concatenated horizontally.
+vstack() Stack arrays vertically (on top of each other) First axis (axis 0) If arrays have the same number of columns, they are concatenated vertically.</li>
+<li>How do you extract the diagonal elements of a square 2D NumPy array matrix?
+To extract the diagonal elements of a square 2D NumPy array matrix, you can use the np.diagonal() function. Here’s an example:</li>
+</ol>
+<p>import numpy as np<br></p>
+<h1 id="create-a-square-2d-numpy-array-matrix">Create a square 2D NumPy array matrix<br><a class="headerlink" href="#create-a-square-2d-numpy-array-matrix" title="Permanent link">&para;</a></h1>
+<p>matrix = np.array([[1, 2, 3],<br>
+[4, 5, 6],<br>
+[7, 8, 9]])<br></p>
+<h1 id="extract-the-diagonal-elements">Extract the diagonal elements<br><a class="headerlink" href="#extract-the-diagonal-elements" title="Permanent link">&para;</a></h1>
+<p>diagonal_elements = np.diagonal(matrix)<br>
+print(diagonal_elements)
+Output:</p>
+<p>[1 5 9]</p>
+<ol start="45">
+<li>Create a program that takes a string element and changes it to the capitalization of the initial letter, lowercase, title-case, swapcase, and uppercase of a given NumPy array.
+One can achieve this using NumPy’s vectorized string operations. Here’s a Python program that demonstrates this:</li>
+</ol>
+<p>import numpy as np<br></p>
+<h1 id="create-sample-numpy-array">Create Sample NumPy array<br><a class="headerlink" href="#create-sample-numpy-array" title="Permanent link">&para;</a></h1>
+<p>arr = np.array(['Intellipaat', 'Software', 'Solutions'], dtype=str)
+upper_case_arr = np.char.upper(arr)<br>
+lower_case_arr = np.char.lower(arr)<br>
+capitalize_case_arr = np.char.capitalize(arr)<br>
+titlecase_arr = np.char.title(arr)<br>
+swapcase_arr = np.char.swapcase(arr)
+print("Upper Conversion: ", upper_case_arr)<br>
+print("Lower Conversion: ", lower_case_arr)<br>
+print("Capitalize First Letter Conversion: ", capitalize_case_arr)<br>
+print("Titlecase Conversion: ", titlecase_arr)<br>
+print("Swapcase Conversion: ", swapcase_arr)
+Output:</p>
+<p>Upper Conversion: [‘INTELLIPAAT’ ‘SOFTWARE’ ‘SOLUTIONS’]
+Lower Conversion: [‘intellipaat’ ‘software’ ‘solutions’]
+Capitalize First Letter Conversion: [‘Intellipaat’ ‘Software’ ‘Solutions’]
+Titlecase Conversion: [‘Intellipaat’ ‘Software’ ‘Solutions’]
+Swapcase Conversion: [‘iNTELLIPAAT’ ‘sOFTWARE’ ‘sOLUTIONS’]</p>
+<ol start="46">
+<li>Create a program that adds spaces to each character in every NumPy array entry.
+Here’s an example code:</li>
+</ol>
+<p>import numpy as np<br>
+def add_spaces_to_array(arr):<br></p>
+<h1 id="convert-the-array-to-string-type">Convert the array to string type<br><a class="headerlink" href="#convert-the-array-to-string-type" title="Permanent link">&para;</a></h1>
+<p>arr = arr.astype(str)<br></p>
+<h1 id="add-spaces-to-each-character">Add spaces to each character<br><a class="headerlink" href="#add-spaces-to-each-character" title="Permanent link">&para;</a></h1>
+<p>spaced_array = np.char.add(arr, ' ')<br>
+return spaced_array<br></p>
+<h1 id="example-usage_1">Example usage<br><a class="headerlink" href="#example-usage_1" title="Permanent link">&para;</a></h1>
+<p>array = np.array(["Intellipaat", "Software", "Solutions"])<br>
+spaced_array = add_spaces_to_array(array)<br>
+print(spaced_array)
+Output:</p>
+<p>[‘Intellipaat ‘ ‘Software ‘ ‘Solutions ‘]</p>
+<ol start="47">
+<li>Make a 3 * 3 matrix with values from 1 to 9.
+You can create a 3×3 matrix with values from 1 to 9 using NumPy’s arange() function to generate the values and then reshape it into a 3×3 matrix. Here’s how you can do it:</li>
+</ol>
+<p>import numpy as np<br></p>
+<h1 id="generate-values-from-1-to-9">Generate values from 1 to 9<br><a class="headerlink" href="#generate-values-from-1-to-9" title="Permanent link">&para;</a></h1>
+<p>values = np.arange(1, 10)<br></p>
+<h1 id="reshape-the-values-into-a-3x3-matrix">Reshape the values into a 3x3 matrix<br><a class="headerlink" href="#reshape-the-values-into-a-3x3-matrix" title="Permanent link">&para;</a></h1>
+<p>matrix = values.reshape(3, 3)<br>
+print(matrix)
+Output:</p>
+<p>[[1 2 3]
+[4 5 6]
+[7 8 9]]</p>
+<ol start="48">
+<li>Find the eigenvalues and eigenvectors of a matrix using NumPy.
+We can use numpy.linalg.eig() function to find the eigenvalues and eigenvectors of a matrix. Here’s an example:</li>
+</ol>
+<p>import numpy as np<br></p>
+<h1 id="define-your-matrix">Define your matrix<br><a class="headerlink" href="#define-your-matrix" title="Permanent link">&para;</a></h1>
+<p>matrix = np.array([[1, 2],<br>
+[3, 4]])<br></p>
+<h1 id="find-eigenvalues-and-eigenvectors">Find eigenvalues and eigenvectors<br><a class="headerlink" href="#find-eigenvalues-and-eigenvectors" title="Permanent link">&para;</a></h1>
+<p>eigenvalues, eigenvectors = np.linalg.eig(matrix)
+print("Eigenvalues:")<br>
+print(eigenvalues)<br>
+print("\nEigenvectors:")<br>
+print(eigenvectors)
+Output:</p>
+<p>Eigenvalues:
+[-0.37228132 5.37228132]</p>
+<p>Eigenvectors:
+[[-0.82456484 -0.41597356]
+[ 0.56576746 -0.90937671]]</p>
+<ol start="49">
+<li>Apply broadcasting techniques to a scalar value and a 2D array.
+If the arrays meet specific compatibility requirements, NumPy’s powerful broadcasting capability makes it easier to conduct actions between arrays of different forms. Combining a 2D array with a scalar value is one of the actions that may be done via broadcasting. Here’s an example:</li>
+</ol>
+<p>import numpy as np<br></p>
+<h1 id="define-a-scalar-value">Define a scalar value<br><a class="headerlink" href="#define-a-scalar-value" title="Permanent link">&para;</a></h1>
+<p>scalar_value = 5<br></p>
+<h1 id="define-a-2d-array">Define a 2D array<br><a class="headerlink" href="#define-a-2d-array" title="Permanent link">&para;</a></h1>
+<p>array_2d = np.array([[1, 2, 3],<br>
+[4, 5, 6]])<br></p>
+<h1 id="add-the-scalar-value-to-the-2d-array">Add the scalar value to the 2D array<br><a class="headerlink" href="#add-the-scalar-value-to-the-2d-array" title="Permanent link">&para;</a></h1>
+<p>result = array_2d + scalar_value
+print("Original 2D array:")<br>
+print(array_2d)<br>
+print("\nScalar value:")<br>
+print(scalar_value)<br>
+print("\nResult after broadcasting scalar value to the 2D array:")<br>
+print(result)
+Output:</p>
+<p>Original 2D array:
+[[1 2 3]
+[4 5 6]]</p>
+<p>Scalar value:
+5</p>
+<p>Result after broadcasting scalar value to the 2D array:
+[[ 6 7 8]
+[ 9 10 11]]</p>
+<ol start="50">
+<li>Write a program to reshape a 1D NumPy array into a 2D array with a given number of rows.
+import numpy as np<br>
+original_array = np.array([2, 5, 7, 0, 1, 4])<br>
+num_rows = 3<br>
+reshaped_array = original_array.reshape(num_rows, -1)<br>
+print("Original 1D array:")<br>
+print(original_array)
+print("\nReshaped 2D array:")<br>
+print(reshaped_array)
+Output:</li>
+</ol>
+<p>Original 1D array:
+[2 5 7 0 1 4]</p>
+<p>Reshaped 2D array:
+[[2 5]
+[7 0]
+[1 4]]</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/ashishbindra2"  target="_blank" rel="noopener">Ashish Bindra</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ashishbindra2" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://in.linkedin.com/in/ashishbindra2/" target="_blank" rel="noopener" title="in.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.sections", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
