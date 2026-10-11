@@ -67,6 +67,7 @@ markdown_extensions:
   
 nav:
   - Home: index.md
+  - Data: data/index.md
   - intro-to-ml-google:
     - Overview: intro-to-ml-google/index.md 
     - Supervised Learning: intro-to-ml-google/SupervisedLearning.md
